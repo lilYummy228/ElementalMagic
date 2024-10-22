@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.8117647, g: 0.6125652, b: 0.14901958, a: 0}
+  m_BackGroundColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -225,7 +225,6 @@ GameObject:
   m_Component:
   - component: {fileID: 555837657}
   - component: {fileID: 555837656}
-  - component: {fileID: 555837658}
   m_Layer: 0
   m_Name: SphereGenerator
   m_TagString: Untagged
@@ -246,7 +245,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameBoard: {fileID: 2036271921}
-  _elementsPool: {fileID: 555837658}
+  _elements:
+  - {fileID: -2609312508810966414, guid: b12edf50004857343a9a026f7fcdc56a, type: 3}
+  - {fileID: -7441269873103501729, guid: f48746df7fe77d644b432ed150d0677d, type: 3}
+  - {fileID: 4319159490889127996, guid: 87d5c63d50508f24a96ae9b8f6d31d3e, type: 3}
+  - {fileID: 3280522373862198128, guid: 17c9ea5f2e8cf344bbda3e3178ae81ac, type: 3}
 --- !u!4 &555837657
 Transform:
   m_ObjectHideFlags: 0
@@ -262,24 +265,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &555837658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555837655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d116627aed1018d448f1491fb132573b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _elements:
-  - {fileID: 3280522373862198128, guid: 17c9ea5f2e8cf344bbda3e3178ae81ac, type: 3}
-  - {fileID: -7441269873103501729, guid: f48746df7fe77d644b432ed150d0677d, type: 3}
-  - {fileID: -2609312508810966414, guid: b12edf50004857343a9a026f7fcdc56a, type: 3}
-  - {fileID: 4319159490889127996, guid: 87d5c63d50508f24a96ae9b8f6d31d3e, type: 3}
-  _parent: {fileID: 555837657}
 --- !u!1 &733820478
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f728f116143718f4abd76ac81960aa74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pool: {fileID: 555837658}
 --- !u!4 &733820480
 Transform:
   m_ObjectHideFlags: 0
@@ -334,6 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339554192}
+  - component: {fileID: 1339554193}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -356,6 +341,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2036271920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339554193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339554191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0caee732dfe20649a677b600bfd4563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _width: 5
+  _height: 5
+  _prefab: {fileID: 8095475227140498112, guid: c4fbd8b3adb0c7c4aa824828386b398e, type: 3}
 --- !u!1 &1376526218
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,10 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5015160f86c24a94cbcfd87c264d205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _width: 5
-  _height: 5
-  _prefab: {fileID: 8095475227140498112, guid: c4fbd8b3adb0c7c4aa824828386b398e, type: 3}
-  _parent: {fileID: 1339554192}
+  _grid: {fileID: 1339554193}
   _camera: {fileID: 519420032}
   _sphereGenerator: {fileID: 555837656}
   _elementConnector: {fileID: 733820479}

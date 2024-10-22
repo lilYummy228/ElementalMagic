@@ -1,60 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameBoard : MonoBehaviour
 {
-    [SerializeField] private int _width, _height;
-    [SerializeField] private Cell _prefab;
-    [SerializeField] private Transform _parent;
+    [SerializeField] private Grid _grid;
     [SerializeField] private Transform _camera;
-    [SerializeField] private SphereGenerator _sphereGenerator;
+    [SerializeField] private ElementGenerator _sphereGenerator;
     [SerializeField] private ElementConnector _elementConnector;
 
     private float _cameraPositionX, _cameraPositionY;
-    private float _offset = 1f;
-    private List<Cell> _cells = new();
+    private float _offset = 1f;    
 
     private void Awake()
     {
-        _cameraPositionX = _width / 2;
-        _cameraPositionY = _height / 2 + _offset;        
+        _cameraPositionX = _grid.Width / 2;
+        _cameraPositionY = _grid.Height / 2 + _offset;
+
+        _camera.position = new Vector3(_cameraPositionX, _cameraPositionY, _camera.position.z);
     }
 
-    private void OnEnable()
-    {
-        _elementConnector.ElementsGone += FillBoard;        
-    }
+    private void OnEnable() => 
+        _elementConnector.ElementsUnselected += FillBoard;
 
-    private void OnDisable()
-    {
-        _elementConnector.ElementsGone -= FillBoard;
-    }
+    private void OnDisable() => 
+        _elementConnector.ElementsUnselected -= FillBoard;
 
     private void Start()
     {
-        CreateGrid();
+        _grid.Create();
+
+        FillBoard();
     }
 
-    private void FillBoard()
-    {
-        _sphereGenerator.CreateElements(_cells);
-    }
-
-    private void CreateGrid()
-    {
-        for (int x = 0; x < _width; x++)
-        {
-            for (int y = 0; y < _height; y++)
-            {
-                Cell spawnedCell = Instantiate(_prefab, new Vector3(x, y), Quaternion.identity, _parent);   
-
-                spawnedCell.name = $"{x}:{y}";
-
-                _cells.Add(spawnedCell);
-            }
-        }
-
-        _camera.position = new Vector3(_cameraPositionX, _cameraPositionY, _camera.position.z);        
-    }   
+    private void FillBoard() => 
+        _sphereGenerator.Fill(_grid.Cells);
 }

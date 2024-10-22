@@ -2,27 +2,10 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    public bool IsFilled /*{ get; private set; }*/ = false;
+    public Element Element { get; private set; }
 
-    public void UpdateState()
+    public void Set(Element element)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.back);
-
-        if (hit && hit.collider.gameObject.TryGetComponent(out Element element))
-        {
-            Debug.Log(element);
-
-            IsFilled = true;
-        }
-        else
-        {
-            IsFilled = false;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(transform.position, Vector3.back);
+        Element = element;
     }
 }

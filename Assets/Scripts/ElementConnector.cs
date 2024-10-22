@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class ElementConnector : MonoBehaviour
 {
-    [SerializeField] private ElementsPool _pool;
-
-    private List<Element> _selectedElements = new List<Element>();
+    private List<Element> _selectedElements = new();
+    private List<Cell> _cells = new();
     private Element _currentSelectedElement;
     private float _offset = 2f;
     private float _resizeValue = 1.2f;
 
-    public event Action ElementsGone;
+    public event Action ElementsUnselected;
 
     public void Update()
     {
@@ -28,12 +27,13 @@ public class ElementConnector : MonoBehaviour
         {
             element.transform.localScale *= _resizeValue;
 
-            _pool.PutElement(element);
+            if (_selectedElements.Count > 1)
+                Destroy(element.gameObject);
         }
 
         _selectedElements.Clear();
 
-        ElementsGone?.Invoke();
+        ElementsUnselected?.Invoke();
     }
 
     private void SelectElements()
