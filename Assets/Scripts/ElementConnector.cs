@@ -5,12 +5,10 @@ using UnityEngine;
 public class ElementConnector : MonoBehaviour
 {
     private List<Element> _selectedElements = new();
-    private List<Cell> _cells = new();
     private Element _currentSelectedElement;
     private float _offset = 2f;
-    private float _resizeValue = 1.2f;
 
-    public event Action ElementsUnselected;
+    public event Action ElementsPopped;
 
     public void Update()
     {
@@ -25,7 +23,7 @@ public class ElementConnector : MonoBehaviour
     {
         foreach (Element element in _selectedElements)
         {
-            element.transform.localScale *= _resizeValue;
+            element.Highlight(false);
 
             if (_selectedElements.Count > 1)
                 Destroy(element.gameObject);
@@ -33,7 +31,7 @@ public class ElementConnector : MonoBehaviour
 
         _selectedElements.Clear();
 
-        ElementsUnselected?.Invoke();
+        ElementsPopped?.Invoke();
     }
 
     private void SelectElements()
@@ -52,7 +50,7 @@ public class ElementConnector : MonoBehaviour
     {
         if (_selectedElements.Count == 0)
         {
-            Select(element);
+            AddSelected(element);
 
             _currentSelectedElement = _selectedElements[0];
         }
@@ -60,20 +58,61 @@ public class ElementConnector : MonoBehaviour
 
     private void SelectNearestElement(Element element)
     {
-        if (_selectedElements.Contains(element) == false && element.GetType() == _selectedElements[0].GetType())
+        if (_selectedElements.Contains(element) == false)
+            SelectBefore(element);
+        else if (_selectedElements.Count > 1)
+            DeselectBefore(element);
+    }
+
+    private void SelectBefore(Element element)
+    {
+        if (element.GetType() == _selectedElements[0].GetType())
         {
             if (Vector3.Distance(_currentSelectedElement.transform.position, element.transform.position) < _offset)
             {
-                Select(element);
+                AddSelected(element);
 
                 _currentSelectedElement = element;
             }
         }
+        else
+        {
+            foreach (Element selectedElement in _selectedElements)
+                selectedElement.Highlight(false);
+
+            _selectedElements.Clear();
+        }
     }
 
-    private void Select(Element element)
+    private void DeselectBefore(Element element)
     {
-        element.transform.localScale /= _resizeValue;
+        Element requiredElement = null;
+
+        foreach (Element selectedElement in _selectedElements)
+        {
+            if (element == selectedElement)
+            {
+                requiredElement = selectedElement;
+
+                break;
+            }
+        }
+
+        if (requiredElement != null)
+        {
+            for (int i = _selectedElements.Count - 1; i > _selectedElements.IndexOf(requiredElement); i--)
+            {
+                _selectedElements[i].Highlight(false);
+                _selectedElements.RemoveAt(i);
+            }
+
+            _currentSelectedElement = requiredElement;
+        }
+    }
+
+    private void AddSelected(Element element)
+    {
+        element.Highlight(true);
 
         _selectedElements.Add(element);
     }
