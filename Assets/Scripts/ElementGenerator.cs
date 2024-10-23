@@ -33,7 +33,7 @@ public class ElementGenerator : MonoBehaviour
         int resourceIndex = Random.Range(0, _elements.Length);
 
         Element element = Instantiate(_elements[resourceIndex]);
-        element.transform.position = cell.transform.position;
+        element.transform.position = cell.transform.position + Vector3.back;
 
         cell.Set(element);
     }    

@@ -23,7 +23,7 @@ public class ElementConnector : MonoBehaviour
     {
         foreach (Element element in _selectedElements)
         {
-            element.Highlight(false);
+            element.Shake(false);
 
             if (_selectedElements.Count > 1)
                 Destroy(element.gameObject);
@@ -75,13 +75,6 @@ public class ElementConnector : MonoBehaviour
                 _currentSelectedElement = element;
             }
         }
-        else
-        {
-            foreach (Element selectedElement in _selectedElements)
-                selectedElement.Highlight(false);
-
-            _selectedElements.Clear();
-        }
     }
 
     private void DeselectBefore(Element element)
@@ -102,7 +95,7 @@ public class ElementConnector : MonoBehaviour
         {
             for (int i = _selectedElements.Count - 1; i > _selectedElements.IndexOf(requiredElement); i--)
             {
-                _selectedElements[i].Highlight(false);
+                _selectedElements[i].Shake(false);
                 _selectedElements.RemoveAt(i);
             }
 
@@ -112,7 +105,7 @@ public class ElementConnector : MonoBehaviour
 
     private void AddSelected(Element element)
     {
-        element.Highlight(true);
+        element.Shake(true);
 
         _selectedElements.Add(element);
     }
