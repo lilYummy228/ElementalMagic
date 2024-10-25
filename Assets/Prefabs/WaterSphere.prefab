@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6129392681747234821}
   - component: {fileID: -7441269873103501729}
   - component: {fileID: -2388195454932897793}
+  - component: {fileID: 8030629689499661243}
   m_Layer: 0
   m_Name: WaterSphere
   m_TagString: Untagged
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1234117917
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -792201073, guid: 04a813ac89ee80546ba7d22d899e1571, type: 3}
   m_Color: {r: 0, g: 0.74793315, b: 1, a: 1}
@@ -133,3 +134,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &8030629689499661243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911192444600115781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16d5af7d671a244883a11d3e27eb949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

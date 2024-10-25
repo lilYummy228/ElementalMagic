@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8365255900463503402}
   - component: {fileID: 3280522373862198128}
   - component: {fileID: 3520902518916221938}
+  - component: {fileID: 9204117136675233686}
   m_Layer: 0
   m_Name: WindSphere
   m_TagString: Untagged
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1234117917
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2107421680, guid: 04a813ac89ee80546ba7d22d899e1571, type: 3}
   m_Color: {r: 0.7318286, g: 0.2783019, b: 1, a: 1}
@@ -133,3 +134,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &9204117136675233686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690768115271162513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16d5af7d671a244883a11d3e27eb949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

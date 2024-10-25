@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6149520188159289719}
   - component: {fileID: -2609312508810966414}
   - component: {fileID: -959681324400999386}
+  - component: {fileID: 9070440364780711764}
   m_Layer: 0
   m_Name: FireSphere
   m_TagString: Untagged
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1234117917
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1408279186, guid: 04a813ac89ee80546ba7d22d899e1571, type: 3}
   m_Color: {r: 1, g: 0.5177987, b: 0.4198113, a: 1}
@@ -133,3 +134,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &9070440364780711764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552657407837695110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16d5af7d671a244883a11d3e27eb949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

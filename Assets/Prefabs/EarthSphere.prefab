@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1483704057575347813}
   - component: {fileID: 4319159490889127996}
   - component: {fileID: 346298783745421689}
+  - component: {fileID: 6882448005442133529}
   m_Layer: 0
   m_Name: EarthSphere
   m_TagString: Untagged
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1234117917
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1983849292, guid: 04a813ac89ee80546ba7d22d899e1571, type: 3}
   m_Color: {r: 0.3021978, g: 1, b: 0, a: 1}
@@ -133,3 +134,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &6882448005442133529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861891766228199812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16d5af7d671a244883a11d3e27eb949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

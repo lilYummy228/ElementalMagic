@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Cells
+    uniqueID: 3371910111
+    locked: 0
+  - name: Line
+    uniqueID: 3710081357
+    locked: 0
+  - name: Elements
+    uniqueID: 3060849379
+    locked: 0

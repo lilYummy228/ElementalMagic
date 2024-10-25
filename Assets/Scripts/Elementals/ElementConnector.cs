@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ElementConnector : MonoBehaviour
 {
+    private const float Distance = 1.5f;
+
+    [SerializeField] private ElementConnectionLine _connectionLine;
+
     private List<Element> _selectedElements = new();
     private Element _currentSelectedElement;
-    private float _offset = 2f;
 
     public event Action ElementsPopped;
 
@@ -23,11 +26,13 @@ public class ElementConnector : MonoBehaviour
     {
         foreach (Element element in _selectedElements)
         {
-            element.Shake(false);
+            element.Animator.Shake(element, false);
 
             if (_selectedElements.Count > 1)
                 Destroy(element.gameObject);
         }
+
+        _connectionLine.ClearLine();
 
         _selectedElements.Clear();
 
@@ -53,31 +58,35 @@ public class ElementConnector : MonoBehaviour
             AddSelected(element);
 
             _currentSelectedElement = _selectedElements[0];
+
+            _connectionLine.DrawLine(0, _currentSelectedElement.transform.position);
         }
     }
 
     private void SelectNearestElement(Element element)
     {
         if (_selectedElements.Contains(element) == false)
-            SelectBefore(element);
+            SelectTo(element);
         else if (_selectedElements.Count > 1)
-            DeselectBefore(element);
+            DeselectTo(element);
     }
 
-    private void SelectBefore(Element element)
+    private void SelectTo(Element element)
     {
         if (element.GetType() == _selectedElements[0].GetType())
         {
-            if (Vector3.Distance(_currentSelectedElement.transform.position, element.transform.position) < _offset)
+            if (Vector3.Distance(_currentSelectedElement.transform.position, element.transform.position) < Distance)
             {
                 AddSelected(element);
 
                 _currentSelectedElement = element;
+
+                _connectionLine.DrawLine(_selectedElements.IndexOf(_currentSelectedElement), _currentSelectedElement.transform.position);
             }
         }
     }
 
-    private void DeselectBefore(Element element)
+    private void DeselectTo(Element element)
     {
         Element requiredElement = null;
 
@@ -95,7 +104,12 @@ public class ElementConnector : MonoBehaviour
         {
             for (int i = _selectedElements.Count - 1; i > _selectedElements.IndexOf(requiredElement); i--)
             {
-                _selectedElements[i].Shake(false);
+                Element currentElement = _selectedElements[i];
+
+                currentElement.Animator.Shake(currentElement, false);
+
+                _connectionLine.ClearLinePart();
+
                 _selectedElements.RemoveAt(i);
             }
 
@@ -105,7 +119,7 @@ public class ElementConnector : MonoBehaviour
 
     private void AddSelected(Element element)
     {
-        element.Shake(true);
+        element.Animator.Shake(element, true);
 
         _selectedElements.Add(element);
     }
