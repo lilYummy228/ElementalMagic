@@ -12,6 +12,7 @@ public class ElementConnector : MonoBehaviour
     private Element _currentSelectedElement;
 
     public event Action ElementsPopped;
+    public event Action<int> ElementCountPopped;
 
     public void Update()
     {
@@ -24,6 +25,9 @@ public class ElementConnector : MonoBehaviour
 
     private void DeselectElements()
     {
+        if (_selectedElements.Count > 1)
+            ElementCountPopped?.Invoke(_selectedElements.Count);
+
         foreach (Element element in _selectedElements)
         {
             element.Animator.Shake(element, false);
@@ -34,9 +38,9 @@ public class ElementConnector : MonoBehaviour
 
         _connectionLine.ClearLine();
 
-        _selectedElements.Clear();
-
         ElementsPopped?.Invoke();
+
+        _selectedElements.Clear();
     }
 
     private void SelectElements()

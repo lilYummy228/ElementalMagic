@@ -20,12 +20,8 @@ public class ElementGenerator : MonoBehaviour
         yield return _waitForFixedUpdate;
 
         foreach (Cell cell in cells)
-        {
             if (cell.Element == null)
-            {
-                SetElement(cell);
-            }
-        }
+                SetElement(cell);        
     }
 
     private void SetElement(Cell cell)

@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemies
+    uniqueID: 1822648585
+    locked: 0
   - name: Cells
     uniqueID: 3371910111
     locked: 0
@@ -49,4 +52,7 @@ TagManager:
     locked: 0
   - name: Elements
     uniqueID: 3060849379
+    locked: 0
+  - name: UI
+    uniqueID: 1567292659
     locked: 0
