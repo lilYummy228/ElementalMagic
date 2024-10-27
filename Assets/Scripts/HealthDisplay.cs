@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,32 +7,38 @@ using UnityEngine.UI;
 public class HealthDisplay : MonoBehaviour
 {
     [SerializeField] private Health _health;
-    [SerializeField] private float _speed = 12;
+    [SerializeField] private TextMeshProUGUI _valueText;
+    [SerializeField] private float _affectSpeed = 12;
 
     private Slider _slider;
+    private WaitForFixedUpdate _waitForFixedUpdate;
 
-    private void Awake() =>
+    private void Awake()
+    {
         _slider = GetComponent<Slider>();
+        _waitForFixedUpdate = new WaitForFixedUpdate();
+    }
 
     private void OnEnable() =>
-        _health.HealthChanged += RefreshHealth;
+        _health.HealthValueChanged += RefreshHealthValue;
 
     private void OnDisable() =>
-        _health.HealthChanged -= RefreshHealth;
+        _health.HealthValueChanged -= RefreshHealthValue;
 
-    private void RefreshHealth() =>
-        StartCoroutine(RefreshHealthSmoothly());
+    private void RefreshHealthValue() =>
+        StartCoroutine(RefreshHealthValueSmoothly());
 
-    private IEnumerator RefreshHealthSmoothly()
+    private IEnumerator RefreshHealthValueSmoothly()
     {
-        if (_slider.maxValue != _health.MaxHealth)
-            _slider.maxValue = _health.MaxHealth;
+        if (_slider.maxValue != _health.MaxHealthValue)
+            _slider.maxValue = _health.MaxHealthValue;
 
-        while (_slider.value != _health.HealthValue)
+        while (_slider.value != _health.CurrentHealthValue)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, _health.HealthValue, _speed * Time.deltaTime);
+            _slider.value = Mathf.MoveTowards(_slider.value, _health.CurrentHealthValue, _affectSpeed * Time.deltaTime);
+            _valueText.text = $"{_health.CurrentHealthValue}/{_health.MaxHealthValue}";
 
-            yield return new WaitForFixedUpdate();
+            yield return _waitForFixedUpdate;
         }
     }
 }

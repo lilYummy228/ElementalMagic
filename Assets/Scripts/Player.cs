@@ -11,10 +11,8 @@ public class Player : MonoBehaviour
     private void Awake() => 
         _health = GetComponent<Health>();
 
-    private void Start()
-    {
-        _health.SetHealth(_health.HealthValue, _health.HealthValue);
-    }
+    private void Start() => 
+        _health.SetHealth(_health.CurrentHealthValue);
 
     private void OnEnable() => 
         _elementConnector.ElementCountPopped += Hit;

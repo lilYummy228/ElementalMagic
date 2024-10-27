@@ -8,7 +8,7 @@ public class GameBoard : MonoBehaviour
     [SerializeField] private ElementConnector _elementConnector;
 
     private float _cameraPositionX, _cameraPositionY;
-    private float _offset = 1f;    
+    private float _offset = 1.5f;    
 
     private void Awake()
     {

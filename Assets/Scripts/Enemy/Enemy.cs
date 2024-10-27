@@ -1,58 +1,44 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Health), typeof(EnemyRenderer))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private EnemyData[] _enemies;
     [SerializeField] private Health _targetHealth;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
 
-    private EnemyData _enemyData;
     private WaitForSeconds _delay;
-    private Health _health;
-    private int _enemyIndex = 0;
+    private int _damage;
+
+    public EnemyRenderer EnemyRenderer {  get; private set; }
+    public Health Health { get; private set; }
 
     private void Awake()
     {
-        _health = GetComponent<Health>();
-
-        Setup();
+        Health = GetComponent<Health>();
+        EnemyRenderer = GetComponent<EnemyRenderer>();
     }
-
-    private void OnEnable() =>
-        _health.Dead += Setup;
-
-    private void OnDisable() =>
-        _health.Dead -= Setup;
 
     private void Start() =>
         StartCoroutine(nameof(Hit));
 
     private IEnumerator Hit()
     {
-        while (_targetHealth.HealthValue > 0 && _health.HealthValue > 0)
+        yield return _delay;
+
+        while (_targetHealth.CurrentHealthValue > 0 && Health.CurrentHealthValue > 0)
         {
-            _targetHealth.TakeDamage(_enemyData.DamageValue);
+            _targetHealth.TakeDamage(_damage);
 
             yield return _delay;
         }
     }
 
-    private void Setup()
+    public void Setup(int damage, int attackDelay, int healthValue)
     {
-        _spriteRenderer.sprite = null;
+        _delay = new WaitForSeconds(attackDelay);
+        _damage = damage;
 
-        if (_enemies.Length > _enemyIndex)
-        {
-            _enemyData = _enemies[_enemyIndex];
-            _spriteRenderer.sprite = _enemyData.Sprite;
-            _enemyIndex++;
-
-            _delay = new WaitForSeconds(_enemyData.AttackDelay);
-
-            _health.SetHealth(_enemyData.HealthValue, _enemyData.HealthValue);
-            _health.StartDeathControl();
-        }
+        Health.SetHealth(healthValue);
+        Health.StartDeathControl();
     }
 }
