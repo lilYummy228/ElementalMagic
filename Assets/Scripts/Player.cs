@@ -11,15 +11,16 @@ public class Player : MonoBehaviour
     private void Awake() => 
         _health = GetComponent<Health>();
 
-    private void OnEnable()
+    private void Start()
     {
-        _elementConnector.ElementCountPopped += Hit;
+        _health.SetHealth(_health.HealthValue, _health.HealthValue);
     }
 
-    private void OnDisable()
-    {
+    private void OnEnable() => 
+        _elementConnector.ElementCountPopped += Hit;
+
+    private void OnDisable() => 
         _elementConnector.ElementCountPopped -= Hit;
-    }
 
     public void Hit(int damage) => 
         _enemyHealth.TakeDamage(damage);
