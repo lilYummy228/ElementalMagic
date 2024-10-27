@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
     private EnemyData _enemyData;
-    private WaitForSeconds _wait;
+    private WaitForSeconds _delay;
     private Health _health;
     private int _enemyIndex = 0;
 
@@ -35,20 +35,24 @@ public class Enemy : MonoBehaviour
         {
             _targetHealth.TakeDamage(_enemyData.DamageValue);
 
-            yield return _wait;
+            yield return _delay;
         }
     }
 
     private void Setup()
     {
+        _spriteRenderer.sprite = null;
+
         if (_enemies.Length > _enemyIndex)
         {
             _enemyData = _enemies[_enemyIndex];
-            _health.SetHealth(_enemyData.HealthValue);
-            _wait = new WaitForSeconds(_enemyData.AttackDelay);
             _spriteRenderer.sprite = _enemyData.Sprite;
-
             _enemyIndex++;
+
+            _delay = new WaitForSeconds(_enemyData.AttackDelay);
+
+            _health.SetHealth(_enemyData.HealthValue, _enemyData.HealthValue);
+            _health.StartDeathControl();
         }
     }
 }

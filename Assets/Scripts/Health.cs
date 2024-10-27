@@ -4,37 +4,42 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int _healthValue;
+    [SerializeField, Min(0)] private int _healthValue;
 
+    public int MaxHealth { get; private set; }
     public int HealthValue => _healthValue;
 
-    public event Action<int> HealthChanged;
+    public event Action HealthChanged;
     public event Action Dead;
 
-    private void Awake() => 
-        StartCoroutine(nameof(CheckDeath));
+    private void Start() => 
+        StartDeathControl();
 
     public void TakeDamage(int damage)
     {
         _healthValue -= damage;
 
-        HealthChanged?.Invoke(_healthValue);
+        HealthChanged?.Invoke();
     }
 
-    public void SetHealth(int healthValue)
+    public void SetHealth(int healthValue, int maxHealthValue)
     {
-        if (healthValue > 0)
+        if (maxHealthValue > 0 && healthValue > 0)
+        {
             _healthValue = healthValue;
-        else
-            _healthValue = 0;
+            MaxHealth = maxHealthValue;
 
-        HealthChanged?.Invoke(_healthValue);
+            HealthChanged?.Invoke();
+        }
     }
 
-    private IEnumerator CheckDeath()
+    public void StartDeathControl() => 
+        StartCoroutine(nameof(ControlDeath));
+
+    private IEnumerator ControlDeath()
     {
         yield return new WaitUntil(() => _healthValue <= 0);
-         
+
         Dead?.Invoke();
     }
 }

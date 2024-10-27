@@ -6,6 +6,7 @@ public class ElementGenerator : MonoBehaviour
 {
     [SerializeField] private GameBoard _gameBoard;
     [SerializeField] private Element[] _elements;
+    [SerializeField] private Transform _parent;
 
     private WaitForFixedUpdate _waitForFixedUpdate;
 
@@ -30,6 +31,7 @@ public class ElementGenerator : MonoBehaviour
 
         Element element = Instantiate(_elements[resourceIndex]);
         element.transform.position = cell.transform.position;
+        element.transform.parent = _parent;
 
         cell.Set(element);
     }    

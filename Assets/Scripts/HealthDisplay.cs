@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,24 +6,32 @@ using UnityEngine.UI;
 public class HealthDisplay : MonoBehaviour
 {
     [SerializeField] private Health _health;
+    [SerializeField] private float _speed = 12;
 
     private Slider _slider;
 
-    private void Awake() => 
+    private void Awake() =>
         _slider = GetComponent<Slider>();
 
     private void OnEnable() =>
-        _health.HealthChanged += ShowInfo;
+        _health.HealthChanged += RefreshHealth;
 
     private void OnDisable() =>
-        _health.HealthChanged -= ShowInfo;
+        _health.HealthChanged -= RefreshHealth;
 
-    private void Start()
+    private void RefreshHealth() =>
+        StartCoroutine(RefreshHealthSmoothly());
+
+    private IEnumerator RefreshHealthSmoothly()
     {
-        _slider.maxValue = _health.HealthValue;
-        _slider.value = _slider.maxValue;
-    }
+        if (_slider.maxValue != _health.MaxHealth)
+            _slider.maxValue = _health.MaxHealth;
 
-    public void ShowInfo(int healthValue) =>
-        _slider.value = healthValue;
+        while (_slider.value != _health.HealthValue)
+        {
+            _slider.value = Mathf.MoveTowards(_slider.value, _health.HealthValue, _speed * Time.deltaTime);
+
+            yield return new WaitForFixedUpdate();
+        }
+    }
 }
