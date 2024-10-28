@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Health _targetHealth;
 
     private WaitForSeconds _delay;
+    private string _name;
     private int _damage;
 
     public EnemyRenderer EnemyRenderer {  get; private set; }

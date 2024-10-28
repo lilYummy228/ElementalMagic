@@ -4,10 +4,10 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
-    [SerializeField] private EnemyData[] _enemies;
+    [SerializeField] private EnemyProperties[] _enemies;
     [SerializeField] private Health _health;
 
-    private EnemyData _enemyData;
+    private EnemyProperties _enemyData;
     private int _enemyIndex = 0;
 
     private void OnEnable() => 
@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
         {
             _enemyData = _enemies[_enemyIndex];
 
-            _enemy.EnemyRenderer.DrawEnemy(_enemyData.Sprite);
+            _enemy.EnemyRenderer.DrawEnemy(_enemyData.Sprite, _enemyData.Name);
 
             _enemy.Setup(_enemyData.DamageValue, _enemyData.AttackDelay, _enemyData.HealthValue);
 

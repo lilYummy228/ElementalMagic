@@ -12,12 +12,15 @@ public class Health : MonoBehaviour
     public event Action HealthValueChanged;
     public event Action Dead;
 
-    private void Start() => 
+    private void Start() =>
         StartDeathControl();
 
     public void TakeDamage(int damageValue)
     {
         _currentHealthValue -= damageValue;
+
+        if (_currentHealthValue < 0)
+            _currentHealthValue = 0;
 
         HealthValueChanged?.Invoke();
     }
@@ -33,7 +36,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void StartDeathControl() => 
+    public void StartDeathControl() =>
         StartCoroutine(nameof(ControlDeath));
 
     private IEnumerator ControlDeath()
