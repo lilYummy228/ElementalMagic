@@ -3,19 +3,24 @@ using UnityEngine;
 public class GameBoard : MonoBehaviour
 {
     [SerializeField] private Grid _grid;
-    [SerializeField] private Transform _camera;
+    [SerializeField] private Camera _camera;
     [SerializeField] private ElementGenerator _sphereGenerator;
     [SerializeField] private ElementConnector _elementConnector;
 
     private float _cameraPositionX, _cameraPositionY;
-    private float _offset = 1.5f;    
+    private float _offsetY = 1.5f;
+    private float _borderOffset = 0.5f;
 
-    private void Awake()
+    private void Awake() => 
+        CameraToGrid();
+
+    private void CameraToGrid()
     {
-        _cameraPositionX = _grid.Width / 2;
-        _cameraPositionY = _grid.Height / 2 + _offset;
+        _cameraPositionX = (float)_grid.Width / 2 - _borderOffset;
+        _cameraPositionY = (float)_grid.Height / 2 - _borderOffset + _offsetY;
+        _camera.orthographicSize = _grid.Width;
 
-        _camera.position = new Vector3(_cameraPositionX, _cameraPositionY, _camera.position.z);
+        _camera.transform.position = new Vector3(_cameraPositionX, _cameraPositionY, _camera.transform.position.z);
     }
 
     private void OnEnable() => 

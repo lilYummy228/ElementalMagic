@@ -7,7 +7,8 @@ public class ElementConnector : MonoBehaviour
     private const float Distance = 1.5f;
 
     [SerializeField] private ElementConnectionLine _connectionLine;
-    [SerializeField] private ElementSound _sound;
+    [SerializeField] private ElementAudioPlayer _audioPlayer;
+    [SerializeField] private int _effectCount = 5;
 
     private List<Element> _selectedElements = new();
     private Element _currentSelectedElement;
@@ -26,10 +27,13 @@ public class ElementConnector : MonoBehaviour
 
     private void DeselectElements()
     {
-        _sound.StopSound();
+        _audioPlayer.AudioSourceSelection.Stop();
 
         if (_selectedElements.Count > 1)
+        {
+            _audioPlayer.PlayAttackSound(_selectedElements[0]);
             ElementCountPopped?.Invoke(_selectedElements.Count);
+        }
 
         foreach (Element element in _selectedElements)
         {
@@ -54,7 +58,7 @@ public class ElementConnector : MonoBehaviour
         {
             SelectFirstElement(element);
 
-            _sound.PlaySound(element);
+            _audioPlayer.PlaySelectionSound(element);
 
             SelectNearestElement(element);
         }

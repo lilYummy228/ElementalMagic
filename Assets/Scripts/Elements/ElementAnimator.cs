@@ -1,16 +1,25 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 public class ElementAnimator : MonoBehaviour
 {
+    [SerializeField] private float _speed = 1;
+    [SerializeField] private float _distance = 0.2f;
+
     private float _shakeDuration = 100;
     private float _strength = 0.025f;
     private float _randomness = 90;
     private float _popUpDuration = 0.4f;
+    private float _fadeDuration = 1f;
     private int _vibrato = 16;
     private bool _snapping = false;
     private bool _fadeOut = false;
     private Tweener _tween;
+    private WaitForFixedUpdate _waitForFixedUpdate;
+
+    private void Awake() => 
+        _waitForFixedUpdate = new WaitForFixedUpdate();
 
     public void Shake(Element element, bool isSelected)
     {
@@ -26,7 +35,7 @@ public class ElementAnimator : MonoBehaviour
     }
 
     public void PopUp(Transform element)
-    {       
+    {
         Vector3 initialScale = element.transform.localScale;
         element.localScale = Vector3.zero;
         element.DOScale(initialScale, _popUpDuration);

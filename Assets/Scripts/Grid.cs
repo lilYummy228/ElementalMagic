@@ -7,10 +7,12 @@ public class Grid : MonoBehaviour
     [SerializeField] private Cell _prefab;
 
     private List<Cell> _cells = new();
-
+    public Transform Transform { get; private set; }
     public int Width => _width;
     public int Height => _height;
     public IReadOnlyList<Cell> Cells => _cells;
+
+    private void Awake() => Transform = transform;
 
     public void Create()
     {
@@ -20,7 +22,7 @@ public class Grid : MonoBehaviour
             {
                 Vector3Int coordinate = new Vector3Int(x, y);
 
-                Cell spawnedCell = Instantiate(_prefab, coordinate, Quaternion.identity, transform);
+                Cell spawnedCell = Instantiate(_prefab, coordinate, Quaternion.identity, Transform);
 
                 spawnedCell.name = $"{x}:{y}";
 

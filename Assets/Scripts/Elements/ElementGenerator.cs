@@ -10,7 +10,7 @@ public class ElementGenerator : MonoBehaviour
 
     private WaitForFixedUpdate _waitForFixedUpdate;
 
-    private void Awake() => 
+    private void Awake() =>
         _waitForFixedUpdate = new WaitForFixedUpdate();
 
     public void Fill(IReadOnlyList<Cell> cells) =>
@@ -22,17 +22,15 @@ public class ElementGenerator : MonoBehaviour
 
         foreach (Cell cell in cells)
             if (cell.Element == null)
-                SetElement(cell);        
+                SetElement(cell);
     }
 
     private void SetElement(Cell cell)
     {
         int resourceIndex = Random.Range(0, _elements.Length);
 
-        Element element = Instantiate(_elements[resourceIndex]);
-        element.transform.position = cell.transform.position;
-        element.transform.parent = _parent;
+        Element element = Instantiate(_elements[resourceIndex], cell.transform.position, Quaternion.identity, _parent);
 
         cell.Set(element);
-    }    
+    }
 }

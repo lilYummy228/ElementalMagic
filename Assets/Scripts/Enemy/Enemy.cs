@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Health), typeof(EnemyRenderer))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Health _targetHealth;
+    [SerializeField] private Player _player;
 
     private WaitForSeconds _delay;
     private string _name;
@@ -23,12 +23,12 @@ public class Enemy : MonoBehaviour
         StartCoroutine(nameof(Hit));
 
     private IEnumerator Hit()
-    {
+    {       
         yield return _delay;
 
-        while (_targetHealth.CurrentHealthValue > 0 && Health.CurrentHealthValue > 0)
+        while (_player.Health.CurrentHealthValue > 0 && Health.CurrentHealthValue > 0)
         {
-            _targetHealth.TakeDamage(_damage);
+            _player.Health.TakeDamage(_damage);
 
             yield return _delay;
         }

@@ -1,1 +1,1 @@
-public class WaterElement : Element { }
+public class WaterElement : Element {}
