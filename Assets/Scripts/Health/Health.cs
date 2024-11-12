@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField, Min(0)] private int _currentHealthValue;
+    [SerializeField, Min(0)] private float _currentHealthValue;
 
-    public int MaxHealthValue { get; private set; }
-    public int CurrentHealthValue => _currentHealthValue;
+    public float MaxHealthValue { get; private set; }
+    public float CurrentHealthValue => _currentHealthValue;
 
     public event Action HealthValueChanged;
     public event Action Dead;
@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
     private void Start() =>
         StartDeathControl();
 
-    public void TakeDamage(int damageValue)
+    public void TakeDamage(float damageValue)
     {
         _currentHealthValue -= damageValue;
 
@@ -25,7 +25,18 @@ public class Health : MonoBehaviour
         HealthValueChanged?.Invoke();
     }
 
-    public void SetHealth(int healthValue)
+    public void Heal(float healValue)
+    {
+        if (_currentHealthValue > 0 && _currentHealthValue < MaxHealthValue)
+            _currentHealthValue += healValue;
+
+        if (_currentHealthValue > MaxHealthValue)
+            _currentHealthValue = MaxHealthValue;
+
+        HealthValueChanged?.Invoke();
+    }
+
+    public void SetHealth(float healthValue)
     {
         if (healthValue > 0)
         {

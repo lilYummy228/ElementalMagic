@@ -8,13 +8,12 @@ public class ElementConnector : MonoBehaviour
 
     [SerializeField] private ElementConnectionLine _connectionLine;
     [SerializeField] private ElementAudioPlayer _audioPlayer;
-    [SerializeField] private int _effectCount = 5;
 
     private List<Element> _selectedElements = new();
     private Element _currentSelectedElement;
 
-    public event Action ElementsPopped;
-    public event Action<int> ElementCountPopped;
+    public event Action Popped;
+    public event Action<IReadOnlyList<Element>> ElementsFilled;
 
     public void Update()
     {
@@ -32,7 +31,7 @@ public class ElementConnector : MonoBehaviour
         if (_selectedElements.Count > 1)
         {
             _audioPlayer.PlayAttackSound(_selectedElements[0]);
-            ElementCountPopped?.Invoke(_selectedElements.Count);
+            ElementsFilled?.Invoke(_selectedElements);
         }
 
         foreach (Element element in _selectedElements)
@@ -45,7 +44,7 @@ public class ElementConnector : MonoBehaviour
 
         _connectionLine.ClearLine();
 
-        ElementsPopped?.Invoke();
+        Popped?.Invoke();
 
         _selectedElements.Clear();
     }

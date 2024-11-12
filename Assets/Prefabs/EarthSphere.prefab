@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7786cf506b55ec46990adf852e9a660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
   _selectionSound: {fileID: 8300000, guid: bdc13781689dd4e48a3ea136257547bc, type: 3}
   _attackSound: {fileID: 8300000, guid: b7f8695cf65a4f24eb37544298821146, type: 3}
+  _damage: 15
 --- !u!58 &346298783745421689
 CircleCollider2D:
   m_ObjectHideFlags: 0

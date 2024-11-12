@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
@@ -5,7 +6,6 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
     [SerializeField] private ElementConnector _elementConnector;
-    [SerializeField] private int _damage = 1;
 
     public Health Health { get; private set; }
 
@@ -16,14 +16,15 @@ public class Player : MonoBehaviour
         Health.SetHealth(Health.CurrentHealthValue);
 
     private void OnEnable() => 
-        _elementConnector.ElementCountPopped += Hit;
+        _elementConnector.ElementsFilled += Hit;
 
     private void OnDisable() => 
-        _elementConnector.ElementCountPopped -= Hit;
+        _elementConnector.ElementsFilled -= Hit;
 
-    public void Hit(int count)
+    public void Hit(IReadOnlyList<Element> elements)
     {
-        _enemy.EnemyRenderer.StartBlink();
-        _enemy.Health.TakeDamage(count * _damage);
+        float resistanceValue = (100 - _enemy.Resistance.GetValue(elements[0])) / 100;
+
+        _enemy.Health.TakeDamage(elements.Count * elements[0].Damage * resistanceValue);
     }
 }

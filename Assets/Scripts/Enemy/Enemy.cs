@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Health), typeof(EnemyRenderer))]
+[RequireComponent(typeof(Health), typeof(EnemyRenderer), typeof(Resistance))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private Player _player;
@@ -12,11 +12,13 @@ public class Enemy : MonoBehaviour
 
     public EnemyRenderer EnemyRenderer {  get; private set; }
     public Health Health { get; private set; }
+    public Resistance Resistance {  get; private set; }
 
     private void Awake()
     {
         Health = GetComponent<Health>();
         EnemyRenderer = GetComponent<EnemyRenderer>();
+        Resistance = GetComponent<Resistance>();
     }
 
     private void Start() =>

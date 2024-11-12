@@ -24,10 +24,10 @@ public class GameBoard : MonoBehaviour
     }
 
     private void OnEnable() => 
-        _elementConnector.ElementsPopped += FillBoard;
+        _elementConnector.Popped += FillBoard;
 
     private void OnDisable() => 
-        _elementConnector.ElementsPopped -= FillBoard;
+        _elementConnector.Popped -= FillBoard;
 
     private void Start()
     {

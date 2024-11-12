@@ -30,6 +30,8 @@ public class EnemySpawner : MonoBehaviour
 
             _enemy.Setup(_enemyData.DamageValue, _enemyData.AttackDelay, _enemyData.HealthValue);
 
+            _enemy.Resistance.Setup(_enemyData.Resistances);
+
             _enemyIndex++;
         }
     }
