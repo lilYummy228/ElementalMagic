@@ -21,10 +21,6 @@ public class Player : MonoBehaviour
     private void OnDisable() => 
         _elementConnector.ElementsFilled -= Hit;
 
-    public void Hit(IReadOnlyList<Element> elements)
-    {
-        float resistanceValue = (100 - _enemy.Resistance.GetValue(elements[0])) / 100;
-
-        _enemy.Health.TakeDamage(elements.Count * elements[0].Damage * resistanceValue);
-    }
+    public void Hit(IReadOnlyList<Element> elements) => 
+        _enemy.Health.TakeDamage(elements.Count * elements[0].Damage * _enemy.Resistance.GetPercentValue(elements[0]));
 }

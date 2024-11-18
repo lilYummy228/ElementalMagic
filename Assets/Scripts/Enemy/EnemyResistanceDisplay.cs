@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyResistanceDisplay : MonoBehaviour
 {
-    [SerializeField] private Resistance _resistance;
+    [SerializeField] private EnemyResistance _resistance;
 
     [SerializeField] private List<TextMeshProUGUI> _list;
 

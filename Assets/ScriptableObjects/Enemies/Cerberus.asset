@@ -17,4 +17,4 @@ MonoBehaviour:
   _healthValue: 666
   _damageValue: 60
   _attackDelay: 2
-  _resistances: 28000000000000000000000000000000
+  _resistances: 1e000000e2ffffff00000000f6ffffff
