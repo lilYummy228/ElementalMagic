@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElementEffector : MonoBehaviour
+public class ElementAbility : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private Enemy _enemy;

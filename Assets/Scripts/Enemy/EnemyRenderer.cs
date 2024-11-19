@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class EnemyRenderer : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private float _drawDuration = 1f;
 
-    public void DrawEnemy(Sprite sprite, string name)
-    {
-        _spriteRenderer.sprite = sprite;
+    private float _offset = 2.5f;
+    private Transform _enemy;
 
-        _spriteRenderer.transform.localScale = Vector3.zero;
-        _spriteRenderer.transform.DOScale(Vector3.one, _drawDuration);
+    public Transform EnemyPosition => transform;
+
+    public void DrawEnemy(Transform prefab, string name)
+    {
+        _enemy = Instantiate(prefab, transform.position + Vector3.down * _offset, Quaternion.identity);
+
+        _enemy.localScale = Vector3.zero;
+        _enemy.DOScale(Vector3.one, _drawDuration);
 
         _nameText.text = name;
     }
 
-    public void Clear() =>
-        _spriteRenderer.sprite = null;
+    public void Clear()
+    {
+        if (_enemy != null)
+            Destroy(_enemy.gameObject);
+    }
 }

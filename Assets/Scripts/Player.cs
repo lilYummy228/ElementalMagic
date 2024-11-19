@@ -9,18 +9,23 @@ public class Player : MonoBehaviour
 
     public Health Health { get; private set; }
 
-    private void Awake() => 
+    private void Awake() =>
         Health = GetComponent<Health>();
 
-    private void Start() => 
+    private void Start() =>
         Health.SetHealth(Health.CurrentHealthValue);
 
-    private void OnEnable() => 
+    private void OnEnable() =>
         _elementConnector.ElementsFilled += Hit;
 
-    private void OnDisable() => 
+    private void OnDisable() =>
         _elementConnector.ElementsFilled -= Hit;
 
-    public void Hit(IReadOnlyList<Element> elements) => 
+    public void Hit(IReadOnlyList<Element> elements)
+    {
+        foreach (Element element in elements)
+            element.Projectile.Init(_enemy.EnemyRenderer.EnemyPosition);
+
         _enemy.Health.TakeDamage(elements.Count * elements[0].Damage * _enemy.Resistance.GetPercentValue(elements[0]));
+    }
 }

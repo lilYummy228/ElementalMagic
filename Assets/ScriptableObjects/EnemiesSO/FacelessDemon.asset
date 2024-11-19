@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
-  m_Name: Cerberus
+  m_Name: FacelessDemon
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: a02f1670c123920408878691900a2ddc, type: 3}
-  _name: Cerberus
-  _healthValue: 666
-  _damageValue: 60
-  _attackDelay: 2
-  _resistances: 1e000000e2ffffff00000000f6ffffff
+  _prefab: {fileID: 7689405666764253596, guid: 4ed0ee7ee30109a46baf235d010bcd9d, type: 3}
+  _name: Faceless Demon
+  _healthValue: 500
+  _damageValue: 50
+  _attackDelay: 4
+  _resistances: d8ffffffc4ffffff000000000a000000

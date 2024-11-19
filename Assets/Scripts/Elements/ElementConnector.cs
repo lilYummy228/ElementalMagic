@@ -39,7 +39,10 @@ public class ElementConnector : MonoBehaviour
             element.Animator.Shake(element, false);
 
             if (_selectedElements.Count > 1)
+            {
+                element.ProjectileLaunch();
                 Destroy(element.gameObject);
+            }
         }
 
         _connectionLine.ClearLine();

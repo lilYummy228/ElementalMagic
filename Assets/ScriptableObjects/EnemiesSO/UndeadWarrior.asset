@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
-  m_Name: ScorchindGoat
+  m_Name: UndeadWarrior
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 98de9660dcd60814bbcab03c3d809c49, type: 3}
-  _name: Scorching Goat
-  _healthValue: 1200
+  _prefab: {fileID: 441743125196853991, guid: e2f9a887821d2e34a8142b71702a9aa4, type: 3}
+  _name: Undead Warrior
+  _healthValue: 250
   _damageValue: 60
-  _attackDelay: 3
-  _resistances: 64000000000000000000000014000000
+  _attackDelay: 6
+  _resistances: b0ffffff000000001e0000000a000000
