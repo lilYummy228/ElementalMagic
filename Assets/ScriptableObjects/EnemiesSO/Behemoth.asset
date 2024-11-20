@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: Behemoth
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 3001013567091656243, guid: f89b26022811b1b48a4d66b9d7ddcc4f, type: 3}
+  _name: Behemoth
+  _healthValue: 800
+  _damageValue: 60
+  _attackDelay: 5
+  _resistances: 0a0000000a000000d8ffffff14000000

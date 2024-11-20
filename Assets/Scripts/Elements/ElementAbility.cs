@@ -28,19 +28,41 @@ public class ElementAbility : MonoBehaviour
         if (elements.Count >= _elementsCountEffect)
         {
             if (elements[0].TryGetComponent(out WaterElement waterElement))
-                StartCoroutine(PeriodicEffect(elements.Count, _player.Health.Heal));
+                StartCoroutine(PeriodicEffect(elements.Count, _player));
             else if (elements[0].TryGetComponent(out FireElement fireElement))
-                StartCoroutine(PeriodicEffect(elements.Count, _enemy.Health.TakeDamage));
+                StartCoroutine(PeriodicEffect(elements.Count, _enemy));
         }
     }
 
-    private IEnumerator PeriodicEffect(float value, Action<float> action)
+    private IEnumerator PeriodicEffect<T>(float value, T gameObject) where T : MonoBehaviour
     {
         for (int i = 0; i < _tickCount; i++)
         {
-            action.Invoke(value);
+            if (gameObject == _player)
+            {
+                if (IsAbleToEffect(value, _player.Health.Heal, _player.Health) == false)
+                    break;
+            }
+            else if (gameObject == _enemy)
+            {
+                if (IsAbleToEffect(value, _enemy.Health.TakeDamage, _enemy.Health) == false)
+                    break;
+            }
 
             yield return _tick;
+        }
+    }
+
+    private bool IsAbleToEffect(float value, Action<float> effect, Health health)
+    {
+        if (health.CurrentHealthValue - value > 0)
+        {
+            effect.Invoke(value);
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
