@@ -31,7 +31,7 @@ public class ElementAbility : MonoBehaviour
             if (elements[0].TryGetComponent(out WaterElement waterElement))
                 StartCoroutine(PeriodicEffect(elements.Count, _player));
             else if (elements[0].TryGetComponent(out FireElement fireElement))
-                StartCoroutine(PeriodicEffect(elements.Count, _enemy));
+                StartCoroutine(PeriodicEffect(elements.Count * _enemy.Resistance.GetPercentValue(fireElement), _enemy));
         }
     }
 

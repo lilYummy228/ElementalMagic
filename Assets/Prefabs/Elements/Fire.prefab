@@ -102,7 +102,7 @@ MonoBehaviour:
   _selectionSound: {fileID: 8300000, guid: 4a444d4484eff6f488773b424e3d69ea, type: 3}
   _attackSound: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   _projectile: {fileID: 8662857414346265031, guid: b7a8cb552f1060746a08e7deb4be5267, type: 3}
-  _damage: 8
+  _damage: 10
 --- !u!58 &-959681324400999386
 CircleCollider2D:
   m_ObjectHideFlags: 0
