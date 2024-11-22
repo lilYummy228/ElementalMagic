@@ -9,7 +9,7 @@ public class ElementAbility : MonoBehaviour
     [SerializeField] private Enemy _enemy;
     [SerializeField] private ElementConnector _elementConnector;
     [SerializeField] private ElementAbilityEffector _elementEffect;
-    [SerializeField] private int _elementsCountEffect = 5;
+    [SerializeField] private int _elementsAbilityCount = 5;
     [SerializeField] private int _tickRate;
     [SerializeField] private int _tickCount;
 
@@ -26,7 +26,7 @@ public class ElementAbility : MonoBehaviour
 
     private void Effect(IReadOnlyList<Element> elements)
     {
-        if (elements.Count >= _elementsCountEffect)
+        if (elements.Count >= _elementsAbilityCount)
         {
             if (elements[0].TryGetComponent(out WaterElement waterElement))
                 StartCoroutine(PeriodicEffect(elements.Count, _player));
@@ -45,6 +45,9 @@ public class ElementAbility : MonoBehaviour
             {
                 if (IsAbleToEffect(value, _player.Health.Heal, _player.Health) == false)
                     break;
+
+                particle = _elementEffect.WaterEffect;
+                _elementEffect.PlayEffect(particle);
             }
             else if (gameObject == _enemy)
             {
@@ -63,7 +66,7 @@ public class ElementAbility : MonoBehaviour
 
     private bool IsAbleToEffect(float value, Action<float> effect, Health health)
     {
-        if (health.CurrentHealthValue - value > 0)
+        if (health.CurrentHealthValue > 0)
         {
             effect.Invoke(value);
             return true;
