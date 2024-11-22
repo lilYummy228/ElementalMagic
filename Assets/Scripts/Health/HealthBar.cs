@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class HealthDisplay : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Health _health;
     [SerializeField] private TextMeshProUGUI _valueText;

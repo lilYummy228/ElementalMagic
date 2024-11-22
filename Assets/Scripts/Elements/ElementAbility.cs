@@ -8,13 +8,14 @@ public class ElementAbility : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private Enemy _enemy;
     [SerializeField] private ElementConnector _elementConnector;
+    [SerializeField] private ElementAbilityEffector _elementEffect;
     [SerializeField] private int _elementsCountEffect = 5;
     [SerializeField] private int _tickRate;
     [SerializeField] private int _tickCount;
 
     private WaitForSeconds _tick;
 
-    private void Awake() =>
+    private void Awake() => 
         _tick = new WaitForSeconds(_tickRate);
 
     private void OnEnable() =>
@@ -36,6 +37,8 @@ public class ElementAbility : MonoBehaviour
 
     private IEnumerator PeriodicEffect<T>(float value, T gameObject) where T : MonoBehaviour
     {
+        ParticleSystem particle = null;
+
         for (int i = 0; i < _tickCount; i++)
         {
             if (gameObject == _player)
@@ -47,10 +50,15 @@ public class ElementAbility : MonoBehaviour
             {
                 if (IsAbleToEffect(value, _enemy.Health.TakeDamage, _enemy.Health) == false)
                     break;
+                
+                particle = _elementEffect.FireEffect;
+                _elementEffect.PlayEffect(particle);
             }
 
             yield return _tick;
         }
+
+        particle?.Stop();
     }
 
     private bool IsAbleToEffect(float value, Action<float> effect, Health health)
