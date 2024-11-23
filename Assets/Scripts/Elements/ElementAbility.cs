@@ -43,7 +43,9 @@ public class ElementAbility : MonoBehaviour
         {
             if (gameObject == _player)
             {
-                if (IsAbleToEffect(value, _player.Health.Heal, _player.Health) == false)
+                _player.Health.Heal(value);
+
+                if (_player.Health.CurrentHealthValue < 0)
                     break;
 
                 particle = _elementEffect.WaterEffect;
@@ -51,7 +53,9 @@ public class ElementAbility : MonoBehaviour
             }
             else if (gameObject == _enemy)
             {
-                if (IsAbleToEffect(value, _enemy.Health.TakeDamage, _enemy.Health) == false)
+                _enemy.Health.TakeDamage(value);
+
+                if (_enemy.Health.CurrentHealthValue < 0)
                     break;
                 
                 particle = _elementEffect.FireEffect;
@@ -62,18 +66,5 @@ public class ElementAbility : MonoBehaviour
         }
 
         particle?.Stop();
-    }
-
-    private bool IsAbleToEffect(float value, Action<float> effect, Health health)
-    {
-        if (health.CurrentHealthValue > 0)
-        {
-            effect.Invoke(value);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }

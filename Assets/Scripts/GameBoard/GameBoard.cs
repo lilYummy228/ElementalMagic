@@ -12,7 +12,19 @@ public class GameBoard : MonoBehaviour
     private float _borderOffset = 0.5f;
 
     private void Awake() => 
-        CameraToGrid();
+        CameraToGrid();    
+
+    private void OnEnable() => 
+        _elementConnector.Popped += FillBoard;
+
+    private void OnDisable() => 
+        _elementConnector.Popped -= FillBoard;
+
+    private void Start() => 
+        _grid.Create();
+
+    public void FillBoard() => 
+        _sphereGenerator.Fill(_grid.Cells);
 
     private void CameraToGrid()
     {
@@ -22,20 +34,4 @@ public class GameBoard : MonoBehaviour
 
         _camera.transform.position = new Vector3(_cameraPositionX, _cameraPositionY, _camera.transform.position.z);
     }
-
-    private void OnEnable() => 
-        _elementConnector.Popped += FillBoard;
-
-    private void OnDisable() => 
-        _elementConnector.Popped -= FillBoard;
-
-    private void Start()
-    {
-        _grid.Create();
-
-        FillBoard();
-    }
-
-    private void FillBoard() => 
-        _sphereGenerator.Fill(_grid.Cells);
 }

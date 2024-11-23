@@ -1,28 +1,24 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Transform _pausePanel;
-    [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private ElementConnector _elementConnector;
+    [SerializeField] private VolumeSettings _volumeSettings;
     [Header("Buttons")]
     [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _resumeButton;
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private Button _replayButton;
-    [Header("Sliders")] 
-    [SerializeField] private Slider _musicSlider;
-    [SerializeField] private Slider _soundsSlider;
 
     private void OnEnable()
     {
         _pauseButton.onClick.AddListener(Pause);
         _resumeButton.onClick.AddListener(Unpause);
         _mainMenuButton.onClick.AddListener(GoToMainMenu);
-        _replayButton.onClick.AddListener(Replay);
+        _replayButton.onClick.AddListener(Replay);        
     }
 
     private void OnDisable()
@@ -37,6 +33,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0f;
 
+        _pauseButton.gameObject.SetActive(false);
         _elementConnector.gameObject.SetActive(false);
         _pausePanel.gameObject.SetActive(true);
     }
@@ -44,6 +41,8 @@ public class PauseMenu : MonoBehaviour
     private void Unpause()
     {
         Time.timeScale = 1f;
+
+        _pauseButton.gameObject.SetActive(true);
         _elementConnector.gameObject.SetActive(true);
         _pausePanel.gameObject.SetActive(false);
     }

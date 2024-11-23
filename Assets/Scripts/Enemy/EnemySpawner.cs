@@ -15,10 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private void OnDisable() =>
         _health.Dead -= Spawn;
 
-    private void Start() => 
-        Spawn();
-
-    private void Spawn()
+    public void Spawn()
     {
         _enemy.EnemyRenderer.Clear();
 
