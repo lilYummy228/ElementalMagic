@@ -17,13 +17,22 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private Toggle _musicToggle;
     [SerializeField] private Toggle _soundsToggle;
 
-    private void Awake()
+    private void OnEnable()
     {
         _musicSlider.onValueChanged.AddListener(delegate { ChangeVolume(_music, _musicToggle, _musicSlider.value); });
         _soundsSlider.onValueChanged.AddListener(delegate { ChangeVolume(_sounds, _soundsToggle, _soundsSlider.value); });
 
         _musicToggle.onValueChanged.AddListener(delegate { SwitchToggle(_music, _musicToggle, _musicSlider.value); });
         _soundsToggle.onValueChanged.AddListener(delegate { SwitchToggle(_sounds, _soundsToggle, _soundsSlider.value); });
+    }
+
+    private void OnDisable()
+    {
+        _musicSlider.onValueChanged.RemoveListener(delegate { ChangeVolume(_music, _musicToggle, _musicSlider.value); });
+        _soundsSlider.onValueChanged.RemoveListener(delegate { ChangeVolume(_sounds, _soundsToggle, _soundsSlider.value); });
+
+        _musicToggle.onValueChanged.RemoveListener(delegate { SwitchToggle(_music, _musicToggle, _musicSlider.value); });
+        _soundsToggle.onValueChanged.RemoveListener(delegate { SwitchToggle(_sounds, _soundsToggle, _soundsSlider.value); });
     }
 
     public void SwitchToggle(AudioMixerGroup audioMixer, Toggle toggle, float volume)

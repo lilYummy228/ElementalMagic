@@ -12,14 +12,14 @@ public class Player : MonoBehaviour
     private void Awake() =>
         Health = GetComponent<Health>();
 
-    private void Start() =>
-        Health.SetHealth(Health.CurrentHealthValue);
-
     private void OnEnable() =>
         _elementConnector.ElementsFilled += Hit;
 
     private void OnDisable() =>
         _elementConnector.ElementsFilled -= Hit;
+
+    private void Start() =>
+        Health.SetHealth(Health.CurrentHealthValue);
 
     public void Hit(IReadOnlyList<Element> elements)
     {

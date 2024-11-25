@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
         _playButton.onClick.AddListener(Play);
 
     private void OnDisable() => 
-        _playButton.onClick.AddListener(Play);
+        _playButton.onClick.RemoveListener(Play);
 
     private void Play() => 
         SceneManager.LoadScene("Game");

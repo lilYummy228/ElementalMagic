@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private Transform _pausePanel;
     [SerializeField] private ElementConnector _elementConnector;
     [SerializeField] private VolumeSettings _volumeSettings;
+    [SerializeField] private Transform _pauseMenu;
     [Header("Buttons")]
     [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _resumeButton;
@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
 
         _pauseButton.gameObject.SetActive(false);
         _elementConnector.gameObject.SetActive(false);
-        _pausePanel.gameObject.SetActive(true);
+        _pauseMenu.gameObject.SetActive(true);
     }
 
     private void Unpause()
@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
 
         _pauseButton.gameObject.SetActive(true);
         _elementConnector.gameObject.SetActive(true);
-        _pausePanel.gameObject.SetActive(false);
+        _pauseMenu.gameObject.SetActive(false);
     }
 
     private void Replay()

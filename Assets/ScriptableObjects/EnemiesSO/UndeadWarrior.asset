@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 441743125196853991, guid: e2f9a887821d2e34a8142b71702a9aa4, type: 3}
   _name: Undead Warrior
-  _healthValue: 250
+  _healthValue: 25
   _damageValue: 60
   _attackDelay: 6
   _resistances: b0ffffff000000001e0000000a000000

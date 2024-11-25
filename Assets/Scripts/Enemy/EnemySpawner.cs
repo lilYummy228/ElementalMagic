@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -5,6 +6,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Enemy _enemy;
     [SerializeField] private EnemyScriptableObject[] _enemies;
     [SerializeField] private Health _health;
+
+    public event Action AllEnemiesDied;
 
     private EnemyScriptableObject _enemyData;
     private int _enemyIndex = 0;
@@ -30,6 +33,10 @@ public class EnemySpawner : MonoBehaviour
             _enemy.Resistance.Setup(_enemyData.Resistances);
 
             _enemyIndex++;
+        }
+        else
+        {
+            AllEnemiesDied?.Invoke();
         }
     }
 }

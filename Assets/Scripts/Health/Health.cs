@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     public event Action HealthValueChanged;
     public event Action Dead;
 
-    private void Start() =>
+    private void Awake() =>
         StartDeathControl();
 
     public void TakeDamage(float damageValue)
