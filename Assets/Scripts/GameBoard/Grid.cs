@@ -8,17 +8,17 @@ public class Grid : MonoBehaviour
 
     private List<Cell> _cells = new();
     public Transform Transform { get; private set; }
-    public int Width => _width;
-    public int Height => _height;
+    public int Width => _width + PlayerPrefs.GetInt(nameof(UpgradeGrid));
+    public int Height => _height + PlayerPrefs.GetInt(nameof(UpgradeGrid));
     public IReadOnlyList<Cell> Cells => _cells;
 
     private void Awake() => Transform = transform;
 
     public void Create()
     {
-        for (int x = 0; x < _width; x++)
+        for (int x = 0; x < Width; x++)
         {
-            for (int y = 0; y < _height; y++)
+            for (int y = 0; y < Height; y++)
             {
                 Vector3Int coordinate = new Vector3Int(x, y);
 

@@ -16,7 +16,7 @@ public class GameLogic : MonoBehaviour
     public event Action<bool> HasGameWinned;
 
     private WaitForSeconds _wait;
-    private float _waitTime = 1f;
+    private float _waitTime = 0.75f;
 
     private void Awake() =>
         _wait = new WaitForSeconds(_waitTime);
@@ -37,6 +37,8 @@ public class GameLogic : MonoBehaviour
 
     private IEnumerator CountDown()
     {
+        _elementConnector.gameObject.SetActive(false);
+
         for (int i = _startGameCount; i > 0; i--)
         {
             _startGameCounter.text = i.ToString();
@@ -55,6 +57,7 @@ public class GameLogic : MonoBehaviour
 
     private void StartGame()
     {
+        _elementConnector.gameObject.SetActive(true);
         _gameBoard.FillBoard();
         _enemySpawner.Spawn();
     }
@@ -71,6 +74,6 @@ public class GameLogic : MonoBehaviour
         HasGameWinned?.Invoke(true);
     }
 
-    private void EndGame() => 
+    private void EndGame() =>
         _elementConnector.gameObject.SetActive(false);
 }

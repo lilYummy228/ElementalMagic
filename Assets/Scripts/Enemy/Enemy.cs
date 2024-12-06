@@ -44,4 +44,7 @@ public class Enemy : MonoBehaviour
         Health.SetHealth(healthValue);
         Health.StartDeathControl();
     }
+
+    public void PayAward(int award) => 
+        _player.Wallet.Add(award);
 }

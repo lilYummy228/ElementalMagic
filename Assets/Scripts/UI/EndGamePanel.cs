@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class EndGamePanel : MonoBehaviour
@@ -12,19 +13,23 @@ public class EndGamePanel : MonoBehaviour
     private const float MinTextSize = 110f;
 
     [SerializeField] private GameLogic _game;
-    [SerializeField] private int _endGameDelay = 6;
+    [SerializeField] private Button _pauseButton;
+    [SerializeField] private int _endGameDelay = 3;
 
     private TextMeshProUGUI _text;
     private WaitUntil _waitIncrease;
     private WaitUntil _waitDecrease;
-    private float _animationStep = 0.5f;
+    private WaitForSeconds _waitForSeconds;
+    private float _waitTime = 0.2f;
+    private float _animationStep = 50f;
     private bool _isWinned;
 
     private void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
-        _waitIncrease = new WaitUntil(() => (_text.fontSize += _animationStep) == MaxTextSize);
-        _waitDecrease = new WaitUntil(() => (_text.fontSize -= _animationStep) == MinTextSize);
+        _waitIncrease = new WaitUntil(() => (_text.fontSize += _animationStep * Time.deltaTime) >= MaxTextSize);
+        _waitDecrease = new WaitUntil(() => (_text.fontSize -= _animationStep * Time.deltaTime) <= MinTextSize);
+        _waitForSeconds = new WaitForSeconds(_waitTime);
     }
 
     private void OnEnable() =>
@@ -36,6 +41,8 @@ public class EndGamePanel : MonoBehaviour
     private void EndGame(bool isWinned)
     {
         _isWinned = isWinned;
+
+        _pauseButton.gameObject.SetActive(false);
 
         StartCoroutine(nameof(ShowEndGamePanel));
     }
@@ -49,7 +56,11 @@ public class EndGamePanel : MonoBehaviour
 
         for (int i = 0; i < _endGameDelay; i++)
         {
+            yield return _waitForSeconds;
+
             yield return _waitIncrease;
+
+            yield return _waitForSeconds;
 
             yield return _waitDecrease;
         }

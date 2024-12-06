@@ -19,33 +19,52 @@ public class VolumeSettings : MonoBehaviour
 
     private void OnEnable()
     {
-        _musicSlider.onValueChanged.AddListener(delegate { ChangeVolume(_music, _musicToggle, _musicSlider.value); });
-        _soundsSlider.onValueChanged.AddListener(delegate { ChangeVolume(_sounds, _soundsToggle, _soundsSlider.value); });
+        _musicSlider.onValueChanged.AddListener(delegate { ChangeVolume(_music, _musicToggle, _musicSlider); });
+        _soundsSlider.onValueChanged.AddListener(delegate { ChangeVolume(_sounds, _soundsToggle, _soundsSlider); });
 
-        _musicToggle.onValueChanged.AddListener(delegate { SwitchToggle(_music, _musicToggle, _musicSlider.value); });
-        _soundsToggle.onValueChanged.AddListener(delegate { SwitchToggle(_sounds, _soundsToggle, _soundsSlider.value); });
+        _musicToggle.onValueChanged.AddListener(delegate { SwitchToggle(_music, _musicToggle, _musicSlider); });
+        _soundsToggle.onValueChanged.AddListener(delegate { SwitchToggle(_sounds, _soundsToggle, _soundsSlider); });
     }
 
     private void OnDisable()
     {
-        _musicSlider.onValueChanged.RemoveListener(delegate { ChangeVolume(_music, _musicToggle, _musicSlider.value); });
-        _soundsSlider.onValueChanged.RemoveListener(delegate { ChangeVolume(_sounds, _soundsToggle, _soundsSlider.value); });
+        _musicSlider.onValueChanged.RemoveListener(delegate { ChangeVolume(_music, _musicToggle, _musicSlider); });
+        _soundsSlider.onValueChanged.RemoveListener(delegate { ChangeVolume(_sounds, _soundsToggle, _soundsSlider); });
 
-        _musicToggle.onValueChanged.RemoveListener(delegate { SwitchToggle(_music, _musicToggle, _musicSlider.value); });
-        _soundsToggle.onValueChanged.RemoveListener(delegate { SwitchToggle(_sounds, _soundsToggle, _soundsSlider.value); });
+        _musicToggle.onValueChanged.RemoveListener(delegate { SwitchToggle(_music, _musicToggle, _musicSlider); });
+        _soundsToggle.onValueChanged.RemoveListener(delegate { SwitchToggle(_sounds, _soundsToggle, _soundsSlider); });
     }
 
-    public void SwitchToggle(AudioMixerGroup audioMixer, Toggle toggle, float volume)
+    public void Setup()
+    {
+        _musicToggle.isOn = PlayerPrefs.GetInt(_musicToggle.name) == 1;
+        _soundsToggle.isOn = PlayerPrefs.GetInt(_soundsToggle.name) == 1;
+
+        _musicSlider.value = PlayerPrefs.GetFloat(_musicSlider.name);
+        _soundsSlider.value = PlayerPrefs.GetFloat(_soundsSlider.name);
+
+        ChangeVolume(_music, _musicToggle, _musicSlider);
+        ChangeVolume(_sounds, _soundsToggle, _soundsSlider);
+
+        SwitchToggle(_music, _musicToggle, _musicSlider);
+        SwitchToggle(_sounds, _soundsToggle, _soundsSlider);
+    }
+
+    public void SwitchToggle(AudioMixerGroup audioMixer, Toggle toggle, Slider slider)
     {
         if (toggle.isOn)
-            audioMixer.audioMixer.SetFloat(audioMixer.name, Mathf.Log10(volume) * 20);
+            audioMixer.audioMixer.SetFloat(audioMixer.name, Mathf.Log10(slider.value) * Multiplier);
         else
             audioMixer.audioMixer.SetFloat(audioMixer.name, MinVolumeValue);
+
+        PlayerPrefs.SetInt($"{toggle.name}", toggle.isOn ? 1 : 0);
     }
 
-    public void ChangeVolume(AudioMixerGroup audioMixer, Toggle toggle, float volume)
+    public void ChangeVolume(AudioMixerGroup audioMixer, Toggle toggle, Slider slider)
     {
         if (toggle.isOn)
-            audioMixer.audioMixer.SetFloat(audioMixer.name, Mathf.Log10(volume) * Multiplier);
+            audioMixer.audioMixer.SetFloat(audioMixer.name, Mathf.Log10(slider.value) * Multiplier);
+
+        PlayerPrefs.SetFloat($"{slider.name}", slider.value);
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,9 +28,9 @@ public class ElementAbility : MonoBehaviour
         if (elements.Count >= _elementsAbilityCount)
         {
             if (elements[0].TryGetComponent(out WaterElement waterElement))
-                StartCoroutine(PeriodicEffect(elements.Count, _player));
+                StartCoroutine(PeriodicEffect(elements.Count + PlayerPrefs.GetInt(nameof(UpgradeDamage)), _player));
             else if (elements[0].TryGetComponent(out FireElement fireElement))
-                StartCoroutine(PeriodicEffect(elements.Count * _enemy.Resistance.GetPercentValue(fireElement), _enemy));
+                StartCoroutine(PeriodicEffect(elements.Count + PlayerPrefs.GetInt(nameof(UpgradeDamage)) * _enemy.Resistance.GetPercentValue(fireElement), _enemy));
         }
     }
 

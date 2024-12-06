@@ -6,6 +6,7 @@ public class ElementConnector : MonoBehaviour
 {
     private const float Distance = 1.5f;
     private const int MinSelectionCount = 1;
+    private const int MinDeselectionCount = 2;
 
     [SerializeField] private ElementConnectionLine _connectionLine;
     [SerializeField] private ElementAudioPlayer _audioPlayer;
@@ -27,9 +28,11 @@ public class ElementConnector : MonoBehaviour
 
     private void DeselectElements()
     {
+        bool hasRightCount = _selectedElements.Count > MinDeselectionCount;
+
         _audioPlayer.AudioSourceSelection.Stop();
 
-        if (_selectedElements.Count > MinSelectionCount)
+        if (hasRightCount)
         {
             _audioPlayer.PlayAttackSound(_selectedElements[0]);
             ElementsFilled?.Invoke(_selectedElements);
@@ -39,7 +42,7 @@ public class ElementConnector : MonoBehaviour
         {
             element.Animator.Shake(element, false);
 
-            if (_selectedElements.Count > MinSelectionCount)
+            if (hasRightCount)
             {
                 element.ProjectileLaunch();
                 Destroy(element.gameObject);

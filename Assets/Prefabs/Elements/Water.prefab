@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3273071346961766449}
   - component: {fileID: 6129392681747234821}
-  - component: {fileID: -7441269873103501729}
   - component: {fileID: -2388195454932897793}
+  - component: {fileID: -7441269873103501729}
   - component: {fileID: 8030629689499661243}
   m_Layer: 0
   m_Name: Water
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7441269873103501729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911192444600115781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7752e98f23944b43b4d0338ff3ab538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selectionSound: {fileID: 8300000, guid: 5417f51392a128d4eba4fdd0c2706970, type: 3}
-  _attackSound: {fileID: 8300000, guid: 1eb7cbaf61d23a64bbd36c0a38b5cb0c, type: 3}
-  _projectile: {fileID: 8662857414346265031, guid: b7a8cb552f1060746a08e7deb4be5267, type: 3}
-  _damage: 10
 --- !u!58 &-2388195454932897793
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,6 +122,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-7441269873103501729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911192444600115781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7752e98f23944b43b4d0338ff3ab538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectionSound: {fileID: 8300000, guid: 5417f51392a128d4eba4fdd0c2706970, type: 3}
+  _attackSound: {fileID: 8300000, guid: 1eb7cbaf61d23a64bbd36c0a38b5cb0c, type: 3}
+  _projectile: {fileID: 8662857414346265031, guid: b7a8cb552f1060746a08e7deb4be5267, type: 3}
+  _damage: 10
 --- !u!114 &8030629689499661243
 MonoBehaviour:
   m_ObjectHideFlags: 0

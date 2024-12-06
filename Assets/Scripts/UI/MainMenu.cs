@@ -1,17 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : MonoBehaviour, IMenu
 {
-    [SerializeField] private Button _playButton;
+    [SerializeField] private Transform _mainMenuPanel;
 
-    private void OnEnable() => 
-        _playButton.onClick.AddListener(Play);
+    public Transform MenuPanel => _mainMenuPanel;
 
-    private void OnDisable() => 
-        _playButton.onClick.RemoveListener(Play);
-
-    private void Play() => 
-        SceneManager.LoadScene("Game");
+    public void Open(Transform menuPanel)
+    {
+        _mainMenuPanel.gameObject.SetActive(false);
+        menuPanel.gameObject.SetActive(true);
+    }
 }

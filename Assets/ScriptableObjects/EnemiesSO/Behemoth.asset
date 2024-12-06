@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3001013567091656243, guid: f89b26022811b1b48a4d66b9d7ddcc4f, type: 3}
   _name: Behemoth
-  _healthValue: 80
+  _healthValue: 800
   _damageValue: 60
   _attackDelay: 5
-  _resistances: 0a0000000a000000d8ffffff14000000
+  _resistances: 00000000d8ffffff2800000014000000
+  _award: 8

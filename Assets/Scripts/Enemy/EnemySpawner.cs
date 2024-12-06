@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     private EnemyScriptableObject _enemyData;
     private int _enemyIndex = 0;
 
-    private void OnEnable() => 
+    private void OnEnable() =>
         _health.Dead += Spawn;
 
     private void OnDisable() =>
@@ -21,6 +21,9 @@ public class EnemySpawner : MonoBehaviour
     public void Spawn()
     {
         _enemy.EnemyRenderer.Clear();
+
+        if (_enemyIndex > 0)
+            _enemy.PayAward(_enemyData.Award);
 
         if (_enemies.Length > _enemyIndex)
         {
