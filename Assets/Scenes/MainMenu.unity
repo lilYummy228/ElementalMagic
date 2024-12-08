@@ -2788,7 +2788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05de9100c78e71e43b7a9d2d1f5ab285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 45
+  _price: 30
   _name: HealthUp
   _description: Increase your health value
   _cages:
@@ -2813,7 +2813,7 @@ RectTransform:
   m_Father: {fileID: 2108846795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4030,7 +4030,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7668,7 +7668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc0531f3e34ef84eb3045cdfab1ed0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 30
+  _price: 20
   _name: DamageUp
   _description: Increase element's damage
   _cages:

@@ -15,7 +15,7 @@ MonoBehaviour:
   _prefab: {fileID: 3001013567091656243, guid: f89b26022811b1b48a4d66b9d7ddcc4f, type: 3}
   _name: Behemoth
   _healthValue: 800
-  _damageValue: 60
+  _damageValue: 40
   _attackDelay: 5
   _resistances: 00000000320000003200000000000000
-  _award: 8
+  _award: 12

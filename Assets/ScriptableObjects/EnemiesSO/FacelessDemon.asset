@@ -15,7 +15,7 @@ MonoBehaviour:
   _prefab: {fileID: 7689405666764253596, guid: 4ed0ee7ee30109a46baf235d010bcd9d, type: 3}
   _name: Faceless Demon
   _healthValue: 500
-  _damageValue: 50
-  _attackDelay: 4
+  _damageValue: 30
+  _attackDelay: 2
   _resistances: 0000000000000000c4ffffff14000000
-  _award: 5
+  _award: 8
