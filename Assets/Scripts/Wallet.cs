@@ -18,9 +18,9 @@ public class Wallet : MonoBehaviour
 
     public void CheckTransaction(PowerUp powerUp)
     {
-        if (_count >= powerUp.Price)
+        if (_count >= powerUp.Price && powerUp.Cages[powerUp.Cages.Count - 1].isOn == false)
         {
-            SpendMoney(powerUp.Price);            
+            SpendMoney(powerUp.Price);
 
             powerUp.Upgrade();
         }

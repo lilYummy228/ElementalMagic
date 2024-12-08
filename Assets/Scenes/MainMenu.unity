@@ -1930,7 +1930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d980e1951ac16c44c9903354d24302e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 50
+  _price: 100
   _name: GridUp
   _description: Increase width and height of the grid
   _cages:
@@ -2788,7 +2788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05de9100c78e71e43b7a9d2d1f5ab285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 35
+  _price: 45
   _name: HealthUp
   _description: Increase your health value
   _cages:
@@ -7668,7 +7668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc0531f3e34ef84eb3045cdfab1ed0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 20
+  _price: 30
   _name: DamageUp
   _description: Increase element's damage
   _cages:

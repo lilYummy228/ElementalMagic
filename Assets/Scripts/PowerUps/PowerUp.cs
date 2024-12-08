@@ -12,6 +12,7 @@ public class PowerUp : MonoBehaviour
     protected int _cagesFilledCount;
     public string Description => _description;
     public int Price => _price;
+    public IReadOnlyList<Toggle> Cages => _cages;
 
     public void Upgrade()
     {
@@ -29,6 +30,6 @@ public class PowerUp : MonoBehaviour
     }
 
     [ContextMenu("Refresh upgrades")]
-    public void Refresh() => 
+    public void Refresh() =>
         _cagesFilledCount = 0;
 }
