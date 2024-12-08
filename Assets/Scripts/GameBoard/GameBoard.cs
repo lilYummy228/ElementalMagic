@@ -4,7 +4,7 @@ public class GameBoard : MonoBehaviour
 {
     [SerializeField] private Grid _grid;
     [SerializeField] private Camera _camera;
-    [SerializeField] private ElementGenerator _sphereGenerator;
+    [SerializeField] private ElementGenerator _elementGenerator;
     [SerializeField] private ElementConnector _elementConnector;
 
     private float _cameraPositionX, _cameraPositionY;
@@ -24,7 +24,10 @@ public class GameBoard : MonoBehaviour
         _grid.Create();
 
     public void FillBoard() => 
-        _sphereGenerator.Fill(_grid.Cells);
+        _elementGenerator.Fill(_grid.Cells);
+
+    public void RefreshBoard() => 
+        _grid.Clear();
 
     private void CameraToGrid()
     {

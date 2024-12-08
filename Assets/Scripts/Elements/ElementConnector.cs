@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ElementConnector : MonoBehaviour
 {
@@ -19,10 +20,10 @@ public class ElementConnector : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(Convert.ToInt32(MouseButton.LeftMouse)))
             SelectElements();
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(Convert.ToInt32(MouseButton.LeftMouse)))
             DeselectElements();
     }
 

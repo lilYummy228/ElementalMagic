@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private ElementConnector _elementConnector;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private Player _player;
+    [SerializeField] private Button _refreshButton;
     [SerializeField] private int _startGameCount = 3;
     [SerializeField] private string _startGameText = "GO!";
 
@@ -57,6 +59,7 @@ public class GameLogic : MonoBehaviour
 
     private void StartGame()
     {
+        _refreshButton.gameObject.SetActive(true);
         _elementConnector.gameObject.SetActive(true);
         _gameBoard.FillBoard();
         _enemySpawner.Spawn();

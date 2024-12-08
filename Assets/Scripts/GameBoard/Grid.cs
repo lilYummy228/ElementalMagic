@@ -30,4 +30,10 @@ public class Grid : MonoBehaviour
             }
         }
     }
+
+    public void Clear()
+    {
+        foreach (Cell cell in _cells)
+            Destroy(cell.Element.gameObject);
+    }
 }

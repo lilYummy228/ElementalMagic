@@ -8,7 +8,7 @@ public class ElementAbility : MonoBehaviour
     [SerializeField] private Enemy _enemy;
     [SerializeField] private ElementConnector _elementConnector;
     [SerializeField] private ElementAbilityEffector _elementEffect;
-    [SerializeField] private int _elementsAbilityCount = 5;
+    [SerializeField] private int _elementsAbilityCount = 6;
     [SerializeField] private int _tickRate;
     [SerializeField] private int _tickCount;
 

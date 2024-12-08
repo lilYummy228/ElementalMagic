@@ -7,8 +7,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private ElementConnector _elementConnector;
     [SerializeField] private VolumeSettings _volumeSettings;
     [SerializeField] private Transform _pauseMenuPanel;
-
-    public Transform MenuPanel => _pauseMenuPanel;
+    [SerializeField] private Button[] _buttons;
 
     private void Start() => 
         _volumeSettings.Setup();
@@ -17,6 +16,9 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0f;
 
+        foreach (Button button in _buttons)
+            button.gameObject.SetActive(false);
+
         _elementConnector.gameObject.SetActive(false);
         _pauseMenuPanel.gameObject.SetActive(true);
     }
@@ -24,6 +26,9 @@ public class PauseMenu : MonoBehaviour
     public void Unpause()
     {
         Time.timeScale = 1f;
+
+        foreach (Button button in _buttons)
+            button.gameObject.SetActive(true);
 
         _elementConnector.gameObject.SetActive(true);
         _pauseMenuPanel.gameObject.SetActive(false);
