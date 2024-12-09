@@ -28,6 +28,6 @@ public class EnemyResistance : MonoBehaviour
             if (element.GetType() == _elements[i].GetType())
                 return (Percent - _resistances[_elements[i]]) / Percent;
 
-        return 0;
+        return default;
     }
 }

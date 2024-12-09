@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
-  m_Name: FacelessDemon
+  m_Name: ScorchingGoat
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 7689405666764253596, guid: 4ed0ee7ee30109a46baf235d010bcd9d, type: 3}
-  _name: Faceless Demon
-  _healthValue: 500
-  _damageValue: 30
-  _attackDelay: 2
-  _award: 12
-  _fireResistance: -20
-  _waterResistance: 0
-  _earthResistance: 0
-  _windResistance: 20
+  _prefab: {fileID: 3359619208391242412, guid: 1adf853ae5634b4489907ed2de65c30a, type: 3}
+  _name: Scorching Goat
+  _healthValue: 1200
+  _damageValue: 50
+  _attackDelay: 5
+  _award: 50
+  _fireResistance: 100
+  _waterResistance: -100
+  _earthResistance: 50
+  _windResistance: -50

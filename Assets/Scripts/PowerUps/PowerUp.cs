@@ -41,7 +41,7 @@ public class PowerUp : MonoBehaviour
 
     [ContextMenu("Refresh upgrades")]
     public void Refresh() =>
-        _cagesFilledCount = 0;
+        _cagesFilledCount = default;
 
     private void ChangePrice()
     {
