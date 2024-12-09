@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     public void Hit(IReadOnlyList<Element> elements)
     {
         foreach (Element element in elements)
-            element.Projectile.Init(_enemy.EnemyRenderer.EnemyPosition);
+            element.Projectile.Init(_enemy.EnemyRenderer.EnemyTransform);
 
         _enemy.Health.TakeDamage(elements.Count * (elements[0].Damage + elements.Count) * _enemy.Resistance.GetPercentValue(elements[0]));
     }

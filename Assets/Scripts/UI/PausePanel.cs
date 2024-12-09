@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class PausePanel : MonoBehaviour
 {
     [SerializeField] private ElementConnector _elementConnector;
     [SerializeField] private VolumeSettings _volumeSettings;
@@ -34,9 +34,9 @@ public class PauseMenu : MonoBehaviour
         _pauseMenuPanel.gameObject.SetActive(false);
     }
 
-    public void LoadScene(int id)
+    public void LoadScene(int levelId)
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(id);
+        SceneManager.LoadScene(levelId);
     }
 }

@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +15,7 @@ public class EnemyRenderer : MonoBehaviour
     private Vector3 _cameraPosition;
     private float _sideSize;
 
-    public Transform EnemyPosition => transform;
+    public Transform EnemyTransform => transform;
 
     private void Awake()
     {

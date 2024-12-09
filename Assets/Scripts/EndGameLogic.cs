@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameLogic : MonoBehaviour
+public class EndGameLogic : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _startGameCounter;
     [SerializeField] private GameBoard _gameBoard;
@@ -15,10 +15,10 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private int _startGameCount = 3;
     [SerializeField] private string _startGameText = "GO!";
 
-    public event Action<bool> HasGameWinned;
-
     private WaitForSeconds _wait;
     private float _waitTime = 0.75f;
+
+    public event Action<bool> HasGameWinned;
 
     private void Awake() =>
         _wait = new WaitForSeconds(_waitTime);

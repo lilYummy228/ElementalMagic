@@ -22,6 +22,6 @@ public class EnemyScriptableObject : ScriptableObject
     public int HealthValue => _healthValue;
     public int DamageValue => _damageValue;
     public int AttackDelay => _attackDelay;
-    public IReadOnlyList<int> Resistances => new List<int>() { _fireResistance, _waterResistance, _earthResistance, _windResistance};
     public int Award => _award;
+    public IReadOnlyList<int> Resistances => new List<int>() { _fireResistance, _waterResistance, _earthResistance, _windResistance};
 }

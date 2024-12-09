@@ -18,7 +18,7 @@ public class ElementConnector : MonoBehaviour
     public event Action Popped;
     public event Action<IReadOnlyList<Element>> ElementsFilled;
 
-    public void Update()
+    private void Update()
     {
         if (Input.GetMouseButton(Convert.ToInt32(MouseButton.LeftMouse)))
             SelectElements();
@@ -29,11 +29,11 @@ public class ElementConnector : MonoBehaviour
 
     private void DeselectElements()
     {
-        bool hasRightCount = _selectedElements.Count > MinDeselectionCount;
+        bool hasRequiredCount = _selectedElements.Count > MinDeselectionCount;
 
         _audioPlayer.AudioSourceSelection.Stop();
 
-        if (hasRightCount)
+        if (hasRequiredCount)
         {
             _audioPlayer.PlayAttackSound(_selectedElements[0]);
             ElementsFilled?.Invoke(_selectedElements);
@@ -43,7 +43,7 @@ public class ElementConnector : MonoBehaviour
         {
             element.Animator.Shake(element, false);
 
-            if (hasRightCount)
+            if (hasRequiredCount)
             {
                 element.ProjectileLaunch();
                 Destroy(element.gameObject);

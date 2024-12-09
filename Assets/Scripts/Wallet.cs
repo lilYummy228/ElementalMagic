@@ -6,7 +6,6 @@ public class Wallet : MonoBehaviour
     [SerializeField] private int _count;
 
     public event Action<int> CountChanged;
-
     public int Count => _count;
 
     public void Add(int count)

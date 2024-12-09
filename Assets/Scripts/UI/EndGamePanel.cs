@@ -12,7 +12,7 @@ public class EndGamePanel : MonoBehaviour
     private const float MaxTextSize = 150f;
     private const float MinTextSize = 110f;
 
-    [SerializeField] private GameLogic _game;
+    [SerializeField] private EndGameLogic _game;
     [SerializeField] private Button _pauseButton;
     [SerializeField] private int _endGameDelay = 3;
 
@@ -65,6 +65,6 @@ public class EndGamePanel : MonoBehaviour
             yield return _waitDecrease;
         }
 
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 }
