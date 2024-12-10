@@ -10,11 +10,9 @@ public class PlayerHurtVisualization : MonoBehaviour
     [SerializeField] private SpriteRenderer _hurtOverlay;
     [SerializeField] private float _changeSpeed;
 
-    private WaitForFixedUpdate _waitForFixedUpdate;
     private float _currentHealthValue;
 
-    private void Awake() =>
-        _waitForFixedUpdate = new WaitForFixedUpdate();
+    public WaitForFixedUpdate WaitForFixedUpdate => new();
 
     private void OnEnable() =>
         _health.HealthValueChanged += StartBlink;
@@ -24,8 +22,8 @@ public class PlayerHurtVisualization : MonoBehaviour
 
     private void StartBlink()
     {
-        if (_health.CurrentHealthValue != _health.MaxHealthValue)
-            if (_health.CurrentHealthValue < _currentHealthValue)
+        if (Mathf.Round(_health.CurrentHealthValue) != Mathf.Round(_health.MaxHealthValue))
+            if (Mathf.Round(_health.CurrentHealthValue) < Mathf.Round(_currentHealthValue))
                 StartCoroutine(Blink(_hurtOverlay));
 
         _currentHealthValue = _health.CurrentHealthValue;
@@ -33,18 +31,18 @@ public class PlayerHurtVisualization : MonoBehaviour
 
     private IEnumerator Blink(SpriteRenderer overlay)
     {
-        while (overlay.color.a != FullAlpha)
+        while (Mathf.Round(overlay.color.a) != Mathf.Round(FullAlpha))
         {
             ChangeAlpha(FullAlpha, overlay);
 
-            yield return _waitForFixedUpdate;
+            yield return WaitForFixedUpdate;
         }
 
-        while (overlay.color.a != ZeroAlpha)
+        while (Mathf.Round(overlay.color.a) != Mathf.Round(ZeroAlpha))
         {
             ChangeAlpha(ZeroAlpha, overlay);
 
-            yield return _waitForFixedUpdate;
+            yield return WaitForFixedUpdate;
         }
     }
 

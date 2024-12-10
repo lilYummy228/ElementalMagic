@@ -7,7 +7,7 @@ public class SettingsMenu : MonoBehaviour, IMenu
 
     public Transform MenuPanel => _settingsMenuPanel;
 
-    private void Start() => 
+    private void Start() =>
         _volumeSettings.Setup();
 
     public void Open(Transform menuPanel)

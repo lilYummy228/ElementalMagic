@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class UpgradeHealth : PowerUp
 {
-    [SerializeField] private Health _health;
-
     private float _healthUpgradeValue = 250f;
 
     private void OnEnable()

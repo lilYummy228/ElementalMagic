@@ -12,9 +12,9 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private string _description;
     [SerializeField] protected List<Toggle> _cages;
 
-    public event Action Upgraded;
-
     protected int _cagesFilledCount;
+
+    public event Action Upgraded;
     public string Description => _description;
     public int Price => _price;
     public IReadOnlyList<Toggle> Cages => _cages;
@@ -32,6 +32,8 @@ public class PowerUp : MonoBehaviour
 
                 _cagesFilledCount++;
 
+                ChangePrice();
+
                 Upgraded?.Invoke();
 
                 break;
@@ -43,7 +45,7 @@ public class PowerUp : MonoBehaviour
     public void Refresh() =>
         _cagesFilledCount = default;
 
-    private void ChangePrice()
+    public void ChangePrice()
     {
         for (int i = 0; i < _cagesFilledCount; i++)
             _price *= Multiplier;

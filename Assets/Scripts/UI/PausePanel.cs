@@ -9,7 +9,7 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private Transform _pauseMenuPanel;
     [SerializeField] private Button[] _buttons;
 
-    private void Start() => 
+    private void Start() =>
         _volumeSettings.Setup();
 
     public void Pause()

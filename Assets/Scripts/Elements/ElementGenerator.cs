@@ -8,17 +8,14 @@ public class ElementGenerator : MonoBehaviour
     [SerializeField] private Element[] _elements;
     [SerializeField] private Transform _parent;
 
-    private WaitForFixedUpdate _waitForFixedUpdate;
-
-    private void Awake() =>
-        _waitForFixedUpdate = new WaitForFixedUpdate();
+    public WaitForFixedUpdate WaitForFixedUpdate => new();
 
     public void Fill(IReadOnlyList<Cell> cells) =>
         StartCoroutine(GenerateElements(cells));
 
     private IEnumerator GenerateElements(IReadOnlyList<Cell> cells)
     {
-        yield return _waitForFixedUpdate;
+        yield return WaitForFixedUpdate;
 
         foreach (Cell cell in cells)
             if (cell.Element == null)

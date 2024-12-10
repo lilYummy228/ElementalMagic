@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyResistanceDisplay : MonoBehaviour
 {
     [SerializeField] private EnemyResistance _resistance;
-
     [SerializeField] private List<TextMeshProUGUI> _list;
 
     private void OnEnable() => 

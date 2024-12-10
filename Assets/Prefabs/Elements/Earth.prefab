@@ -138,6 +138,7 @@ MonoBehaviour:
   _attackSound: {fileID: 8300000, guid: b7f8695cf65a4f24eb37544298821146, type: 3}
   _projectile: {fileID: 8662857414346265031, guid: b7a8cb552f1060746a08e7deb4be5267, type: 3}
   _damage: 10
+  _animator: {fileID: 6882448005442133529}
 --- !u!114 &6882448005442133529
 MonoBehaviour:
   m_ObjectHideFlags: 0

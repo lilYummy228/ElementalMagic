@@ -1,25 +1,20 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Health), typeof(EnemyRenderer), typeof(EnemyResistance))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private Player _player;
+    [SerializeField] private EnemyRenderer _renderer;
+    [SerializeField] private Health _health;
+    [SerializeField] private EnemyResistance _resistance;
 
     private WaitForSeconds _delay;
     private string _name;
     private int _damage;
 
-    public EnemyRenderer EnemyRenderer {  get; private set; }
-    public Health Health { get; private set; }
-    public EnemyResistance Resistance {  get; private set; }
-
-    private void Awake()
-    {
-        Health = GetComponent<Health>();
-        EnemyRenderer = GetComponent<EnemyRenderer>();
-        Resistance = GetComponent<EnemyResistance>();
-    }
+    public EnemyRenderer EnemyRenderer => _renderer;
+    public Health Health => _health;
+    public EnemyResistance Resistance => _resistance;
 
     private void Start() =>
         StartCoroutine(nameof(Hit));    

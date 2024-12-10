@@ -7,12 +7,11 @@ public class Grid : MonoBehaviour
     [SerializeField] private Cell _prefab;
 
     private List<Cell> _cells = new();
-    public Transform Transform { get; private set; }
+
+    public IReadOnlyList<Cell> Cells => _cells;
+    public Transform Transform => transform;
     public int Width => _width + PlayerPrefs.GetInt(nameof(UpgradeGrid));
     public int Height => _height + PlayerPrefs.GetInt(nameof(UpgradeGrid));
-    public IReadOnlyList<Cell> Cells => _cells;
-
-    private void Awake() => Transform = transform;
 
     public void Create()
     {

@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class UpgradeGrid : PowerUp
 {
-    [SerializeField] private Grid _grid;
-
     private int _upgradeGridValue = 1;
 
     private void OnEnable()

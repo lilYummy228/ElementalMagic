@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
 public class EndGamePanel : MonoBehaviour
 {
     private const string WinText = "You win!";
@@ -12,25 +11,18 @@ public class EndGamePanel : MonoBehaviour
     private const float MaxTextSize = 150f;
     private const float MinTextSize = 110f;
 
-    [SerializeField] private EndGameLogic _game;
+    [SerializeField] private GameLogic _game;
     [SerializeField] private Button _pauseButton;
     [SerializeField] private int _endGameDelay = 3;
+    [SerializeField] private TextMeshProUGUI _text;
 
-    private TextMeshProUGUI _text;
-    private WaitUntil _waitIncrease;
-    private WaitUntil _waitDecrease;
-    private WaitForSeconds _waitForSeconds;
     private float _waitTime = 0.2f;
     private float _animationStep = 50f;
     private bool _isWinned;
 
-    private void Awake()
-    {
-        _text = GetComponent<TextMeshProUGUI>();
-        _waitIncrease = new WaitUntil(() => (_text.fontSize += _animationStep * Time.deltaTime) >= MaxTextSize);
-        _waitDecrease = new WaitUntil(() => (_text.fontSize -= _animationStep * Time.deltaTime) <= MinTextSize);
-        _waitForSeconds = new WaitForSeconds(_waitTime);
-    }
+    public WaitUntil WaitIncrease => new(() => Mathf.Round(_text.fontSize += _animationStep * Time.deltaTime) >= Mathf.Round(MaxTextSize));
+    public WaitUntil WaitDecrease => new(() => Mathf.Round(_text.fontSize -= _animationStep * Time.deltaTime) <= Mathf.Round(MinTextSize));
+    public WaitForSeconds WaitForSeconds => new(_waitTime);
 
     private void OnEnable() =>
         _game.HasGameWinned += EndGame;
@@ -56,13 +48,13 @@ public class EndGamePanel : MonoBehaviour
 
         for (int i = 0; i < _endGameDelay; i++)
         {
-            yield return _waitForSeconds;
+            yield return WaitForSeconds;
 
-            yield return _waitIncrease;
+            yield return WaitIncrease;
 
-            yield return _waitForSeconds;
+            yield return WaitForSeconds;
 
-            yield return _waitDecrease;
+            yield return WaitDecrease;
         }
 
         SceneManager.LoadScene(0);

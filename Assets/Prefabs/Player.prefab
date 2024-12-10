@@ -49,6 +49,7 @@ MonoBehaviour:
   _enemy: {fileID: 0}
   _elementConnector: {fileID: 0}
   _wallet: {fileID: 6666968562836592883, guid: 3d843d76cb7e4e946979ab897ece00c7, type: 3}
+  _health: {fileID: 5525630428939181535}
 --- !u!114 &5525630428939181535
 MonoBehaviour:
   m_ObjectHideFlags: 0

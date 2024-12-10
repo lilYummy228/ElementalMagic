@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class UpgradeDamage : PowerUp
 {
-    [SerializeField] private List<Element> _elements;
-
     private int _upgradeDamageValue = 2;
 
     private void OnEnable()

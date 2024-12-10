@@ -1,18 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
     [SerializeField] private ElementConnector _elementConnector;
     [SerializeField] private Wallet _wallet;
+    [SerializeField] private Health _health;
 
     public Wallet Wallet => _wallet;
-    public Health Health { get; private set; }
-
-    private void Awake() =>
-        Health = GetComponent<Health>();
+    public Health Health => _health;
 
     private void OnEnable() =>
         _elementConnector.ElementsFilled += Hit;

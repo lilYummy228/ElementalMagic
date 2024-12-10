@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EndGameLogic : MonoBehaviour
+public class GameLogic : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _startGameCounter;
     [SerializeField] private GameBoard _gameBoard;
@@ -15,13 +15,10 @@ public class EndGameLogic : MonoBehaviour
     [SerializeField] private int _startGameCount = 3;
     [SerializeField] private string _startGameText = "GO!";
 
-    private WaitForSeconds _wait;
     private float _waitTime = 0.75f;
 
     public event Action<bool> HasGameWinned;
-
-    private void Awake() =>
-        _wait = new WaitForSeconds(_waitTime);
+    public WaitForSeconds Wait => new(_waitTime);
 
     private void OnDisable()
     {
@@ -45,12 +42,12 @@ public class EndGameLogic : MonoBehaviour
         {
             _startGameCounter.text = i.ToString();
 
-            yield return _wait;
+            yield return Wait;
         }
 
         _startGameCounter.text = _startGameText;
 
-        yield return _wait;
+        yield return Wait;
 
         _startGameCounter.text = null;
 

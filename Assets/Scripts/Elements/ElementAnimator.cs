@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Collections;
 using UnityEngine;
 
 public class ElementAnimator : MonoBehaviour
@@ -12,10 +11,8 @@ public class ElementAnimator : MonoBehaviour
     private bool _snapping = false;
     private bool _fadeOut = false;
     private Tweener _tween;
-    private WaitForFixedUpdate _waitForFixedUpdate;
 
-    private void Awake() => 
-        _waitForFixedUpdate = new WaitForFixedUpdate();
+    public WaitForFixedUpdate WaitForFixedUpdate => new();
 
     public void Shake(Element element, bool isSelected)
     {
