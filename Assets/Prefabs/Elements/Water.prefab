@@ -137,8 +137,9 @@ MonoBehaviour:
   _selectionSound: {fileID: 8300000, guid: 5417f51392a128d4eba4fdd0c2706970, type: 3}
   _attackSound: {fileID: 8300000, guid: 1eb7cbaf61d23a64bbd36c0a38b5cb0c, type: 3}
   _projectile: {fileID: 8662857414346265031, guid: b7a8cb552f1060746a08e7deb4be5267, type: 3}
-  _damage: 10
   _animator: {fileID: 8030629689499661243}
+  _powerUp: {fileID: 9204364773803709028, guid: 7ff2a1e2f5d55b14d9223ec05ab4c1c0, type: 3}
+  _damage: 10
 --- !u!114 &8030629689499661243
 MonoBehaviour:
   m_ObjectHideFlags: 0

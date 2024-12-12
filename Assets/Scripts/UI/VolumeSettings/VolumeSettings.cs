@@ -5,15 +5,15 @@ public class VolumeSettings : MonoBehaviour
     private const int MinVolumeValue = -80;
     private const int Multiplier = 20;
 
-    [SerializeField] private AudioSetup[] _audios;
+    [SerializeField] private AudioSaver[] _audios;
 
     public void Setup()
     {
-        foreach (AudioSetup audio in _audios)
+        foreach (AudioSaver audio in _audios)
             audio.Setup();
     }
 
-    public void SwitchToggle(AudioSetup audio)
+    public void SwitchToggle(AudioSaver audio)
     {
         if (audio.Toggle.isOn)
             audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
@@ -21,7 +21,7 @@ public class VolumeSettings : MonoBehaviour
             audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, MinVolumeValue);
     }
 
-    public void ChangeVolume(AudioSetup audio)
+    public void ChangeVolume(AudioSaver audio)
     {
         if (audio.Toggle.isOn)
             audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
@@ -29,7 +29,7 @@ public class VolumeSettings : MonoBehaviour
 
     private void OnDisable()
     {
-        foreach (AudioSetup audio in _audios)
+        foreach (AudioSaver audio in _audios)
             audio.Save();
     }
 }

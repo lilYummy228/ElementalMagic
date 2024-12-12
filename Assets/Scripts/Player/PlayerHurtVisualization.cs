@@ -11,8 +11,10 @@ public class PlayerHurtVisualization : MonoBehaviour
     [SerializeField] private float _changeSpeed;
 
     private float _currentHealthValue;
+    private WaitForFixedUpdate _waitForFixedUpdate;
 
-    public WaitForFixedUpdate WaitForFixedUpdate => new();
+    private void Awake() => 
+        _waitForFixedUpdate = new WaitForFixedUpdate();
 
     private void OnEnable() =>
         _health.HealthValueChanged += StartBlink;
@@ -35,14 +37,14 @@ public class PlayerHurtVisualization : MonoBehaviour
         {
             ChangeAlpha(FullAlpha, overlay);
 
-            yield return WaitForFixedUpdate;
+            yield return _waitForFixedUpdate;
         }
 
         while (Mathf.Round(overlay.color.a) != Mathf.Round(ZeroAlpha))
         {
             ChangeAlpha(ZeroAlpha, overlay);
 
-            yield return WaitForFixedUpdate;
+            yield return _waitForFixedUpdate;
         }
     }
 

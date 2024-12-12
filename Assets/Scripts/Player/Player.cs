@@ -7,18 +7,25 @@ public class Player : MonoBehaviour
     [SerializeField] private ElementConnector _elementConnector;
     [SerializeField] private Wallet _wallet;
     [SerializeField] private Health _health;
+    [SerializeField] private PowerUp _powerUp;
 
     public Wallet Wallet => _wallet;
-    public Health Health => _health;
+    public Health Health => _health;       
 
-    private void OnEnable() =>
+    private void OnEnable()
+    {
         _elementConnector.ElementsFilled += Hit;
+        _powerUp.Setup();
+    }
 
-    private void OnDisable() =>
+    private void OnDisable()
+    {
         _elementConnector.ElementsFilled -= Hit;
+        _powerUp.Save();
+    }
 
     private void Start() => 
-        Health.SetHealth(Health.CurrentHealthValue + PlayerPrefs.GetFloat(nameof(UpgradeHealth)));
+        Health.SetHealth(Health.CurrentHealthValue + _powerUp.FilledCages * _powerUp.UpgradeValue);
 
     public void Hit(IReadOnlyList<Element> elements)
     {

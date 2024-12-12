@@ -5,13 +5,20 @@ public class Grid : MonoBehaviour
 {
     [SerializeField] private int _width = 5, _height = 5;
     [SerializeField] private Cell _prefab;
+    [SerializeField] private PowerUp _powerUp;
 
     private List<Cell> _cells = new();
 
     public IReadOnlyList<Cell> Cells => _cells;
     public Transform Transform => transform;
-    public int Width => _width + PlayerPrefs.GetInt(nameof(UpgradeGrid));
-    public int Height => _height + PlayerPrefs.GetInt(nameof(UpgradeGrid));
+    public int Width => _width + _powerUp.UpgradeValue * _powerUp.FilledCages;
+    public int Height => _height + _powerUp.UpgradeValue * _powerUp.FilledCages;
+
+    private void OnEnable() => 
+        _powerUp.Setup();
+
+    private void OnDisable() => 
+        _powerUp.Save();
 
     public void Create()
     {
@@ -19,7 +26,7 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < Height; y++)
             {
-                Vector3Int coordinate = new Vector3Int(x, y);
+                Vector3Int coordinate = new(x, y);
 
                 Cell spawnedCell = Instantiate(_prefab, coordinate, Quaternion.identity, Transform);
 

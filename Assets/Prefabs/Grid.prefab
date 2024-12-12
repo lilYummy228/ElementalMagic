@@ -47,3 +47,4 @@ MonoBehaviour:
   _width: 5
   _height: 5
   _prefab: {fileID: 8095475227140498112, guid: c4fbd8b3adb0c7c4aa824828386b398e, type: 3}
+  _powerUp: {fileID: 5250667485213846036, guid: 67f995be551ded94e926b984725a2bc8, type: 3}

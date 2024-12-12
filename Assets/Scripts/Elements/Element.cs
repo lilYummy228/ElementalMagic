@@ -6,18 +6,26 @@ public class Element : MonoBehaviour
     [SerializeField] private AudioClip _selectionSound;
     [SerializeField] private AudioClip _attackSound;
     [SerializeField] private ElementProjectile _projectile;
-    [SerializeField] private float _damage;
     [SerializeField] private ElementAnimator _animator;
+    [SerializeField] private PowerUp _powerUp;
+    [SerializeField] private float _damage;
 
     public AudioClip SelectionSound => _selectionSound;
     public AudioClip AttackSound => _attackSound;
     public ElementProjectile Projectile => _projectile;
     public ElementAnimator Animator => _animator;
-    public float Damage => _damage + PlayerPrefs.GetFloat(nameof(UpgradeDamage));
+    public float Damage => _damage + _powerUp.UpgradeValue * _powerUp.FilledCages;
     public Vector3 InitialPosition => transform.position;
 
-    private void OnEnable() => 
+    private void OnEnable()
+    {
+        _powerUp.Setup();
+
         Animator.PopUp(transform);
+    }
+
+    private void OnDisable() => 
+        _powerUp.Save();
 
     public void ProjectileLaunch()
     {

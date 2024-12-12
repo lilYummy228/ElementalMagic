@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class AudioSetup : MonoBehaviour
+public class AudioSaver : MonoBehaviour
 {
     [SerializeField] private AudioMixerGroup _audioMixerGroup;
     [SerializeField] private Slider _slider;

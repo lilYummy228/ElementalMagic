@@ -25,9 +25,9 @@ public class ElementAbility : MonoBehaviour
         if (elements.Count >= _elementsAbilityCount)
         {
             if (elements[0].TryGetComponent(out WaterElement waterElement))
-                StartCoroutine(PeriodicEffect(elements.Count + PlayerPrefs.GetInt(nameof(UpgradeDamage)), _player));
+                StartCoroutine(PeriodicEffect(elements[0].Damage + elements.Count, _player));
             else if (elements[0].TryGetComponent(out FireElement fireElement))
-                StartCoroutine(PeriodicEffect(elements.Count + PlayerPrefs.GetInt(nameof(UpgradeDamage)) * _enemy.Resistance.GetPercentValue(fireElement), _enemy));
+                StartCoroutine(PeriodicEffect(elements[0].Damage + elements.Count * _enemy.Resistance.GetPercentValue(fireElement), _enemy));
         }
     }
 
@@ -53,7 +53,7 @@ public class ElementAbility : MonoBehaviour
 
                 if (_enemy.Health.CurrentHealthValue < 0)
                     break;
-                
+
                 particle = _elementEffect.FireEffect;
                 _elementEffect.PlayEffect(particle);
             }
