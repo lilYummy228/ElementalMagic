@@ -8,13 +8,14 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private VolumeSettings _volumeSettings;
     [SerializeField] private Transform _pauseMenuPanel;
     [SerializeField] private Button[] _buttons;
+    [SerializeField] private TimeManager _timeManager;
 
     private void Start() =>
         _volumeSettings.Setup();
 
     public void Pause()
     {
-        Time.timeScale = 0f;
+        _timeManager.Stop();
 
         foreach (Button button in _buttons)
             button.gameObject.SetActive(false);
@@ -25,7 +26,7 @@ public class PausePanel : MonoBehaviour
 
     public void Unpause()
     {
-        Time.timeScale = 1f;
+        _timeManager.Start();
 
         foreach (Button button in _buttons)
             button.gameObject.SetActive(true);

@@ -19,10 +19,16 @@ public class EndGamePanel : MonoBehaviour
     private float _waitTime = 0.2f;
     private float _animationStep = 50f;
     private bool _isWinned;
+    private WaitUntil _waitIncrease;
+    private WaitUntil _waitDecrease;
+    private WaitForSeconds _waitForSeconds;
 
-    public WaitUntil WaitIncrease => new(() => Mathf.Round(_text.fontSize += _animationStep * Time.deltaTime) >= Mathf.Round(MaxTextSize));
-    public WaitUntil WaitDecrease => new(() => Mathf.Round(_text.fontSize -= _animationStep * Time.deltaTime) <= Mathf.Round(MinTextSize));
-    public WaitForSeconds WaitForSeconds => new(_waitTime);
+    private void Awake()
+    {
+        _waitIncrease = new(() => Mathf.Round(_text.fontSize += _animationStep * Time.deltaTime) >= Mathf.Round(MaxTextSize));
+        _waitDecrease = new(() => Mathf.Round(_text.fontSize -= _animationStep * Time.deltaTime) <= Mathf.Round(MinTextSize));
+        _waitForSeconds = new(_waitTime);
+    }
 
     private void OnEnable() =>
         _game.HasGameWinned += EndGame;
@@ -48,13 +54,13 @@ public class EndGamePanel : MonoBehaviour
 
         for (int i = 0; i < _endGameDelay; i++)
         {
-            yield return WaitForSeconds;
+            yield return _waitForSeconds;
 
-            yield return WaitIncrease;
+            yield return _waitIncrease;
 
-            yield return WaitForSeconds;
+            yield return _waitForSeconds;
 
-            yield return WaitDecrease;
+            yield return _waitDecrease;
         }
 
         SceneManager.LoadScene(0);

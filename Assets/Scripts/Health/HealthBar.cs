@@ -11,7 +11,10 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private float _affectSpeed = 45;
     [SerializeField] private Slider _slider;
 
-    public WaitForFixedUpdate WaitForFixedUpdate => new();
+    public WaitForFixedUpdate _waitForFixedUpdate;
+
+    private void Awake() => 
+        _waitForFixedUpdate = new();
 
     private void OnEnable() =>
         _health.HealthValueChanged += RefreshHealthValue;
@@ -31,7 +34,7 @@ public class HealthBar : MonoBehaviour
             _slider.value = Mathf.MoveTowards(_slider.value, _health.CurrentHealthValue, _affectSpeed * Time.deltaTime);
             _valueText.text = $"{_slider.value}/{_health.MaxHealthValue}";
 
-            yield return WaitForFixedUpdate;
+            yield return _waitForFixedUpdate;
         }
     }
 

@@ -11,8 +11,10 @@ public class ElementAnimator : MonoBehaviour
     private bool _snapping = false;
     private bool _fadeOut = false;
     private Tweener _tween;
+    private WaitForFixedUpdate _waitForFixedUpdate;
 
-    public WaitForFixedUpdate WaitForFixedUpdate => new();
+    private void Awake() => 
+        _waitForFixedUpdate = new();
 
     public void Shake(Element element, bool isSelected)
     {

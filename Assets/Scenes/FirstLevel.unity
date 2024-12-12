@@ -1188,6 +1188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 253861052}
   - component: {fileID: 253861053}
+  - component: {fileID: 253861054}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1229,6 +1230,19 @@ MonoBehaviour:
   _buttons:
   - {fileID: 2088962177}
   - {fileID: 1847346045}
+  _timeManager: {fileID: 253861054}
+--- !u!114 &253861054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253861051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7f7acecb8d31641b120ffb14fe0871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &292723851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,7 +1333,7 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 546908272}
-          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: AudioSaver, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1697,7 +1711,7 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1663488058}
-          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: AudioSaver, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2264,7 +2278,7 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1663488058}
-          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: AudioSaver, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6420,7 +6434,7 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 546908272}
-          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: AudioSaver, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

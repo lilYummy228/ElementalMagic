@@ -13,13 +13,12 @@ public class EnemyRenderer : MonoBehaviour
 
     private Transform _enemy;
 
-    public Vector3 CameraPosition => new Vector3(_camera.transform.position.x, _camera.transform.position.y, 0);
+    public Vector3 CameraPosition => new(_camera.transform.position.x, _camera.transform.position.y, 0);
     public float SideSize => _camera.orthographicSize / CameraSize;
-
     public Transform EnemyTransform => transform;
 
     private void Awake() => 
-        transform.position = CameraPosition + Vector3.up * Offset * SideSize;
+        transform.position = CameraPosition + Offset * SideSize * Vector3.up;
 
     public void DrawEnemy(Transform prefab, string name)
     {

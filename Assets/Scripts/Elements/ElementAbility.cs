@@ -12,7 +12,10 @@ public class ElementAbility : MonoBehaviour
     [SerializeField] private int _tickRate;
     [SerializeField] private int _tickCount;
 
-    public WaitForSeconds Tick => new(_tickRate);
+    private WaitForSeconds _tick;
+
+    private void Awake() => 
+        _tick = new(_tickRate);
 
     private void OnEnable() =>
         _elementConnector.ElementsFilled += Effect;
@@ -58,7 +61,7 @@ public class ElementAbility : MonoBehaviour
                 _elementEffect.PlayEffect(particle);
             }
 
-            yield return Tick;
+            yield return _tick;
         }
 
         particle?.Stop();

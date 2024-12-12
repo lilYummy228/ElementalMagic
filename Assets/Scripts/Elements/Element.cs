@@ -14,8 +14,8 @@ public class Element : MonoBehaviour
     public AudioClip AttackSound => _attackSound;
     public ElementProjectile Projectile => _projectile;
     public ElementAnimator Animator => _animator;
-    public float Damage => _damage + _powerUp.UpgradeValue * _powerUp.FilledCages;
     public Vector3 InitialPosition => transform.position;
+    public float Damage => _damage + _powerUp.UpgradeValue * _powerUp.FilledCages;
 
     private void OnEnable()
     {
