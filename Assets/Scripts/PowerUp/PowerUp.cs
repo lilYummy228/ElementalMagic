@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class PowerUp : MonoBehaviour
 {
     [SerializeField] private int _price;
-    [SerializeField] private string _description;
     [SerializeField] private int _upgradeValue;
     [SerializeField] private string _fileName;
     [SerializeField] private List<Toggle> _cages;
@@ -15,21 +14,20 @@ public class PowerUp : MonoBehaviour
     private SaveData _saveData = new();
     private string _path;
 
-    public event Action Upgraded;
-    public string Description => _description;
+    public event Action<int> Upgraded;
     public int Price => _price;
     public int UpgradeValue => _upgradeValue;
     public int FilledCages { get; private set; }
     public IReadOnlyList<Toggle> Cages => _cages;
-    
-    private void OnEnable() => 
-        Setup();
-
-    private void OnDisable() => 
-        Save();
 
     private void Start() =>
-        ChangePrice();
+        Upgraded?.Invoke(_price + _price * FilledCages);
+
+    private void OnEnable() =>
+        Setup();
+
+    private void OnDisable() =>
+        Save();
 
     public void Setup()
     {
@@ -61,18 +59,10 @@ public class PowerUp : MonoBehaviour
 
                 FilledCages++;
 
-                ChangePrice();
-
-                Upgraded?.Invoke();
+                Upgraded?.Invoke(_price + _price * FilledCages);
 
                 break;
             }
         }
     }
-
-    public void ChangePrice()
-    {
-        for (int i = 0; i < FilledCages; i++)
-            _price += _price;
-    }    
 }

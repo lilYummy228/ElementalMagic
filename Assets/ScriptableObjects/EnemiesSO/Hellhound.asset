@@ -17,7 +17,7 @@ MonoBehaviour:
   _healthValue: 700
   _damageValue: 20
   _attackDelay: 2
-  _award: 24
+  _award: 18
   _fireResistance: 30
   _waterResistance: -50
   _earthResistance: 0

@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
     public void Setup(int damage, int attackDelay, int healthValue)
     {
-        _delay = new WaitForSeconds(attackDelay);
+        _delay = new(attackDelay);
         _damage = damage;
 
         Health.SetHealth(healthValue);
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     }
 
     public void PayAward(int award) => 
-        _player.Wallet.Add(award);
+        _player.Wallet.AddCoins(award);
 
     private IEnumerator Hit()
     {

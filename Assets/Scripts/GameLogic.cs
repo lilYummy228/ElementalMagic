@@ -14,17 +14,12 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Button _refreshButton;
     [SerializeField] private int _startGameCount = 3;
     [SerializeField] private string _startGameText = "GO!";
+    [SerializeField] private AdsProvider _adsProvider;
 
-    private float _waitTime = 0.75f;
+    private float _waitTime = 0.5f;
 
     public event Action<bool> HasGameWinned;
     public WaitForSeconds Wait => new(_waitTime);
-
-    private void OnDisable()
-    {
-        _enemySpawner.AllEnemiesDied -= WinGame;
-        _player.Health.Dead -= LoseGame;
-    }
 
     private void Start()
     {
@@ -32,6 +27,12 @@ public class GameLogic : MonoBehaviour
         _enemySpawner.AllEnemiesDied += WinGame;
 
         StartCoroutine(nameof(CountDown));
+    }
+
+    private void OnDisable()
+    {
+        _enemySpawner.AllEnemiesDied -= WinGame;
+        _player.Health.Dead -= LoseGame;
     }
 
     private IEnumerator CountDown()
@@ -74,6 +75,9 @@ public class GameLogic : MonoBehaviour
         HasGameWinned?.Invoke(true);
     }
 
-    private void EndGame() =>
+    private void EndGame()
+    {
         _elementConnector.gameObject.SetActive(false);
+        _adsProvider.ShowInterstitialAd();
+    }
 }

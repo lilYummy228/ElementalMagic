@@ -16,6 +16,6 @@ public class EnemyResistanceDisplay : MonoBehaviour
     private void Show(IReadOnlyList<Element> elements, IReadOnlyList<int> values)
     {
         for (int i = 0; i < _list.Count; i++)           
-            _list[i].text = $"{elements[i].name}: {values[i]}";
+            _list[i].text = $"{values[i]}";
     }
 }

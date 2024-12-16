@@ -8,7 +8,7 @@ public class Wallet : MonoBehaviour
     public event Action<int> CountChanged;
     public int Count => _count;
 
-    public void Add(int count)
+    public void AddCoins(int count)
     {
         _count += count;
 
@@ -17,9 +17,9 @@ public class Wallet : MonoBehaviour
 
     public void CheckTransaction(PowerUp powerUp)
     {
-        if (_count >= powerUp.Price && powerUp.Cages[powerUp.Cages.Count - 1].isOn == false)
+        if (_count >= powerUp.Price + powerUp.Price * powerUp.FilledCages && powerUp.Cages[powerUp.Cages.Count - 1].isOn == false)
         {
-            SpendMoney(powerUp.Price);
+            SpendMoney(powerUp.Price + powerUp.Price * powerUp.FilledCages);
 
             powerUp.Upgrade();
         }
