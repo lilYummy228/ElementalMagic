@@ -15,8 +15,8 @@ MonoBehaviour:
   _prefab: {fileID: 862435187155873353, guid: e2fef04fa095da74cadf91530c0d28ec, type: 3}
   _name: Hellhound
   _healthValue: 700
-  _damageValue: 20
-  _attackDelay: 2
+  _damageValue: 50
+  _attackDelay: 4
   _award: 18
   _fireResistance: 30
   _waterResistance: -50

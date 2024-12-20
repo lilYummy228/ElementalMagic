@@ -6,9 +6,9 @@ public class ShopMenu : MonoBehaviour, IMenu
 
     public Transform MenuPanel => _shopMenuPanel;
 
-    public void Open(Transform menuPanel)
+    public void Open(Transform panel)
     {
         _shopMenuPanel.gameObject.SetActive(false);
-        menuPanel.gameObject.SetActive(true);        
+        panel.gameObject.SetActive(true);        
     }    
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Undead Warrior
   _healthValue: 250
   _damageValue: 25
-  _attackDelay: 3
+  _attackDelay: 5
   _award: 6
   _fireResistance: -50
   _waterResistance: 0

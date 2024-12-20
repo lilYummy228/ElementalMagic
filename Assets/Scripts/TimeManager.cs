@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    public void Stop() => 
+    public void Pause() => 
         Time.timeScale = 0f;
 
-    public void Start() => 
+    public void Unpause() => 
         Time.timeScale = 1f;
 }

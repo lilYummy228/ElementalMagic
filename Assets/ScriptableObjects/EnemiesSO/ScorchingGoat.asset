@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Scorching Goat
   _healthValue: 1200
   _damageValue: 50
-  _attackDelay: 5
+  _attackDelay: 4
   _award: 40
   _fireResistance: 100
   _waterResistance: -100

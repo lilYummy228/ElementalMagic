@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Faceless Demon
   _healthValue: 500
   _damageValue: 30
-  _attackDelay: 2
+  _attackDelay: 5
   _award: 10
   _fireResistance: -20
   _waterResistance: 0

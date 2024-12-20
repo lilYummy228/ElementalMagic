@@ -25,7 +25,7 @@ public class AudioSaver : MonoBehaviour
             _saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_path));
 
         _slider.value = _saveData.value;
-        _toggle.isOn = _saveData.flag;
+        _toggle.isOn = _saveData.flag;        
     }
 
     public void Save()

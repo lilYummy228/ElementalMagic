@@ -10,7 +10,11 @@ public class VolumeSettings : MonoBehaviour
     public void Setup()
     {
         foreach (AudioSaver audio in _audios)
+        {
             audio.Setup();
+
+            SwitchToggle(audio);
+        }
     }
 
     public void SwitchToggle(AudioSaver audio)

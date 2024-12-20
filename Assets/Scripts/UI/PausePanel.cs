@@ -15,7 +15,7 @@ public class PausePanel : MonoBehaviour
 
     public void Pause()
     {
-        _timeManager.Stop();
+        _timeManager.Pause();
 
         foreach (Button button in _buttons)
             button.gameObject.SetActive(false);
@@ -26,7 +26,7 @@ public class PausePanel : MonoBehaviour
 
     public void Unpause()
     {
-        _timeManager.Start();
+        _timeManager.Unpause();
 
         foreach (Button button in _buttons)
             button.gameObject.SetActive(true);
