@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Behemoth
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3001013567091656243, guid: f89b26022811b1b48a4d66b9d7ddcc4f, type: 3}
-  _name: Behemoth
-  _healthValue: 800
-  _damageValue: 40
-  _attackDelay: 5
-  _award: 14
+  _healthValue: 0
+  _damageValue: 0
+  _attackDelay: 0
+  _award: 0
+  _russianName: 
+  _englishName: 
+  _turkishName: 
   _fireResistance: 0
   _waterResistance: 0
-  _earthResistance: 30
+  _earthResistance: 0
   _windResistance: 0

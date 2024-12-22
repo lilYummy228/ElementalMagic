@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Urmica
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3087474349754483846, guid: 9bf0bed7850d08644887d4357360aa5f, type: 3}
-  _name: Urmica
   _healthValue: 1000
   _damageValue: 50
-  _attackDelay: 6
+  _attackDelay: 5
   _award: 40
+  _russianName: "\u0423\u0440\u043C\u0438\u043A\u0430"
+  _englishName: Urmica
+  _turkishName: "Urmica'n\u0131n"
   _fireResistance: -20
   _waterResistance: 100
   _earthResistance: -20

@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: FacelessDemon
   m_EditorClassIdentifier: 
   _prefab: {fileID: 7689405666764253596, guid: 4ed0ee7ee30109a46baf235d010bcd9d, type: 3}
-  _name: Faceless Demon
   _healthValue: 625
   _damageValue: 30
-  _attackDelay: 6
+  _attackDelay: 4
   _award: 28
+  _russianName: "\u0411\u0435\u0437\u043B\u0438\u043A\u0438\u0439 \u0414\u0435\u043C\u043E\u043D"
+  _englishName: Faceless Demon
+  _turkishName: "Me\xE7hul \u015Eeytan"
   _fireResistance: 20
   _waterResistance: 0
   _earthResistance: 0

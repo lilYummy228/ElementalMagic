@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: AntQueen
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6910696954894303851, guid: 521a472fdc349fc4b9fee6295eeb36e3, type: 3}
-  _name: Ant Queen
   _healthValue: 500
   _damageValue: 30
-  _attackDelay: 7
+  _attackDelay: 5
   _award: 21
+  _russianName: "\u041A\u043E\u0440\u043E\u043B\u0435\u0432\u0430 \u041C\u0443\u0440\u0430\u0432\u044C\u0435\u0432"
+  _englishName: Ant Queen
+  _turkishName: "Kar\u0131ncalar\u0131n Krali\xE7esi"
   _fireResistance: -20
   _waterResistance: -20
   _earthResistance: 0

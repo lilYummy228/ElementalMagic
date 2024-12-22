@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Shaccad'Yoggoth
   m_EditorClassIdentifier: 
   _prefab: {fileID: 5190339930273834781, guid: f4384fdd53b6beb4fbea31ba8a7a9fea, type: 3}
-  _name: Shaccad'Yoggoth
   _healthValue: 1666
   _damageValue: 50
-  _attackDelay: 8
+  _attackDelay: 5
   _award: 56
+  _russianName: "\u0428\u0430\u043A\u043A\u0430\u0434'\u0419\u043E\u0433\u0433\u043E\u0442"
+  _englishName: Shaccad'Yoggoth
+  _turkishName: Shaccad'Yoggoth'un
   _fireResistance: 0
   _waterResistance: 75
   _earthResistance: 75

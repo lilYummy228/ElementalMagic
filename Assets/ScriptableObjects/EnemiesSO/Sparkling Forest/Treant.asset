@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Treant
   m_EditorClassIdentifier: 
   _prefab: {fileID: 5197948466493061149, guid: 5a4ecdde295d8044483273847028fe09, type: 3}
-  _name: Treant
   _healthValue: 500
   _damageValue: 25
   _attackDelay: 5
   _award: 10
+  _russianName: "\u0414\u0440\u0435\u0432\u0435\u043D\u044C"
+  _englishName: Treant
+  _turkishName: "Eskimi\u015F"
   _fireResistance: -80
   _waterResistance: 40
   _earthResistance: 0

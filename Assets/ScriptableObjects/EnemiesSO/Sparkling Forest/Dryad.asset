@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Dryad
   m_EditorClassIdentifier: 
   _prefab: {fileID: 4984697355444423229, guid: 3084733707dc56f46a523bc8ce5c9e0a, type: 3}
-  _name: Dryad Warrior
   _healthValue: 500
   _damageValue: 25
   _attackDelay: 4
   _award: 18
+  _russianName: "\u0414\u0440\u0438\u0430\u0434\u0430"
+  _englishName: Dryad
+  _turkishName: Dryad
   _fireResistance: -50
   _waterResistance: 25
   _earthResistance: 25
