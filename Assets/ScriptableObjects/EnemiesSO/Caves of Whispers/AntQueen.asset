@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
-  m_Name: FacelessDemon
+  m_Name: AntQueen
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 7689405666764253596, guid: 4ed0ee7ee30109a46baf235d010bcd9d, type: 3}
-  _name: Faceless Demon
+  _prefab: {fileID: 6910696954894303851, guid: 521a472fdc349fc4b9fee6295eeb36e3, type: 3}
+  _name: Ant Queen
   _healthValue: 500
   _damageValue: 30
-  _attackDelay: 5
-  _award: 10
+  _attackDelay: 7
+  _award: 21
   _fireResistance: -20
-  _waterResistance: 0
+  _waterResistance: -20
   _earthResistance: 0
-  _windResistance: 20
+  _windResistance: 0

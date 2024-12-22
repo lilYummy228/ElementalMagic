@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CavesOfWhispers.unity
     guid: 33225828ac3b1594b826fbc0055a02ad
+  - enabled: 1
+    path: Assets/Scenes/UnderseaTemple.unity
+    guid: 52b3285753cb334439e23aca40431e97
   m_configObjects: {}

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
-  m_Name: UndeadWarrior
+  m_Name: CrabKing
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 441743125196853991, guid: e2f9a887821d2e34a8142b71702a9aa4, type: 3}
-  _name: Undead Warrior
-  _healthValue: 500
-  _damageValue: 30
-  _attackDelay: 7
-  _award: 21
+  _prefab: {fileID: 6922240546522515322, guid: 93fc2c9d4cbf7e741a3aa510c811fe22, type: 3}
+  _name: Crab King
+  _healthValue: 800
+  _damageValue: 35
+  _attackDelay: 5
+  _award: 30
   _fireResistance: -20
-  _waterResistance: -20
-  _earthResistance: -20
-  _windResistance: -20
+  _waterResistance: 80
+  _earthResistance: 0
+  _windResistance: -40

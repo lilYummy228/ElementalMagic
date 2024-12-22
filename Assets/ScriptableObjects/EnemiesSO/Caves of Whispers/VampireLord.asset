@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
-  m_Name: UndeadWarrior
+  m_Name: VampireLord
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 441743125196853991, guid: e2f9a887821d2e34a8142b71702a9aa4, type: 3}
-  _name: Undead Warrior
-  _healthValue: 500
-  _damageValue: 30
-  _attackDelay: 7
-  _award: 21
-  _fireResistance: -20
-  _waterResistance: -20
-  _earthResistance: -20
-  _windResistance: -20
+  _prefab: {fileID: 7450407386819202014, guid: 3822a40e8d6fbfd438e8e886089daf26, type: 3}
+  _name: Vampire Lord
+  _healthValue: 1000
+  _damageValue: 35
+  _attackDelay: 5
+  _award: 42
+  _fireResistance: 30
+  _waterResistance: 0
+  _earthResistance: 50
+  _windResistance: -30

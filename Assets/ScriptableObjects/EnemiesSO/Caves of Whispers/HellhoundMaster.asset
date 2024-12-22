@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
-  m_Name: UndeadWarrior
+  m_Name: HellhoundMaster
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 441743125196853991, guid: e2f9a887821d2e34a8142b71702a9aa4, type: 3}
-  _name: Undead Warrior
-  _healthValue: 500
-  _damageValue: 30
-  _attackDelay: 7
-  _award: 21
-  _fireResistance: -20
-  _waterResistance: -20
-  _earthResistance: -20
-  _windResistance: -20
+  _prefab: {fileID: 9022519376908090144, guid: 541bfa399534eed4c9ba8f8160dd0c24, type: 3}
+  _name: Hellhound Master
+  _healthValue: 750
+  _damageValue: 25
+  _attackDelay: 5
+  _award: 35
+  _fireResistance: -25
+  _waterResistance: 25
+  _earthResistance: 50
+  _windResistance: 0

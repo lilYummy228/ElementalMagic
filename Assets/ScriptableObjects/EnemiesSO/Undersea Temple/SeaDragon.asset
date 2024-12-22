@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
-  m_Name: UndeadWarrior
+  m_Name: SeaDragon
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 441743125196853991, guid: e2f9a887821d2e34a8142b71702a9aa4, type: 3}
-  _name: Undead Warrior
-  _healthValue: 500
-  _damageValue: 30
-  _attackDelay: 7
-  _award: 21
-  _fireResistance: -20
-  _waterResistance: -20
-  _earthResistance: -20
-  _windResistance: -20
+  _prefab: {fileID: 3730947000633416663, guid: db1fca1f9fcf11f43add1918956b2f3b, type: 3}
+  _name: Sea Dragon
+  _healthValue: 1100
+  _damageValue: 40
+  _attackDelay: 4
+  _award: 50
+  _fireResistance: 0
+  _waterResistance: 100
+  _earthResistance: 0
+  _windResistance: -30
