@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: Poseidon
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 7481527822539011191, guid: a328810c6edaa4c4eb762bc76f88e840, type: 3}
+  _healthValue: 2000
+  _damageValue: 60
+  _attackDelay: 4
+  _award: 80
+  _russianName: "\u041F\u043E\u0441\u0435\u0439\u0434\u043E\u043D"
+  _englishName: Poseidon
+  _turkishName: Poseidon'un
+  _fireResistance: 25
+  _waterResistance: 150
+  _earthResistance: 0
+  _windResistance: -50
