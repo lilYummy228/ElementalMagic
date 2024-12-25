@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,48 +8,31 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private int _price;
     [SerializeField] private int _upgradeValue;
     [SerializeField] private List<Toggle> _cages;
-    [SerializeField] private string _fileName;
-
-    private SaveData _saveData = new();
-    private string _path;
 
     public event Action<string> Upgraded;
     public int Price => _price;
     public int UpgradeValue => _upgradeValue;
-    public int FilledCages { get; private set; }
+    public int PowerUpsCount { get; private set; }
     public IReadOnlyList<Toggle> Cages => _cages;
 
-    private void Start() =>
-        Upgraded?.Invoke((_price + _price * FilledCages).ToString());
+    private void Start()
+    {
+        Setup();
 
-    private void OnEnable() =>
-        Load();
+        Upgraded?.Invoke((_price + _price * PowerUpsCount).ToString());
+    }
 
-    private void OnDisable() =>
-        Save();
-
-    public void Load()
+    public void Setup()
     {      
         foreach (Toggle toggle in _cages)
             toggle.isOn = false;
 
-        _path = Path.Combine(Application.dataPath, _fileName);
-
-        if (File.Exists(_path))
-            _saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_path));
-
-        FilledCages = (int)_saveData.value;
-
-        for (int i = 0; i < FilledCages; i++)
+        for (int i = 0; i < PowerUpsCount; i++)
             _cages[i].isOn = true;
     }
 
-    public void Save()
-    {
-        _saveData.value = FilledCages;
-
-        File.WriteAllText(_path, JsonUtility.ToJson(_saveData));
-    }
+    public void SetPowerUpsCount(int count) => 
+        PowerUpsCount = count;
 
     public void Upgrade()
     {
@@ -60,7 +42,7 @@ public class PowerUp : MonoBehaviour
             {
                 cage.isOn = true;
 
-                FilledCages++;
+                PowerUpsCount++;
 
                 if (_cages[_cages.Count - 1].isOn == true)
                 {
@@ -69,7 +51,7 @@ public class PowerUp : MonoBehaviour
                     return;
                 }
 
-                Upgraded?.Invoke((_price + _price * FilledCages).ToString());
+                Upgraded?.Invoke((_price + _price * PowerUpsCount).ToString());
 
                 break;
             }

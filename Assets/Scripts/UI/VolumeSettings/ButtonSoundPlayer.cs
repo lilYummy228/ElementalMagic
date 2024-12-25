@@ -1,13 +1,21 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonSoundPlayer : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
+public class ButtonSoundPlayer : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private ButtonSoundData _buttonSoundData;
 
     public void OnPointerClick(PointerEventData eventData) =>
-        _buttonSoundData.AudioSource.PlayOneShot(_buttonSoundData.ClickClip);
+        PlayClip(_buttonSoundData.ClickClip);
 
-    public void OnPointerEnter(PointerEventData eventData) =>
-        _buttonSoundData.AudioSource.PlayOneShot(_buttonSoundData.EnterClip);
+    private void PlayClip(AudioClip clip)
+    {
+        if (_buttonSoundData.AudioSource.isPlaying)
+        {
+            _buttonSoundData.AudioSource.Stop();
+            _buttonSoundData.AudioSource.PlayOneShot(clip);
+        }
+
+        _buttonSoundData.AudioSource.PlayOneShot(clip);
+    }
 }

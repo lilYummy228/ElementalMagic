@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Health _health;
 
     public event Action AllEnemiesDied;
+    public event Action EnemySpawned;
 
     private EnemyScriptableObject _enemyData;
     private int _enemyIndex = 0;
@@ -27,6 +28,8 @@ public class EnemySpawner : MonoBehaviour
 
         if (_enemies.Length > _enemyIndex)
         {
+            EnemySpawned?.Invoke();
+
             _enemyData = _enemies[_enemyIndex];
 
             _enemy.EnemyRenderer.DrawEnemy(_enemyData.Prefab, _enemyData.Name);

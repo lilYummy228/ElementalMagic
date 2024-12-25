@@ -11,7 +11,7 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private TimeManager _timeManager;
 
     private void Start() =>
-        _volumeSettings.Setup();
+        _volumeSettings.Load();
 
     public void Pause()
     {

@@ -17,12 +17,20 @@ public class Wallet : MonoBehaviour
 
     public void CheckTransaction(PowerUp powerUp)
     {
-        if (_count >= powerUp.Price + powerUp.Price * powerUp.FilledCages && powerUp.Cages[powerUp.Cages.Count - 1].isOn == false)
+        if (_count >= powerUp.Price + powerUp.Price * powerUp.PowerUpsCount && powerUp.Cages[powerUp.Cages.Count - 1].isOn == false)
         {
-            SpendMoney(powerUp.Price + powerUp.Price * powerUp.FilledCages);
+            SpendMoney(powerUp.Price + powerUp.Price * powerUp.PowerUpsCount);
 
             powerUp.Upgrade();
         }
+    }
+
+    public void SetCount(int count)
+    {
+        if (Count >= 0)
+            _count = count;
+
+        CountChanged?.Invoke(_count);
     }
 
     private void SpendMoney(int price)
@@ -32,3 +40,6 @@ public class Wallet : MonoBehaviour
         CountChanged?.Invoke(_count);
     }
 }
+
+
+

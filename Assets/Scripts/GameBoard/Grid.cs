@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class Grid : MonoBehaviour
 {
@@ -11,14 +12,8 @@ public class Grid : MonoBehaviour
 
     public IReadOnlyList<Cell> Cells => _cells;
     public Transform Transform => transform;
-    public int Width => _width + _powerUp.UpgradeValue * _powerUp.FilledCages;
-    public int Height => _height + _powerUp.UpgradeValue * _powerUp.FilledCages;
-
-    private void OnEnable() => 
-        _powerUp.Load();
-
-    private void OnDisable() => 
-        _powerUp.Save();
+    public int Width => _width + _powerUp.UpgradeValue * YandexGame.savesData.GridPowerUps;
+    public int Height => _height + _powerUp.UpgradeValue * YandexGame.savesData.GridPowerUps;
 
     public void Create()
     {

@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace YG
 {
     [System.Serializable]
@@ -18,15 +20,15 @@ namespace YG
 
         // Ваши сохранения
 
-        public float MusicVolume;
-        public float SoundsVolume;
-        public bool IsMusicOn;
-        public bool IsSoundsOn;
-        public int Coins;
-        public int UpgradedHealthCages;
-        public int UpgradedDamageCages;
-        public int UpgradedGridCages;
-
+        public float MusicVolume = 1.0f;
+        public float SoundsVolume = 1.0f;
+        public bool IsMusicOn = true;
+        public bool IsSoundsOn = true;
+        public int HealthPowerUps = 0;
+        public int DamagePowerUps = 0;
+        public int GridPowerUps = 0;
+        public int CoinsCount = 0;
+        
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6027355, g: 0.6159491, b: 0.6049013, a: 1}
+  m_IndirectSpecularColor: {r: 0.60280055, g: 0.61605346, b: 0.60494417, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3139,7 +3139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906270682988582411, guid: 32f94144988826a43952dc85cbaae638, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.2399902
+      value: -1.2399292
       objectReference: {fileID: 0}
     - target: {fileID: 6204065996184362246, guid: 32f94144988826a43952dc85cbaae638, type: 3}
       propertyPath: _buttonSoundData
@@ -4493,6 +4493,7 @@ MonoBehaviour:
   _enemy: {fileID: 2040853158}
   _elementConnector: {fileID: 733820479}
   _elementEffect: {fileID: 1375062657}
+  _enemySpawner: {fileID: 172345304}
   _elementsAbilityCount: 7
   _tickRate: 1
   _tickCount: 4
@@ -5304,7 +5305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6533,8 +6534,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03212346, y: 0.776}
   m_AnchorMax: {x: 0.14065215, y: 0.8381482}
-  m_AnchoredPosition: {x: 0, y: 0.5}
-  m_SizeDelta: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1847346045
 MonoBehaviour:
@@ -6605,7 +6606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.85882354}
+  m_Color: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6703,7 +6704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.89411765}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7132,7 +7133,7 @@ RectTransform:
   m_AnchorMax: {x: 0.13412347, y: 0.9861482}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088962177
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,4 +13,10 @@ public class ElementAbilityEffector : MonoBehaviour
         if (particleSystem.isPlaying == false)
             particleSystem.Play();
     }
+
+    public void StopAllEffects()
+    {
+        _fireEffect.Stop();
+        _waterEffect.Stop();
+    }
 }

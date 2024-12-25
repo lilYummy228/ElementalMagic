@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class Player : MonoBehaviour
 {
@@ -10,22 +11,16 @@ public class Player : MonoBehaviour
     [SerializeField] private PowerUp _powerUp;
 
     public Wallet Wallet => _wallet;
-    public Health Health => _health;       
+    public Health Health => _health;
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         _elementConnector.ElementsFilled += Hit;
-        _powerUp.Load();
-    }
 
-    private void OnDisable()
-    {
+    private void OnDisable() =>
         _elementConnector.ElementsFilled -= Hit;
-        _powerUp.Save();
-    }
 
     private void Start() => 
-        Health.SetHealth(Health.CurrentHealthValue + _powerUp.FilledCages * _powerUp.UpgradeValue);
+        Health.SetHealth(Health.CurrentHealthValue + YandexGame.savesData.HealthPowerUps * _powerUp.UpgradeValue);       
 
     public void Hit(IReadOnlyList<Element> elements)
     {

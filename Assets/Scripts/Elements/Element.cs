@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 [RequireComponent(typeof(ElementAnimator))]
 public class Element : MonoBehaviour
@@ -15,17 +16,14 @@ public class Element : MonoBehaviour
     public ElementProjectile Projectile => _projectile;
     public ElementAnimator Animator => _animator;
     public Vector3 InitialPosition => transform.position;
-    public float Damage => _damage + _powerUp.UpgradeValue * _powerUp.FilledCages;
+    public float Damage => _damage + _powerUp.UpgradeValue * YandexGame.savesData.DamagePowerUps;
 
     private void OnEnable()
     {
-        _powerUp.Load();
+        _powerUp.Setup();
 
         Animator.PopUp(transform);
     }
-
-    private void OnDisable() => 
-        _powerUp.Save();
 
     public void ProjectileLaunch()
     {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PileOfCoinsCaves
   m_EditorClassIdentifier: 
   _prefab: {fileID: 5520836873813797371, guid: 67a51abba017bc249895064b95297912, type: 3}
-  _healthValue: 1000
+  _healthValue: 500
   _damageValue: 0
   _attackDelay: 10
   _award: 80

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ElementAbility : MonoBehaviour
@@ -11,6 +10,7 @@ public class ElementAbility : MonoBehaviour
     [SerializeField] private Enemy _enemy;
     [SerializeField] private ElementConnector _elementConnector;
     [SerializeField] private ElementAbilityEffector _elementEffect;
+    [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private int _elementsAbilityCount = 7;
     [SerializeField] private int _tickRate;
     [SerializeField] private int _tickCount;
@@ -22,18 +22,30 @@ public class ElementAbility : MonoBehaviour
     private void Awake() =>
         _tick = new(_tickRate);
 
-    private void OnEnable() =>
+    private void OnEnable()
+    {
+        _enemySpawner.EnemySpawned += StopAllEffects;
         _elementConnector.ElementsFilled += Effect;
+    }
 
-    private void OnDisable() =>
+    private void OnDisable()
+    {
+        _enemySpawner.EnemySpawned -= StopAllEffects;
         _elementConnector.ElementsFilled -= Effect;
+    }
+
+    private void StopAllEffects()
+    {
+        StopAllCoroutines();
+        _elementEffect.StopAllEffects();
+    }
 
     private void Effect(IReadOnlyList<Element> elements)
     {
         if (elements.Count >= _elementsAbilityCount)
         {
             if (elements[0].TryGetComponent(out WaterElement waterElement))
-                StartCoroutine(PeriodicEffect(elements[0].Damage + elements.Count, _player));
+                StartCoroutine(PeriodicEffect(elements.Count + elements.Count, _player));
             else if (elements[0].TryGetComponent(out FireElement fireElement))
                 StartCoroutine(PeriodicEffect((elements[0].Damage + elements.Count) * _enemy.Resistance.GetPercentValue(fireElement), _enemy));
             else if (elements[0].TryGetComponent(out EarthElement earthElement))
@@ -51,12 +63,11 @@ public class ElementAbility : MonoBehaviour
 
         yield return new WaitForSeconds(value);
 
-        if (_enemy.Damage == default)
-            _enemy.SetDamage(damage);
+        _enemy.SetDamage(damage);
     }
 
     private IEnumerator WindEffect(float value)
-    {       
+    {
         _resistances.Clear();
         _windEffectResistances.Clear();
 
