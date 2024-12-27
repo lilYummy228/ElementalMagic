@@ -16,7 +16,7 @@ MonoBehaviour:
   _healthValue: 600
   _damageValue: 30
   _attackDelay: 6
-  _award: 14
+  _award: 3
   _russianName: "\u041F\u043E\u0442\u0435\u0440\u044F\u043D\u043D\u0430\u044F \u0427\u0435\u0440\u0435\u043F\u0430\u0445\u0430"
   _englishName: Lost Turtle
   _turkishName: "Kay\u0131p Kaplumba\u011Fa"

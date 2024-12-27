@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ public class EndGameLogic : MonoBehaviour
     [SerializeField] private Button _nextLevelButton;
     [SerializeField] private TimeManager _timeManager;
 
+    public event Action GameEnded;
+
     private void OnEnable() =>
         _game.IsGameWinned += ShowEndGamePanel;
 
@@ -21,6 +24,8 @@ public class EndGameLogic : MonoBehaviour
 
     private void ShowEndGamePanel(bool isWinned)
     {
+        GameEnded?.Invoke();
+
         _endGamePanel.gameObject.SetActive(true);
 
         if (isWinned)

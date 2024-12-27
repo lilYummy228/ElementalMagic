@@ -16,7 +16,7 @@ MonoBehaviour:
   _healthValue: 625
   _damageValue: 30
   _attackDelay: 4
-  _award: 28
+  _award: 8
   _russianName: "\u0411\u0435\u0437\u043B\u0438\u043A\u0438\u0439 \u0414\u0435\u043C\u043E\u043D"
   _englishName: Faceless Demon
   _turkishName: "Me\xE7hul \u015Eeytan"

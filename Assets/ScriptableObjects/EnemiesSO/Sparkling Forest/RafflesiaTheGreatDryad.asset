@@ -16,7 +16,7 @@ MonoBehaviour:
   _healthValue: 1000
   _damageValue: 35
   _attackDelay: 4
-  _award: 32
+  _award: 5
   _russianName: "\u0420\u0430\u0444\u0444\u043B\u0435c\u0438\u044F - \u0412\u0435\u043B\u0438\u043A\u0430\u044F
     \u0414\u0440\u0438\u0430\u0434\u0430"
   _englishName: Rafflesia The Great Dryad

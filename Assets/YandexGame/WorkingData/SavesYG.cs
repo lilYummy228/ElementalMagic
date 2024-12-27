@@ -1,7 +1,4 @@
-﻿
-using System.Collections.Generic;
-
-namespace YG
+﻿namespace YG
 {
     [System.Serializable]
     public class SavesYG

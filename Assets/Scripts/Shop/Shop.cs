@@ -8,7 +8,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private Wallet _wallet;
 
     private int _minCoinCount = 10;
-    private int _maxCoinCount = 50;
+    private int _maxCoinCount = 30;
 
     private void OnEnable() => 
         YandexGame.RewardVideoEvent += AddRewardedCoins;

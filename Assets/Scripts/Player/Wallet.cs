@@ -3,21 +3,19 @@ using UnityEngine;
 
 public class Wallet : MonoBehaviour
 {
-    [SerializeField] private int _count;
-
     public event Action<int> CountChanged;
-    public int Count => _count;
+    public int Count { get; private set; }
 
     public void AddCoins(int count)
     {
-        _count += count;
+        Count += count;
 
-        CountChanged?.Invoke(_count);
+        CountChanged?.Invoke(Count);
     }
 
     public void CheckTransaction(PowerUp powerUp)
     {
-        if (_count >= powerUp.Price + powerUp.Price * powerUp.PowerUpsCount && powerUp.Cages[powerUp.Cages.Count - 1].isOn == false)
+        if (Count >= powerUp.Price + powerUp.Price * powerUp.PowerUpsCount && powerUp.Cages[powerUp.Cages.Count - 1].isOn == false)
         {
             SpendMoney(powerUp.Price + powerUp.Price * powerUp.PowerUpsCount);
 
@@ -28,16 +26,16 @@ public class Wallet : MonoBehaviour
     public void SetCount(int count)
     {
         if (Count >= 0)
-            _count = count;
+            Count = count;
 
-        CountChanged?.Invoke(_count);
+        CountChanged?.Invoke(Count);
     }
 
     private void SpendMoney(int price)
     {
-        _count -= price;
+        Count -= price;
 
-        CountChanged?.Invoke(_count);
+        CountChanged?.Invoke(Count);
     }
 }
 

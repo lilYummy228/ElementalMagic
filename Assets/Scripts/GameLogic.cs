@@ -14,11 +14,11 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Button _refreshButton;
     [SerializeField] private int _startGameCount = 3;
     [SerializeField] private string _startGameText = "GO!";
-    [SerializeField] private AdsProvider _adsProvider;
 
     private float _waitTime = 0.5f;
 
     public event Action<bool> IsGameWinned;
+    public event Action GameStarted;
     public WaitForSeconds Wait => new(_waitTime);
 
     private void Start()
@@ -57,6 +57,8 @@ public class GameLogic : MonoBehaviour
 
     private void StartGame()
     {
+        GameStarted?.Invoke();
+
         _refreshButton.gameObject.SetActive(true);
         _elementConnector.gameObject.SetActive(true);
         _gameBoard.FillBoard();
@@ -75,9 +77,6 @@ public class GameLogic : MonoBehaviour
         IsGameWinned?.Invoke(true);
     }
 
-    private void EndGame()
-    {
+    private void EndGame() => 
         _elementConnector.gameObject.SetActive(false);
-        _adsProvider.ShowInterstitialAd();
-    }
 }

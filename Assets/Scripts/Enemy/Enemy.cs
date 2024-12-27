@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyRenderer _renderer;
     [SerializeField] private Health _health;
     [SerializeField] private EnemyResistance _resistance;
+
+    public event Action<int> EnemyCoinsCollected;
 
     private WaitForSeconds _delay;
     private string _name;
@@ -35,8 +38,11 @@ public class Enemy : MonoBehaviour
             _damage = damage;
     }
 
-    public void PayAward(int award) =>
+    public void PayAward(int award)
+    {
         _player.Wallet.AddCoins(award);
+        EnemyCoinsCollected?.Invoke(award);
+    }
 
     private IEnumerator Hit()
     {
