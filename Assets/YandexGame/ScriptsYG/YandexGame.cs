@@ -62,7 +62,7 @@ namespace YG
         private void OnEnable()
         {
             if (singleton)
-                SceneManager.sceneLoaded += OnSceneLoaded;
+                UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
 #if UNITY_EDITOR
             Application.focusChanged += OnVisibilityGameWindow;
 #endif
@@ -70,7 +70,7 @@ namespace YG
         private void OnDisable()
         {
             if (singleton)
-                SceneManager.sceneLoaded -= OnSceneLoaded;
+                UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
 #if UNITY_EDITOR
             Application.focusChanged -= OnVisibilityGameWindow;
 #endif

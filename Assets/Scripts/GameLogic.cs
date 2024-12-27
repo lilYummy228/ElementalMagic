@@ -18,7 +18,7 @@ public class GameLogic : MonoBehaviour
 
     private float _waitTime = 0.5f;
 
-    public event Action<bool> HasGameWinned;
+    public event Action<bool> IsGameWinned;
     public WaitForSeconds Wait => new(_waitTime);
 
     private void Start()
@@ -66,13 +66,13 @@ public class GameLogic : MonoBehaviour
     private void LoseGame()
     {
         EndGame();
-        HasGameWinned?.Invoke(false);
+        IsGameWinned?.Invoke(false);
     }
 
     private void WinGame()
     {
         EndGame();
-        HasGameWinned?.Invoke(true);
+        IsGameWinned?.Invoke(true);
     }
 
     private void EndGame()

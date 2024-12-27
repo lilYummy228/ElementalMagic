@@ -8,12 +8,6 @@ public class PowerUpSaveSystem : MonoBehaviour, ISaveSystem
     [SerializeField] private PowerUp _gridPowerUp;
     [SerializeField] private Wallet _wallet;
 
-    private void OnEnable() => 
-        Load();
-
-    private void OnDisable() => 
-        Save();
-
     public void Load()
     {
         _healthPowerUp.SetPowerUpsCount(YandexGame.savesData.HealthPowerUps);

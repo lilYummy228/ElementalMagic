@@ -7,16 +7,9 @@ public class VolumeSettings : MonoBehaviour
 
     [SerializeField] private AudioSetup _music;
     [SerializeField] private AudioSetup _sounds;
-    [SerializeField] private AudioSaveSystem _saveSystem;
 
     public AudioSetup Music => _music;
     public AudioSetup Sounds => _sounds;
-
-    private void OnDisable() => 
-        _saveSystem.Save();
-
-    public void Load() => 
-        _saveSystem.Load();
 
     public void SwitchToggle(AudioSetup audio)
     {
