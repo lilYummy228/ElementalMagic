@@ -4,9 +4,11 @@ public class ElementAbilityEffector : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _fireEffect;
     [SerializeField] private ParticleSystem _waterEffect;
+    [SerializeField] private ParticleSystem _windEffect;
 
     public ParticleSystem FireEffect => _fireEffect;
     public ParticleSystem WaterEffect => _waterEffect;
+    public ParticleSystem WindEffect => _windEffect;
 
     public void PlayEffect(ParticleSystem particleSystem)
     {
@@ -18,5 +20,6 @@ public class ElementAbilityEffector : MonoBehaviour
     {
         _fireEffect.Stop();
         _waterEffect.Stop();
+        _windEffect.Stop();
     }
 }

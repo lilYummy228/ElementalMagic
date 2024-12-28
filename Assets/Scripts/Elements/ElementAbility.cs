@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ElementAbility : MonoBehaviour
 {
-    private const int Divider = 2;
+    private const float Divider = 1.5f;
 
     [SerializeField] private Player _player;
     [SerializeField] private Enemy _enemy;
@@ -51,7 +51,7 @@ public class ElementAbility : MonoBehaviour
             else if (elements[0].TryGetComponent(out EarthElement earthElement))
                 StartCoroutine(EarthEffect(elements.Count / Divider));
             else if (elements[0].TryGetComponent(out WindElement windElement))
-                StartCoroutine(WindEffect(elements.Count / Divider));
+                StartCoroutine(WindEffect(elements.Count/Divider));
         }
     }
 
@@ -83,9 +83,13 @@ public class ElementAbility : MonoBehaviour
 
         _enemy.Resistance.Setup(_windEffectResistances);
 
+        _elementEffect.PlayEffect(_elementEffect.WindEffect);
+
         yield return new WaitForSeconds(value);
 
         _enemy.Resistance.Setup(_resistances);
+
+        _elementEffect.WindEffect.Stop();
     }
 
     private IEnumerator PeriodicEffect<T>(float value, T gameObject) where T : MonoBehaviour
