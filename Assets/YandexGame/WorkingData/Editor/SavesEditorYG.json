@@ -1,5 +1,5 @@
 {
-    "idSave": 821,
+    "idSave": 1081,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -12,10 +12,10 @@
     ],
     "MusicVolume": 0.5698191523551941,
     "SoundsVolume": 0.1673388034105301,
-    "IsMusicOn": false,
+    "IsMusicOn": true,
     "IsSoundsOn": true,
-    "HealthPowerUps": 3,
-    "DamagePowerUps": 2,
-    "GridPowerUps": 2,
-    "CoinsCount": 377
+    "HealthPowerUps": 0,
+    "DamagePowerUps": 0,
+    "GridPowerUps": 0,
+    "CoinsCount": 35
 }

@@ -51,7 +51,7 @@ public class ElementAbility : MonoBehaviour
             else if (elements[0].TryGetComponent(out EarthElement earthElement))
                 StartCoroutine(EarthEffect(elements.Count / Divider));
             else if (elements[0].TryGetComponent(out WindElement windElement))
-                StartCoroutine(WindEffect(elements.Count/Divider));
+                StartCoroutine(WindEffect(elements.Count / Divider));
         }
     }
 
@@ -61,9 +61,13 @@ public class ElementAbility : MonoBehaviour
 
         _enemy.SetDamage(default);
 
+        _elementEffect.PlayEffect(_elementEffect.EarthEffect);
+
         yield return new WaitForSeconds(value);
 
         _enemy.SetDamage(damage);
+
+        _elementEffect.EarthEffect.Stop();
     }
 
     private IEnumerator WindEffect(float value)

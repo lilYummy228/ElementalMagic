@@ -30,6 +30,10 @@ public class PowerUpSaveSystem : MonoBehaviour, ISaveSystem
         _damagePowerUp.SetPowerUpsCount(default);
         _gridPowerUp.SetPowerUpsCount(default);
 
+        _healthPowerUp.Setup();
+        _damagePowerUp.Setup();
+        _gridPowerUp.Setup();
+
         Save();
     }
 }
