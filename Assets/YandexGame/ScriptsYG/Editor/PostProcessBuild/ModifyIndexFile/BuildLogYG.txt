@@ -1,2 +1,0 @@
-Build path: V:/ElementaryMagic
-Build number: 10
