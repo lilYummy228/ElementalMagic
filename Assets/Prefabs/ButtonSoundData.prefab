@@ -142,5 +142,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 5118553968720235572}
-  _enterClip: {fileID: 8300000, guid: 7cc057bed53baf34799f52aab3c84800, type: 3}
-  _clickClip: {fileID: 8300000, guid: ba39bf8baf6d13046889b2d64822381a, type: 3}
+  _clickClip: {fileID: 8300000, guid: 7cc057bed53baf34799f52aab3c84800, type: 3}

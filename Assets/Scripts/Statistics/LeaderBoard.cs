@@ -15,10 +15,6 @@ public class LeaderBoard : MonoBehaviour
     private void OnDisable() => 
         _wallet.CountChanged -= SaveScore;
 
-    public void SaveScore(int score)
-    {
-        _score += score;
-
-        YandexGame.NewLeaderboardScores(YandexLeaderBoardName, _score);
-    }
+    public void SaveScore(int score) => 
+        YandexGame.NewLeaderboardScores(YandexLeaderBoardName, score);
 }

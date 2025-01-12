@@ -12,8 +12,8 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private Player _player;
     [SerializeField] private Button _refreshButton;
+    [SerializeField] private TextMeshProUGUI _startGameText;
     [SerializeField] private int _startGameCount = 3;
-    [SerializeField] private string _startGameText = "GO!";
 
     private float _waitTime = 0.5f;
 
@@ -46,7 +46,7 @@ public class GameLogic : MonoBehaviour
             yield return Wait;
         }
 
-        _startGameCounter.text = _startGameText;
+        _startGameCounter.text = _startGameText.text;
 
         yield return Wait;
 
