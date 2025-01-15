@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: Chopper
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 3686689263589580806, guid: b7eab3411ab824b41b688f7962a791fa, type: 3}
+  _healthValue: 250
+  _damageValue: 10
+  _attackDelay: 4
+  _award: 2
+  _russianName: "\u0427\u043E\u043F\u043F\u0435\u0440"
+  _englishName: Chopper
+  _turkishName: "K\u0131y\u0131c\u0131"
+  _fireResistance: -100
+  _waterResistance: 10
+  _earthResistance: 0
+  _windResistance: -50

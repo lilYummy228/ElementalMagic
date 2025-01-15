@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: Yeti
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 3064779543510267869, guid: 736d07175ddd97849bfe8699238c9fec, type: 3}
+  _healthValue: 1250
+  _damageValue: 45
+  _attackDelay: 3
+  _award: 30
+  _russianName: "\u0419\u0435\u0442\u0438"
+  _englishName: Yeti
+  _turkishName: Yeti'nin
+  _fireResistance: -25
+  _waterResistance: 50
+  _earthResistance: 0
+  _windResistance: 50

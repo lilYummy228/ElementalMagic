@@ -1,0 +1,29 @@
+{
+    "idSave": 2491,
+    "isFirstSession": false,
+    "language": "tr",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        true,
+        false
+    ],
+    "IsLevelPassed": [
+        true,
+        true,
+        false,
+        false
+    ],
+    "IsFirstLaunch": false,
+    "MusicVolume": 0.16386441886425019,
+    "SoundsVolume": 0.14478157460689546,
+    "IsMusicOn": true,
+    "IsSoundsOn": true,
+    "HealthPowerUps": 3,
+    "DamagePowerUps": 2,
+    "GridPowerUps": 0,
+    "CoinsCount": 321,
+    "Language": "tr"
+}

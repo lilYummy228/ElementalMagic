@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: Tellia
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 7963622628195982313, guid: 58011b6d21dda80488ad9f2c67d59d11, type: 3}
+  _healthValue: 2000
+  _damageValue: 100
+  _attackDelay: 10
+  _award: 25
+  _russianName: "\u0422\u0435\u043B\u043B\u0438\u044F"
+  _englishName: Tellia
+  _turkishName: "Tellia'n\u0131n"
+  _fireResistance: -100
+  _waterResistance: 50
+  _earthResistance: 200
+  _windResistance: 0

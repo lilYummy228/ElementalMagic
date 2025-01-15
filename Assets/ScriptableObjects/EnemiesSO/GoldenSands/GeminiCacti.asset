@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: GeminiCacti
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 3212363660910618193, guid: d715a23393fa6f94687b107e6e65f981, type: 3}
+  _healthValue: 950
+  _damageValue: 40
+  _attackDelay: 3
+  _award: 16
+  _russianName: "\u0411\u043B\u0438\u0437\u043D\u0435\u0446\u044B \u043A\u0430\u043A\u0442\u0443\u0441\u044B"
+  _englishName: Gemini cacti
+  _turkishName: "Ikizler kakt\xFCsleri"
+  _fireResistance: 25
+  _waterResistance: 25
+  _earthResistance: -25
+  _windResistance: -25

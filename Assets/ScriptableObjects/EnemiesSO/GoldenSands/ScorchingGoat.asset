@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: ScorchingGoat
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 3359619208391242412, guid: 1adf853ae5634b4489907ed2de65c30a, type: 3}
+  _healthValue: 2000
+  _damageValue: 80
+  _attackDelay: 4
+  _award: 58
+  _russianName: "\u041F\u044B\u043B\u0430\u044E\u0449\u0438\u0439 \u041A\u043E\u0437\u0435\u043B"
+  _englishName: Scorching goat
+  _turkishName: "Kavurucu ke\xE7i"
+  _fireResistance: 150
+  _waterResistance: -50
+  _earthResistance: 50
+  _windResistance: 0

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: Ignis
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 2433486054479130039, guid: c0c6e5a978747e64f91a33d733411ec1, type: 3}
+  _healthValue: 2000
+  _damageValue: 100
+  _attackDelay: 10
+  _award: 25
+  _russianName: "\u0418\u0433\u043D\u0438\u0441"
+  _englishName: Ignis
+  _turkishName: Ignis
+  _fireResistance: 200
+  _waterResistance: -100
+  _earthResistance: 0
+  _windResistance: 50
