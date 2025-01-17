@@ -16,7 +16,7 @@ MonoBehaviour:
   _healthValue: 1000
   _damageValue: 50
   _attackDelay: 5
-  _award: 18
+  _award: 13
   _russianName: "\u0423\u0440\u043C\u0438\u043A\u0430"
   _englishName: Urmica
   _turkishName: "Urmica'n\u0131n"

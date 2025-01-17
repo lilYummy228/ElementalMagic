@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Snowman
   m_EditorClassIdentifier: 
   _prefab: {fileID: 1611538562217387115, guid: ff8c2992dbf05dd4bb6a461ffdf71055, type: 3}
-  _healthValue: 1700
+  _healthValue: 1300
   _damageValue: 30
   _attackDelay: 2
-  _award: 50
+  _award: 35
   _russianName: "\u0421\u043D\u0435\u0433\u043E\u0432\u0438\u043A"
   _englishName: Snowman
   _turkishName: Kardan Adam

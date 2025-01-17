@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FrostGorilla
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6345497951103550271, guid: 255a88e1e5c95784084cd555b0315aad, type: 3}
-  _healthValue: 2600
+  _healthValue: 1600
   _damageValue: 70
   _attackDelay: 5
-  _award: 80
+  _award: 50
   _russianName: "\u041C\u043E\u0440\u043E\u0437\u043D\u0430\u044F \u0433\u043E\u0440\u0438\u043B\u043B\u0430"
   _englishName: Frosty Gorilla
   _turkishName: Ayaz goril

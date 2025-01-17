@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ColossalMummy
   m_EditorClassIdentifier: 
   _prefab: {fileID: 2352183046653570336, guid: e95e6e862465d9642ba6e59652a5d8ca, type: 3}
-  _healthValue: 1750
+  _healthValue: 1450
   _damageValue: 60
   _attackDelay: 4
-  _award: 48
+  _award: 26
   _russianName: "\u041A\u043E\u043B\u043E\u0441\u0441\u0430\u043B\u044C\u043D\u0430\u044F
     \u043C\u0443\u043C\u0438\u044F"
   _englishName: Colossal mummy

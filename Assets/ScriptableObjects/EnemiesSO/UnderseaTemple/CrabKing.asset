@@ -16,7 +16,7 @@ MonoBehaviour:
   _healthValue: 800
   _damageValue: 35
   _attackDelay: 3
-  _award: 12
+  _award: 9
   _russianName: "\u041A\u043E\u0440\u043E\u043B\u044C \u041A\u0440\u0430\u0431\u043E\u0432"
   _englishName: Crab King
   _turkishName: "Yenge\xE7 Kral\u0131"

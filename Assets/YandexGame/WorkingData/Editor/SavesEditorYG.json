@@ -1,5 +1,5 @@
 {
-    "idSave": 2559,
+    "idSave": 2740,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -12,18 +12,19 @@
     ],
     "IsLevelPassed": [
         true,
-        true,
         false,
-        false
+        false,
+        false,
+        true
     ],
     "IsFirstLaunch": false,
-    "MusicVolume": 0.16386441886425019,
-    "SoundsVolume": 0.14478157460689546,
+    "MusicVolume": 1.0,
+    "SoundsVolume": 0.4377654194831848,
     "IsMusicOn": true,
     "IsSoundsOn": true,
-    "HealthPowerUps": 3,
-    "DamagePowerUps": 3,
+    "HealthPowerUps": 5,
+    "DamagePowerUps": 5,
     "GridPowerUps": 3,
-    "CoinsCount": 86,
-    "Language": "ru"
+    "CoinsCount": 664,
+    "Language": "en"
 }

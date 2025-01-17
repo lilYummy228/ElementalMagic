@@ -2692,9 +2692,9 @@ ScriptedImporter:
     ignorePlatformSupport: 0
     maxTextureSize: 1024
     resizeAlgorithm: 0
-    textureFormat: 50
+    textureFormat: 51
     textureCompression: 1
-    compressionQuality: 0
+    compressionQuality: 100
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -2770,7 +2770,7 @@ ScriptedImporter:
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638719425772022990
+  platformSettingsDirtyTick: 638727440450675484
   spriteSizeExpandChanged: 0
   generateGOHierarchy: 0
   textureAssetName: 

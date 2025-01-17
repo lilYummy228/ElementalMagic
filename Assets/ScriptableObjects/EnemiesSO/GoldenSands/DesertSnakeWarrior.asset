@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: DesertSnakeWarrior
   m_EditorClassIdentifier: 
   _prefab: {fileID: 5179422278508305294, guid: 5b5abc3067ed74d4ea04a5c9586689e6, type: 3}
-  _healthValue: 1500
+  _healthValue: 1300
   _damageValue: 35
   _attackDelay: 2
-  _award: 40
+  _award: 22
   _russianName: "\u041F\u0443\u0441\u0442\u044B\u043D\u043D\u044B\u0439 \u0432\u043E\u0438\u043D-\u0437\u043C\u0435\u0439"
   _englishName: Desert snake warrior
   _turkishName: "\xC7\xF6l y\u0131lan sava\u015F\xE7\u0131s\u0131"

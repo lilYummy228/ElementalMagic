@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PowerUp : MonoBehaviour
 {
+    private const string MaximumUpgrade = "Max";
+
     [SerializeField] private int _price;
     [SerializeField] private int _upgradeValue;
     [SerializeField] private List<Toggle> _cages;
@@ -19,7 +21,7 @@ public class PowerUp : MonoBehaviour
     {
         Setup();
 
-        Upgraded?.Invoke((_price + _price * PowerUpsCount).ToString());
+        Upgraded?.Invoke(GetPrice());
     }
 
     public void Setup()
@@ -44,17 +46,22 @@ public class PowerUp : MonoBehaviour
 
                 PowerUpsCount++;
 
-                if (_cages[_cages.Count - 1].isOn == true)
-                {
-                    Upgraded?.Invoke(default);
-
-                    return;
-                }
-
-                Upgraded?.Invoke((_price + _price * PowerUpsCount).ToString());
+                Upgraded?.Invoke(GetPrice());
 
                 break;
             }
         }
+    }
+
+    private string GetPrice()
+    {
+        if (_cages[_cages.Count - 1].isOn == true)
+        {
+            Upgraded?.Invoke(default);
+
+            return MaximumUpgrade;
+        }
+
+        return (_price + _price * PowerUpsCount).ToString();
     }
 }

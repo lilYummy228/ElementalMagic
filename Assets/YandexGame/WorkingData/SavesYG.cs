@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace YG
+﻿namespace YG
 {
     [System.Serializable]
     public class SavesYG
@@ -19,7 +17,7 @@ namespace YG
 
         // Ваши сохранения
 
-        public bool[] IsLevelPassed = new bool[6];
+        public bool[] IsLevelPassed = new bool[5];
         public bool IsFirstLaunch = true;
         public float MusicVolume = 1.0f;
         public float SoundsVolume = 1.0f;
@@ -37,7 +35,7 @@ namespace YG
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
-            // Допустим, задать значения по умолчанию для отдельных элементов массива
+            // Допустим, задать значения по умолчанию для отдельных элементов массива           
             openLevels[1] = true;
         }
     }

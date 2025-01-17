@@ -50,7 +50,7 @@ ScriptedImporter:
     flipbookColumns: 0
     ignorePngGamma: 0
     cookieMode: 0
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -3761,9 +3761,9 @@ ScriptedImporter:
     ignorePlatformSupport: 0
     maxTextureSize: 1024
     resizeAlgorithm: 0
-    textureFormat: 50
+    textureFormat: 51
     textureCompression: 1
-    compressionQuality: 0
+    compressionQuality: 100
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -3879,7 +3879,7 @@ ScriptedImporter:
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638706925687973416
+  platformSettingsDirtyTick: 638727440450574970
   spriteSizeExpandChanged: 0
   generateGOHierarchy: 0
   textureAssetName: 

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: IceLion
   m_EditorClassIdentifier: 
   _prefab: {fileID: 7503695441938317659, guid: 00d87e02dc257714c9041c2fb62bffaa, type: 3}
-  _healthValue: 2300
+  _healthValue: 1400
   _damageValue: 50
   _attackDelay: 5
-  _award: 70
+  _award: 45
   _russianName: "\u041B\u0435\u0432 \u043B\u044C\u0434\u0430"
   _englishName: The Lion of Ice
   _turkishName: "Buz Aslan\u0131"

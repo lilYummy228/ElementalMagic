@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Yeti
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3064779543510267869, guid: 736d07175ddd97849bfe8699238c9fec, type: 3}
-  _healthValue: 1250
+  _healthValue: 1200
   _damageValue: 45
   _attackDelay: 3
-  _award: 30
+  _award: 25
   _russianName: "\u0419\u0435\u0442\u0438"
   _englishName: Yeti
   _turkishName: Yeti'nin

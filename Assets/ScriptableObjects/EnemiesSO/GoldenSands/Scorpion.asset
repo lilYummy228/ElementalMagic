@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Scorpion
   m_EditorClassIdentifier: 
   _prefab: {fileID: 5056937256693311183, guid: e04ea01e7a24edc488b14f1ef0179ec4, type: 3}
-  _healthValue: 1250
+  _healthValue: 1100
   _damageValue: 50
   _attackDelay: 3
-  _award: 32
+  _award: 18
   _russianName: "\u0421\u043A\u043E\u0440\u043F\u0438\u043E\u043D"
   _englishName: Scorpion
   _turkishName: Akrep

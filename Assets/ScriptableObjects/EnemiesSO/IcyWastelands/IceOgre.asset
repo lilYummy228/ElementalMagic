@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: IceOgre
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6779534887697123202, guid: baeede4d161a5fa4c89f84ef171cf179, type: 3}
-  _healthValue: 2000
+  _healthValue: 1500
   _damageValue: 70
   _attackDelay: 6
-  _award: 60
+  _award: 40
   _russianName: "\u041B\u0435\u0434\u044F\u043D\u043E\u0439 \u043E\u0433\u0440"
   _englishName: Ice ogre
   _turkishName: Buz devi

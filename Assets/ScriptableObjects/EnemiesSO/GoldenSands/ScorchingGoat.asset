@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
   m_Name: ScorchingGoat
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 3359619208391242412, guid: 1adf853ae5634b4489907ed2de65c30a, type: 3}
-  _healthValue: 2000
-  _damageValue: 80
-  _attackDelay: 4
-  _award: 58
-  _russianName: "\u041F\u044B\u043B\u0430\u044E\u0449\u0438\u0439 \u041A\u043E\u0437\u0435\u043B"
+  _prefab: {fileID: 3108015898514088775, guid: 1adf853ae5634b4489907ed2de65c30a, type: 3}
+  _healthValue: 1500
+  _damageValue: 75
+  _attackDelay: 5
+  _award: 34
+  _russianName: "\u041E\u0431\u0436\u0438\u0433\u0430\u044E\u0449\u0438\u0439 \u043A\u043E\u0437\u0435\u043B"
   _englishName: Scorching goat
   _turkishName: "Kavurucu ke\xE7i"
   _fireResistance: 150
-  _waterResistance: -50
-  _earthResistance: 50
-  _windResistance: 0
+  _waterResistance: -40
+  _earthResistance: 25
+  _windResistance: 25

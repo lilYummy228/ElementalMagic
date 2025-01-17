@@ -16,7 +16,7 @@ MonoBehaviour:
   _healthValue: 1000
   _damageValue: 35
   _attackDelay: 4
-  _award: 18
+  _award: 12
   _russianName: "\u0422\u0438\u0440\u0430\u043D"
   _englishName: Tyrant
   _turkishName: Zorba

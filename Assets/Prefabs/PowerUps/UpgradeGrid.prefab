@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb8cfc218259444b8cf0f4c373bec68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 60
+  _price: 75
   _upgradeValue: 1
   _cages:
   - {fileID: 8128196330486138684}

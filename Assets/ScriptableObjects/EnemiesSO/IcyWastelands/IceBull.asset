@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: IceBull
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3677158697662167113, guid: 69f5f95d1e0c0584faf762315d45c7ec, type: 3}
-  _healthValue: 1500
+  _healthValue: 1250
   _damageValue: 60
   _attackDelay: 4
-  _award: 40
+  _award: 30
   _russianName: "\u041B\u0435\u0434\u044F\u043D\u043E\u0439 \u0431\u044B\u043A"
   _englishName: Ice bull
   _turkishName: "Buz bo\u011Fas\u0131"

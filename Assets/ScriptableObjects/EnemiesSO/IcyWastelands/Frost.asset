@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Frost
   m_EditorClassIdentifier: 
   _prefab: {fileID: 1041313395906089428, guid: e48d7379b4dc155479c926912a3cb77b, type: 3}
-  _healthValue: 1200
+  _healthValue: 1100
   _damageValue: 40
   _attackDelay: 3
   _award: 20

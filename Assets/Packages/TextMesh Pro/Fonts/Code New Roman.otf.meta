@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 83b2fa31225dea147813a41568821134
+guid: 7a9506cbcaba4e6488a923ba4bde5925
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,8 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Glue Gun
   fontNames:
-  - Glue Gun
+  - Code New Roman
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

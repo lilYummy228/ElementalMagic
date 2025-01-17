@@ -16,7 +16,7 @@ MonoBehaviour:
   _healthValue: 625
   _damageValue: 30
   _attackDelay: 4
-  _award: 10
+  _award: 8
   _russianName: "\u0421\u043A\u0430\u0443\u0442"
   _englishName: Scout
   _turkishName: "\u0130zci"

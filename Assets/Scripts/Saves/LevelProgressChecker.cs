@@ -10,4 +10,12 @@ public class LevelProgressChecker : MonoBehaviour
         for (int i = 0; i < _reachIcons.Length; i++)
             _reachIcons[i].gameObject.SetActive(YandexGame.savesData.IsLevelPassed[i]);
     }
+
+    [ContextMenu("Refresh level count")]
+    public void RefreshLevelCount()
+    {
+        YandexGame.savesData.IsLevelPassed = new bool[_reachIcons.Length];
+
+        YandexGame.SaveProgress();
+    }
 }
