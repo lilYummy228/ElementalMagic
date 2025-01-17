@@ -96,7 +96,7 @@ namespace YG
         {
             if (lbData.technoName == nameLB)
             {
-                string noData = "...";
+                string noData = "Anonymous";
 
                 if (lbData.entries == "no data")
                 {
@@ -110,7 +110,7 @@ namespace YG
                 }
                 if (!advanced)
                 {
-                    lbData.entries = lbData.entries.Replace("anonymous", LangMethods.IsHiddenTextTranslate(YandexGame.Instance.infoYG));
+                    lbData.entries = lbData.entries.Replace("Anonymous", LangMethods.IsHiddenTextTranslate(YandexGame.Instance.infoYG));
                     entriesText.text = lbData.entries;
                 }
                 else

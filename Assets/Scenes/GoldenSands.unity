@@ -1080,12 +1080,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 2040853158}
   _enemies:
-  - {fileID: 11400000, guid: 0e0b228a88f16d441b2af3958cb50989, type: 2}
   - {fileID: 11400000, guid: 1f5f30fb2b9410e46aa8f396ee291ff3, type: 2}
   - {fileID: 11400000, guid: 9122e1111809bfb4a8d6da2d098e4734, type: 2}
   - {fileID: 11400000, guid: c0fb1c6841aad194d861733d019f6750, type: 2}
   - {fileID: 11400000, guid: ae2dc08c97700dd4eba0e0caa608307a, type: 2}
   - {fileID: 11400000, guid: 97867d42a612c2649ac1617b19bde042, type: 2}
+  - {fileID: 11400000, guid: 0e0b228a88f16d441b2af3958cb50989, type: 2}
   - {fileID: 11400000, guid: 9eed67abb4b5bfc4c9f2ccbedc45c34d, type: 2}
   _health: {fileID: 2040853160}
 --- !u!1 &174261405
@@ -9186,7 +9186,6 @@ MonoBehaviour:
   _defeatImage: {fileID: 585822022}
   _victoryText: {fileID: 1375897525}
   _defeatText: {fileID: 83423794}
-  _nextLevelButton: {fileID: 0}
   _timeManager: {fileID: 1212740975}
 --- !u!1001 &1791390813
 PrefabInstance:

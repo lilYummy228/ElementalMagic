@@ -610,7 +610,7 @@ ScriptedImporter:
   - name: WebGL
     overridden: 1
     ignorePlatformSupport: 0
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: 50
     textureCompression: 1
@@ -650,7 +650,7 @@ ScriptedImporter:
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638706925687993982
+  platformSettingsDirtyTick: 638725922792419811
   spriteSizeExpandChanged: 0
   generateGOHierarchy: 0
   textureAssetName: 
