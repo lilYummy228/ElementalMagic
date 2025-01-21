@@ -1,2 +1,2 @@
 Build path: V:/ElementaryMagic
-Build number: 23
+Build number: 24

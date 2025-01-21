@@ -1,7 +1,7 @@
 {
-    "idSave": 2740,
+    "idSave": 2801,
     "isFirstSession": false,
-    "language": "ru",
+    "language": "tr",
     "promptDone": false,
     "money": 1,
     "newPlayerName": "Hello!",
@@ -22,9 +22,9 @@
     "SoundsVolume": 0.4377654194831848,
     "IsMusicOn": true,
     "IsSoundsOn": true,
-    "HealthPowerUps": 5,
-    "DamagePowerUps": 5,
-    "GridPowerUps": 3,
-    "CoinsCount": 664,
-    "Language": "en"
+    "HealthPowerUps": 3,
+    "DamagePowerUps": 2,
+    "GridPowerUps": 0,
+    "CoinsCount": 15,
+    "Language": "tr"
 }
