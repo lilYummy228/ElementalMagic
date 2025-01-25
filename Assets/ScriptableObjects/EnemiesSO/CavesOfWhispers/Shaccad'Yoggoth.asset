@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
   m_Name: Shaccad'Yoggoth
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 5190339930273834781, guid: f4384fdd53b6beb4fbea31ba8a7a9fea, type: 3}
-  _healthValue: 1666
+  _prefab: {fileID: 5285389360946637889, guid: 4b0073becd49cde4ba02299b2d230459, type: 3}
+  _healthValue: 1200
   _damageValue: 50
   _attackDelay: 5
   _award: 20

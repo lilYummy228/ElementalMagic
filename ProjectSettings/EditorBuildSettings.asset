@@ -18,8 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/UnderseaTemple.unity
     guid: c0a877759eb5c064fa05b08ec1a23b38
   - enabled: 1
+    path: Assets/Scenes/PirateBay.unity
+    guid: 817643bd87766e24f92898e382426589
+  - enabled: 1
     path: Assets/Scenes/GoldenSands.unity
     guid: 488d222097ed18e4797b76192811cbd8
+  - enabled: 1
+    path: Assets/Scenes/CursedKingdom.unity
+    guid: 956d3a040e8403f478b4a18dbf5f8630
   - enabled: 1
     path: Assets/Scenes/IcyWastelands.unity
     guid: 252d2cb5ada6f8e4e967182e901428d7

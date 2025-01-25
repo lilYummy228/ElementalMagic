@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
   m_Name: Gazer
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 3075797530272113634, guid: 49b43b024e097ed4793a353e24f47333, type: 3}
+  _prefab: {fileID: 7514080794364778117, guid: 49b43b024e097ed4793a353e24f47333, type: 3}
   _healthValue: 500
   _damageValue: 30
   _attackDelay: 5

@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
   m_Name: Scout
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 2010917390509559546, guid: e009759759cf05e4385b9ee4d1a8d781, type: 3}
-  _healthValue: 625
-  _damageValue: 30
-  _attackDelay: 4
-  _award: 8
+  _prefab: {fileID: 506486966990124487, guid: e009759759cf05e4385b9ee4d1a8d781, type: 3}
+  _healthValue: 600
+  _damageValue: 20
+  _attackDelay: 3
+  _award: 6
   _russianName: "\u0421\u043A\u0430\u0443\u0442"
   _englishName: Scout
   _turkishName: "\u0130zci"
-  _fireResistance: -25
-  _waterResistance: -25
+  _fireResistance: -30
+  _waterResistance: -30
   _earthResistance: 80
   _windResistance: 25
