@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: Scorpion
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 5056937256693311183, guid: e04ea01e7a24edc488b14f1ef0179ec4, type: 3}
+  _healthValue: 1100
+  _damageValue: 50
+  _attackDelay: 3
+  _award: 18
+  _russianName: "\u0421\u043A\u043E\u0440\u043F\u0438\u043E\u043D"
+  _englishName: Scorpion
+  _turkishName: Akrep
+  _fireResistance: 60
+  _waterResistance: 0
+  _earthResistance: 25
+  _windResistance: -25

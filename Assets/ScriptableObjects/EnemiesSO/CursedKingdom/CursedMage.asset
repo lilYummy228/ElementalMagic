@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: CursedMage
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 5625380985815136524, guid: ae8c2c43381a8db48b483aac3b9b3263, type: 3}
+  _healthValue: 1300
+  _damageValue: 30
+  _attackDelay: 3
+  _award: 22
+  _russianName: "\u041F\u0440\u043E\u043A\u043B\u044F\u0442\u044B\u0439 \u043C\u0430\u0433"
+  _englishName: Cursed mage
+  _turkishName: "Lanetli b\xFCy\xFCc\xFC"
+  _fireResistance: 80
+  _waterResistance: -30
+  _earthResistance: 80
+  _windResistance: -10

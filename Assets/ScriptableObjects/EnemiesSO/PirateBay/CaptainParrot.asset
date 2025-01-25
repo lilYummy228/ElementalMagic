@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: CaptainParrot
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 6831674631711182071, guid: 82214209ca20ff1429da430a9ee36e68, type: 3}
+  _healthValue: 1400
+  _damageValue: 35
+  _attackDelay: 3
+  _award: 26
+  _russianName: "\u041A\u0430\u043F\u0438\u0442\u0430\u043D\u0441\u043A\u0438\u0439
+    \u043F\u043E\u043F\u0443\u0433\u0430\u0439"
+  _englishName: Captain's parrot
+  _turkishName: "Kaptan\u0131n papa\u011Fan\u0131"
+  _fireResistance: -20
+  _waterResistance: 40
+  _earthResistance: -20
+  _windResistance: 100

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0dac3a89a8e4446aa07bfc676abb62, type: 3}
+  m_Name: PirateMonkey
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 3875001939401728500, guid: 5e4ad551a966f994da17aa9769c3195e, type: 3}
+  _healthValue: 1100
+  _damageValue: 30
+  _attackDelay: 3
+  _award: 18
+  _russianName: "\u041E\u0431\u0435\u0437\u044C\u044F\u043D\u0430 \u043F\u0438\u0440\u0430\u0442"
+  _englishName: Pirate monkey
+  _turkishName: Korsan maymun
+  _fireResistance: -20
+  _waterResistance: 40
+  _earthResistance: 15
+  _windResistance: 15
