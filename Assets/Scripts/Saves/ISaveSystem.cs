@@ -1,5 +1,8 @@
-public interface ISaveSystem
+namespace Saves
 {
-    public void Save();
-    public void Load();
+    public interface ISaveSystem
+    {
+        public void Save();
+        public void Load();
+    }
 }

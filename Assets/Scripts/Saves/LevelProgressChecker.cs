@@ -1,21 +1,24 @@
 using UnityEngine;
 using YG;
 
-public class LevelProgressChecker : MonoBehaviour
+namespace Saves
 {
-    [SerializeField] private Transform[] _reachIcons;
-
-    public void Load()
+    public class LevelProgressChecker : MonoBehaviour
     {
-        for (int i = 0; i < _reachIcons.Length; i++)
-            _reachIcons[i].gameObject.SetActive(YandexGame.savesData.IsLevelPassed[i]);
-    }
+        [SerializeField] private Transform[] _reachIcons;
 
-    [ContextMenu("Refresh level count")]
-    public void RefreshLevelCount()
-    {
-        YandexGame.savesData.IsLevelPassed = new bool[_reachIcons.Length];
+        public void Load()
+        {
+            for (int i = 0; i < _reachIcons.Length; i++)
+                _reachIcons[i].gameObject.SetActive(YandexGame.savesData.isLevelPassed[i]);
+        }
 
-        YandexGame.SaveProgress();
+        [ContextMenu("Refresh level count")]
+        public void RefreshLevelCount()
+        {
+            YandexGame.savesData.isLevelPassed = new bool[_reachIcons.Length];
+
+            YandexGame.SaveProgress();
+        }
     }
 }

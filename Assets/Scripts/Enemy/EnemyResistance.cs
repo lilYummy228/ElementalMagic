@@ -1,34 +1,38 @@
+using Elements;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyResistance : MonoBehaviour
+namespace Enemy
 {
-    private const float Percent = 100;
-
-    [SerializeField] private List<Element> _elements = new();
-
-    private Dictionary<Element, int> _resistances = new();
-
-    public event Action<IReadOnlyList<Element>, IReadOnlyList<int>> ResistanceChanged;
-    public Dictionary<Element, int> Resistances => _resistances;
-
-    public void Setup(IReadOnlyList<int> resistValues)
+    public class EnemyResistance : MonoBehaviour
     {
-        _resistances.Clear();
+        private const float Percent = 100;
 
-        for (int i = 0; i < _elements.Count; i++)
-            _resistances.Add(_elements[i], resistValues[i]);
+        [SerializeField] private List<Element> _elements = new ();
 
-        ResistanceChanged?.Invoke(_elements, resistValues);
-    }
+        private Dictionary<Element, int> _resistances = new ();
 
-    public float GetPercentValue(Element element)
-    {
-        for (int i = 0; i < _elements.Count; i++)
-            if (element.GetType() == _elements[i].GetType())
-                return (Percent - _resistances[_elements[i]]) / Percent;
+        public event Action<IReadOnlyList<Element>, IReadOnlyList<int>> ResistanceChanged;
+        public Dictionary<Element, int> Resistances => _resistances;
 
-        return default;
+        public void Setup(IReadOnlyList<int> resistValues)
+        {
+            _resistances.Clear();
+
+            for (int i = 0; i < _elements.Count; i++)
+                _resistances.Add(_elements[i], resistValues[i]);
+
+            ResistanceChanged?.Invoke(_elements, resistValues);
+        }
+
+        public float GetPercentValue(Element element)
+        {
+            for (int i = 0; i < _elements.Count; i++)
+                if (element.GetType() == _elements[i].GetType())
+                    return (Percent - _resistances[_elements[i]]) / Percent;
+
+            return default;
+        }
     }
 }

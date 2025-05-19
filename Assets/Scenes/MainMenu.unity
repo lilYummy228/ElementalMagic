@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.49548167, g: 0.49288863, b: 0.4846235, a: 1}
+  m_IndirectSpecularColor: {r: 0.49551576, g: 0.49292088, b: 0.48462117, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4377,7 +4377,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Elementary magic
+  m_text: "\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u0430\u0440\u043D\u0430\u044F
+    \u043C\u0430\u0433\u0438\u044F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -16997,6 +16998,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2108846797}
+    - target: {fileID: 9089503295786642016, guid: 0892f6843b7b98f4e8fa789b14b7f29b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop.Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089503295786642016, guid: 0892f6843b7b98f4e8fa789b14b7f29b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Shop.PowerUp, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26731,6 +26740,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2108846797}
+    - target: {fileID: 7284255545647963600, guid: 67f995be551ded94e926b984725a2bc8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop.Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284255545647963600, guid: 67f995be551ded94e926b984725a2bc8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Shop.PowerUp, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7357063700794329050, guid: 67f995be551ded94e926b984725a2bc8, type: 3}
       propertyPath: m_Name
       value: UpgradeGrid
@@ -29121,6 +29138,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2108846797}
+    - target: {fileID: 6425283652283885579, guid: 7ff2a1e2f5d55b14d9223ec05ab4c1c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop.Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425283652283885579, guid: 7ff2a1e2f5d55b14d9223ec05ab4c1c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Shop.PowerUp, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 9201818244889871134, guid: 7ff2a1e2f5d55b14d9223ec05ab4c1c0, type: 3}
       propertyPath: m_Name
       value: UpgradeDamage

@@ -1,21 +1,25 @@
+using Enemy;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
 
-public class LevelProgressSaver : MonoBehaviour
+namespace Saves
 {
-    [SerializeField] private EnemySpawner _enemySpawner;
-
-    private void OnEnable() => 
-        _enemySpawner.AllEnemiesDied += Save;
-
-    private void OnDisable() => 
-        _enemySpawner.AllEnemiesDied -= Save;
-
-    private void Save()
+    public class LevelProgressSaver : MonoBehaviour
     {
-        YandexGame.savesData.IsLevelPassed[SceneManager.GetActiveScene().buildIndex - 1] = true;
+        [SerializeField] private EnemySpawner _enemySpawner;
 
-        YandexGame.SaveProgress();
+        private void OnEnable() =>
+            _enemySpawner.AllEnemiesDied += Save;
+
+        private void OnDisable() =>
+            _enemySpawner.AllEnemiesDied -= Save;
+
+        private void Save()
+        {
+            YandexGame.savesData.isLevelPassed[SceneManager.GetActiveScene().buildIndex - 1] = true;
+
+            YandexGame.SaveProgress();
+        }
     }
 }

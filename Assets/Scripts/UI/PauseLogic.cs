@@ -1,33 +1,38 @@
+using Elements;
+using GameLogic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseLogic : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private ElementConnector _elementConnector;
-    [SerializeField] private VolumeSettings _volumeSettings;
-    [SerializeField] private Transform _pauseMenuPanel;
-    [SerializeField] private Button[] _buttons;
-    [SerializeField] private TimeManager _timeManager;
-
-    public void Pause()
+    public class PauseLogic : MonoBehaviour
     {
-        _timeManager.Pause();
+        [SerializeField] private ElementConnector _elementConnector;
+        [SerializeField] private VolumeSettings.VolumeSettings _volumeSettings;
+        [SerializeField] private Transform _pauseMenuPanel;
+        [SerializeField] private Button[] _buttons;
+        [SerializeField] private TimeManager _timeManager;
 
-        foreach (Button button in _buttons)
-            button.gameObject.SetActive(false);
+        public void Pause()
+        {
+            _timeManager.Pause();
 
-        _elementConnector.gameObject.SetActive(false);
-        _pauseMenuPanel.gameObject.SetActive(true);
-    }
+            foreach (Button button in _buttons)
+                button.gameObject.SetActive(false);
 
-    public void Unpause()
-    {
-        _timeManager.Unpause();
+            _elementConnector.gameObject.SetActive(false);
+            _pauseMenuPanel.gameObject.SetActive(true);
+        }
 
-        foreach (Button button in _buttons)
-            button.gameObject.SetActive(true);
+        public void Unpause()
+        {
+            _timeManager.Unpause();
 
-        _elementConnector.gameObject.SetActive(true);
-        _pauseMenuPanel.gameObject.SetActive(false);
+            foreach (Button button in _buttons)
+                button.gameObject.SetActive(true);
+
+            _elementConnector.gameObject.SetActive(true);
+            _pauseMenuPanel.gameObject.SetActive(false);
+        }
     }
 }

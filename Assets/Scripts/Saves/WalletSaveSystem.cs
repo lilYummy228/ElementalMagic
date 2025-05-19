@@ -1,25 +1,29 @@
+using Player;
 using UnityEngine;
 using YG;
 
-public class WalletSaveSystem : MonoBehaviour, ISaveSystem
+namespace Saves
 {
-    [SerializeField] private Wallet _wallet;
-
-    public void Load() => 
-        _wallet.SetCount(YandexGame.savesData.CoinsCount);
-
-    public void Save()
+    public class WalletSaveSystem : MonoBehaviour, ISaveSystem
     {
-        YandexGame.savesData.CoinsCount = _wallet.Count;
+        [SerializeField] private Wallet _wallet;
 
-        YandexGame.SaveProgress();
-    }
+        public void Load() =>
+            _wallet.SetCount(YandexGame.savesData.coinsCount);
 
-    [ContextMenu("Refresh")]
-    public void Refresh()
-    {
-        _wallet.SetCount(default);
+        public void Save()
+        {
+            YandexGame.savesData.coinsCount = _wallet.Count;
 
-        Save();
+            YandexGame.SaveProgress();
+        }
+
+        [ContextMenu("Refresh")]
+        public void Refresh()
+        {
+            _wallet.SetCount(default);
+
+            Save();
+        }
     }
 }

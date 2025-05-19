@@ -2,53 +2,56 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHurtVisualization : MonoBehaviour
+namespace Player
 {
-    private const float FullAlpha = 1f;
-    private const float ZeroAlpha = 0f;
-
-    [SerializeField] private Health _health;
-    [SerializeField] private Image _hurtOverlay;
-    [SerializeField] private float _changeSpeed;
-
-    private float _currentHealthValue;
-    private WaitForFixedUpdate _waitForFixedUpdate;
-
-    private void Awake() =>
-        _waitForFixedUpdate = new WaitForFixedUpdate();
-
-    private void OnEnable() =>
-        _health.HealthValueChanged += StartBlink;
-
-    private void OnDisable() =>
-        _health.HealthValueChanged -= StartBlink;
-
-    private void StartBlink()
+    public class PlayerHurtVisualization : MonoBehaviour
     {
-        if (_health.CurrentHealthValue < _health.MaxHealthValue)
-            if (_health.CurrentHealthValue < _currentHealthValue)
-                StartCoroutine(Blink(_hurtOverlay));
+        private const float FullAlpha = 1f;
+        private const float ZeroAlpha = 0f;
 
-        _currentHealthValue = _health.CurrentHealthValue;
-    }
+        [SerializeField] private Health.Health _health;
+        [SerializeField] private Image _hurtOverlay;
+        [SerializeField] private float _changeSpeed;
 
-    private IEnumerator Blink(Image overlay)
-    {
-        while (overlay.color.a < FullAlpha)
+        private float _currentHealthValue;
+        private WaitForFixedUpdate _waitForFixedUpdate;
+
+        private void Awake() =>
+            _waitForFixedUpdate = new WaitForFixedUpdate();
+
+        private void OnEnable() =>
+            _health.HealthValueChanged += StartBlink;
+
+        private void OnDisable() =>
+            _health.HealthValueChanged -= StartBlink;
+
+        private void StartBlink()
         {
-            ChangeAlpha(FullAlpha, overlay);
+            if (_health.CurrentHealthValue < _health.MaxHealthValue)
+                if (_health.CurrentHealthValue < _currentHealthValue)
+                    StartCoroutine(Blink(_hurtOverlay));
 
-            yield return _waitForFixedUpdate;
+            _currentHealthValue = _health.CurrentHealthValue;
         }
 
-        while (overlay.color.a > ZeroAlpha)
+        private IEnumerator Blink(Image overlay)
         {
-            ChangeAlpha(ZeroAlpha, overlay);
+            while (overlay.color.a < FullAlpha)
+            {
+                ChangeAlpha(FullAlpha, overlay);
 
-            yield return _waitForFixedUpdate;
+                yield return _waitForFixedUpdate;
+            }
+
+            while (overlay.color.a > ZeroAlpha)
+            {
+                ChangeAlpha(ZeroAlpha, overlay);
+
+                yield return _waitForFixedUpdate;
+            }
         }
-    }
 
-    private void ChangeAlpha(float alpha, Image overlay) =>
-        overlay.color = new Color(1f, 1f, 1f, Mathf.MoveTowards(overlay.color.a, alpha, _changeSpeed * Time.deltaTime));
+        private void ChangeAlpha(float alpha, Image overlay) =>
+            overlay.color = new Color(1f, 1f, 1f, Mathf.MoveTowards(overlay.color.a, alpha, _changeSpeed * Time.deltaTime));
+    }
 }

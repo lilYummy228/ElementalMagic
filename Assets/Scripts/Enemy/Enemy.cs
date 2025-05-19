@@ -1,65 +1,69 @@
 using System;
 using System.Collections;
+using UI;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private EnemyRenderer _renderer;
-    [SerializeField] private Health _health;
-    [SerializeField] private EnemyResistance _resistance;
-    [SerializeField] private Counter _counter;
-
-    public event Action<int> EnemyCoinsCollected;
-
-    private WaitForSeconds _delay;
-    private Coroutine _coroutine;
-    private string _name;
-    private int _damage;
-
-    public Counter Counter => _counter;
-    public EnemyRenderer EnemyRenderer => _renderer;
-    public Health Health => _health;
-    public EnemyResistance Resistance => _resistance;
-    public int Damage => _damage;
-
-    public void StartHit()
+    public class Enemy : MonoBehaviour
     {
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
+        [SerializeField] private Player.Player _player;
+        [SerializeField] private EnemyRenderer _renderer;
+        [SerializeField] private Health.Health _health;
+        [SerializeField] private EnemyResistance _resistance;
+        [SerializeField] private Counter _counter;
 
-        _coroutine = StartCoroutine(nameof(Hit));
-    }
+        private WaitForSeconds _delay;
+        private Coroutine _coroutine;
+        private string _name;
+        private int _damage;
 
-    public void Setup(int damage, int attackDelay, int healthValue)
-    {
-        _delay = new(attackDelay);
-        _counter.StartCooldown(attackDelay);
+        public event Action<int> EnemyCoinsCollected;
 
-        SetDamage(damage);
+        public Counter Counter => _counter;
+        public EnemyRenderer EnemyRenderer => _renderer;
+        public Health.Health Health => _health;
+        public EnemyResistance Resistance => _resistance;
+        public int Damage => _damage;
 
-        _health.SetHealth(healthValue);
-        _health.StartDeathControl();
-
-        StartHit();
-    }
-
-    public void SetDamage(int damage)
-    {
-        if (damage >= 0)
-            _damage = damage;
-    }
-
-    public void PayAward(int award) => 
-        EnemyCoinsCollected?.Invoke(award);
-
-    private IEnumerator Hit()
-    {
-        while (_health.CurrentHealthValue > 0)
+        public void StartHit()
         {
-            yield return _delay;
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
 
-            _player.Health.TakeDamage(_damage);
+            _coroutine = StartCoroutine(nameof(Hit));
+        }
+
+        public void Setup(int damage, int attackDelay, int healthValue)
+        {
+            _delay = new (attackDelay);
+            _counter.StartCooldown(attackDelay);
+
+            SetDamage(damage);
+
+            _health.SetHealth(healthValue);
+            _health.StartDeathControl();
+
+            StartHit();
+        }
+
+        public void SetDamage(int damage)
+        {
+            if (damage >= 0)
+                _damage = damage;
+        }
+
+        public void PayAward(int award) =>
+            EnemyCoinsCollected?.Invoke(award);
+
+        private IEnumerator Hit()
+        {
+            while (_health.CurrentHealthValue > 0)
+            {
+                yield return _delay;
+
+                _player.Health.TakeDamage(_damage);
+            }
         }
     }
 }

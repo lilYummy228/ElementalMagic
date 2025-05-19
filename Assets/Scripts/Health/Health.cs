@@ -2,58 +2,61 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+namespace Health
 {
-    [SerializeField, Min(0)] private float _currentHealthValue;
-
-    public float CurrentHealthValue => _currentHealthValue;
-    public float MaxHealthValue { get; private set; }
-
-    public event Action HealthValueChanged;
-    public event Action Dead;
-
-    private void Awake() =>
-        StartDeathControl();
-
-    public void TakeDamage(float damageValue)
+    public class Health : MonoBehaviour
     {
-        _currentHealthValue -= damageValue;
+        [SerializeField][Min(0)] private float _currentHealthValue;
 
-        if (_currentHealthValue < 0)
-            _currentHealthValue = 0;
+        public event Action HealthValueChanged;
+        public event Action Dead;
 
-        HealthValueChanged?.Invoke();
-    }
+        public float CurrentHealthValue => _currentHealthValue;
+        public float MaxHealthValue { get; private set; }
 
-    public void Heal(float healValue)
-    {
-        if (_currentHealthValue > 0 && _currentHealthValue < MaxHealthValue)
-            _currentHealthValue += healValue;
+        private void Awake() =>
+            StartDeathControl();
 
-        if (_currentHealthValue > MaxHealthValue)
-            _currentHealthValue = MaxHealthValue;
-
-        HealthValueChanged?.Invoke();
-    }
-
-    public void SetHealth(float healthValue)
-    {
-        if (healthValue > 0)
+        public void TakeDamage(float damageValue)
         {
-            _currentHealthValue = healthValue;
-            MaxHealthValue = healthValue;
+            _currentHealthValue -= damageValue;
+
+            if (_currentHealthValue < 0)
+                _currentHealthValue = 0;
 
             HealthValueChanged?.Invoke();
         }
-    }
 
-    public void StartDeathControl() =>
-        StartCoroutine(nameof(ControlDeath));
+        public void Heal(float healValue)
+        {
+            if (_currentHealthValue > 0 && _currentHealthValue < MaxHealthValue)
+                _currentHealthValue += healValue;
 
-    private IEnumerator ControlDeath()
-    {
-        yield return new WaitUntil(() => _currentHealthValue <= 0);
+            if (_currentHealthValue > MaxHealthValue)
+                _currentHealthValue = MaxHealthValue;
 
-        Dead?.Invoke();
+            HealthValueChanged?.Invoke();
+        }
+
+        public void SetHealth(float healthValue)
+        {
+            if (healthValue > 0)
+            {
+                _currentHealthValue = healthValue;
+                MaxHealthValue = healthValue;
+
+                HealthValueChanged?.Invoke();
+            }
+        }
+
+        public void StartDeathControl() =>
+            StartCoroutine(nameof(ControlDeath));
+
+        private IEnumerator ControlDeath()
+        {
+            yield return new WaitUntil(() => _currentHealthValue <= 0);
+
+            Dead?.Invoke();
+        }
     }
 }

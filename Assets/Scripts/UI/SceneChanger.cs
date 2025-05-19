@@ -1,21 +1,26 @@
+using Upgrades;
+using YGSetups;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChanger : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private AdsProvider _adsProvider;
-    [SerializeField] private UpgradeCondition _upgradeChecker;
-
-    public void LaunchLevel(int level)
+    public class SceneChanger : MonoBehaviour
     {
-        if (_upgradeChecker.CheckAccess(level))
+        [SerializeField] private AdsProvider _adsProvider;
+        [SerializeField] private UpgradeCondition _upgradeChecker;
+
+        public void LaunchLevel(int level)
         {
-            _adsProvider.ShowInterstitialAd();
+            if (_upgradeChecker.CheckAccess(level))
+            {
+                _adsProvider.ShowInterstitialAd();
 
-            SceneManager.LoadScene(level);
+                SceneManager.LoadScene(level);
+            }
         }
-    }
 
-    public void ReplayLevel() => 
-        LaunchLevel(SceneManager.GetActiveScene().buildIndex);
+        public void ReplayLevel() =>
+            LaunchLevel(SceneManager.GetActiveScene().buildIndex);
+    }
 }

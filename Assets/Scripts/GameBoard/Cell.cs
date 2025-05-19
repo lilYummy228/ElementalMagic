@@ -1,12 +1,16 @@
+using Elements;
 using UnityEngine;
 
-public class Cell : MonoBehaviour
+namespace GameBoard
 {
-    public Element Element { get; private set; }
-
-    public void Set(Element element)
+    public class Cell : MonoBehaviour
     {
-        if (element != null)
-            Element = element;
+        public Element Element { get; private set; }
+
+        public void Set(Element element)
+        {
+            if (element != null)
+                Element = element;
+        }
     }
 }

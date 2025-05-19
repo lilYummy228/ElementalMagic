@@ -1,16 +1,20 @@
+using GameLogic;
 using UnityEngine;
 
-public class PanelChanger : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Transform _currentPanel;
-    [SerializeField] private TimeManager _timeManager;
-
-    public void Open(Transform panel)
+    public class PanelChanger : MonoBehaviour
     {
-        if (Time.timeScale < 1)
-            _timeManager.Unpause();
+        [SerializeField] private Transform _currentPanel;
+        [SerializeField] private TimeManager _timeManager;
 
-        _currentPanel.gameObject.SetActive(false);
-        panel.gameObject.SetActive(true);
+        public void Open(Transform panel)
+        {
+            if (Time.timeScale < 1)
+                _timeManager.Unpause();
+
+            _currentPanel.gameObject.SetActive(false);
+            panel.gameObject.SetActive(true);
+        }
     }
 }

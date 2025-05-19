@@ -1,43 +1,45 @@
+using Shop;
 using System;
 using UnityEngine;
 
-public class Wallet : MonoBehaviour
+namespace Player
 {
-    public event Action<int> CountChanged;
-    public int Count { get; private set; }
-
-    public void AddCoins(int count)
+    public class Wallet : MonoBehaviour
     {
-        Count += count;
+        public event Action<int> CountChanged;
 
-        CountChanged?.Invoke(Count);
-    }
+        public int Count { get; private set; }
 
-    public void CheckTransaction(PowerUp powerUp)
-    {
-        if (Count >= powerUp.Price + powerUp.Price * powerUp.PowerUpsCount && powerUp.Cages[powerUp.Cages.Count - 1].isOn == false)
+        public void AddCoins(int count)
         {
-            SpendMoney(powerUp.Price + powerUp.Price * powerUp.PowerUpsCount);
+            Count += count;
 
-            powerUp.Upgrade();
+            CountChanged?.Invoke(Count);
+        }
+
+        public void CheckTransaction(PowerUp powerUp)
+        {
+            if (Count >= powerUp.Price + powerUp.Price * powerUp.PowerUpsCount && powerUp.Cages[powerUp.Cages.Count - 1].isOn == false)
+            {
+                SpendMoney(powerUp.Price + powerUp.Price * powerUp.PowerUpsCount);
+
+                powerUp.Upgrade();
+            }
+        }
+
+        public void SetCount(int count)
+        {
+            if (Count >= 0)
+                Count = count;
+
+            CountChanged?.Invoke(Count);
+        }
+
+        private void SpendMoney(int price)
+        {
+            Count -= price;
+
+            CountChanged?.Invoke(Count);
         }
     }
-
-    public void SetCount(int count)
-    {
-        if (Count >= 0)
-            Count = count;
-
-        CountChanged?.Invoke(Count);
-    }
-
-    private void SpendMoney(int price)
-    {
-        Count -= price;
-
-        CountChanged?.Invoke(Count);
-    }
 }
-
-
-

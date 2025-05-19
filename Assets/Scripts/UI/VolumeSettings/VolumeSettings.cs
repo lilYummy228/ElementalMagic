@@ -1,27 +1,30 @@
 using UnityEngine;
 
-public class VolumeSettings : MonoBehaviour
+namespace UI.VolumeSettings
 {
-    private const int MinVolumeValue = -80;
-    private const int Multiplier = 20;
-
-    [SerializeField] private AudioSetup _music;
-    [SerializeField] private AudioSetup _sounds;
-
-    public AudioSetup Music => _music;
-    public AudioSetup Sounds => _sounds;
-
-    public void SwitchToggle(AudioSetup audio)
+    public class VolumeSettings : MonoBehaviour
     {
-        if (audio.Toggle.isOn)
-            audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
-        else
-            audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, MinVolumeValue);
-    }
+        private const int MinVolumeValue = -80;
+        private const int Multiplier = 20;
 
-    public void ChangeVolume(AudioSetup audio)
-    {
-        if (audio.Toggle.isOn)
-            audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
+        [SerializeField] private AudioSetup _music;
+        [SerializeField] private AudioSetup _sounds;
+
+        public AudioSetup Music => _music;
+        public AudioSetup Sounds => _sounds;
+
+        public void SwitchToggle(AudioSetup audio)
+        {
+            if (audio.Toggle.isOn)
+                audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
+            else
+                audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, MinVolumeValue);
+        }
+
+        public void ChangeVolume(AudioSetup audio)
+        {
+            if (audio.Toggle.isOn)
+                audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
+        }
     }
 }

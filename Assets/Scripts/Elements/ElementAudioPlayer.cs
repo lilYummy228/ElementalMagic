@@ -1,23 +1,26 @@
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-public class ElementAudioPlayer : MonoBehaviour
+namespace Elements
 {
-    [SerializeField] private AudioSource _audioSourceSelection;
-    [SerializeField] private AudioSource _audioSourceAttack;
-
-    public AudioSource AudioSourceSelection => _audioSourceSelection;
-
-    public void PlaySelectionSound(Element element)
+    [RequireComponent(typeof(AudioSource))]
+    public class ElementAudioPlayer : MonoBehaviour
     {
-        if (_audioSourceSelection.isPlaying == false)
+        [SerializeField] private AudioSource _audioSourceSelection;
+        [SerializeField] private AudioSource _audioSourceAttack;
+
+        public AudioSource AudioSourceSelection => _audioSourceSelection;
+
+        public void PlaySelectionSound(Element element)
         {
-            _audioSourceSelection.clip = element.SelectionSound;
+            if (_audioSourceSelection.isPlaying == false)
+            {
+                _audioSourceSelection.clip = element.SelectionSound;
 
-            _audioSourceSelection.Play();
+                _audioSourceSelection.Play();
+            }
         }
-    }
 
-    public void PlayAttackSound(Element element) => 
-        _audioSourceAttack.PlayOneShot(element.AttackSound);
+        public void PlayAttackSound(Element element) =>
+            _audioSourceAttack.PlayOneShot(element.AttackSound);
+    }
 }

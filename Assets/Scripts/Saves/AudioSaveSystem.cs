@@ -1,27 +1,31 @@
+using UI.VolumeSettings;
 using UnityEngine;
 using YG;
 
-public class AudioSaveSystem : MonoBehaviour, ISaveSystem
+namespace Saves
 {
-    [SerializeField] private VolumeSettings _volumeSettings;
-
-    public void Load()
+    public class AudioSaveSystem : MonoBehaviour, ISaveSystem
     {
-        _volumeSettings.Music.Setup(YandexGame.savesData.MusicVolume, YandexGame.savesData.IsMusicOn);
-        _volumeSettings.Sounds.Setup(YandexGame.savesData.SoundsVolume, YandexGame.savesData.IsSoundsOn);
+        [SerializeField] private VolumeSettings _volumeSettings;
 
-        _volumeSettings.SwitchToggle(_volumeSettings.Music);
-        _volumeSettings.SwitchToggle(_volumeSettings.Sounds);
-    }
+        public void Load()
+        {
+            _volumeSettings.Music.Setup(YandexGame.savesData.musicVolume, YandexGame.savesData.isMusicOn);
+            _volumeSettings.Sounds.Setup(YandexGame.savesData.soundsVolume, YandexGame.savesData.isSoundsOn);
 
-    public void Save()
-    {
-        YandexGame.savesData.MusicVolume = _volumeSettings.Music.Slider.value;
-        YandexGame.savesData.SoundsVolume = _volumeSettings.Sounds.Slider.value;
+            _volumeSettings.SwitchToggle(_volumeSettings.Music);
+            _volumeSettings.SwitchToggle(_volumeSettings.Sounds);
+        }
 
-        YandexGame.savesData.IsMusicOn = _volumeSettings.Music.Toggle.isOn;
-        YandexGame.savesData.IsSoundsOn = _volumeSettings.Sounds.Toggle.isOn;
+        public void Save()
+        {
+            YandexGame.savesData.musicVolume = _volumeSettings.Music.Slider.value;
+            YandexGame.savesData.soundsVolume = _volumeSettings.Sounds.Slider.value;
 
-        YandexGame.SaveProgress();
+            YandexGame.savesData.isMusicOn = _volumeSettings.Music.Toggle.isOn;
+            YandexGame.savesData.isSoundsOn = _volumeSettings.Sounds.Toggle.isOn;
+
+            YandexGame.SaveProgress();
+        }
     }
 }

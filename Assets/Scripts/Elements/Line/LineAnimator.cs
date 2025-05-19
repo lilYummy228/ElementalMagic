@@ -1,27 +1,30 @@
 using UnityEngine;
 
-public class LineAnimator : MonoBehaviour
+namespace Elements.Line
 {
-    [SerializeField] private Texture[] _textures;
-    [SerializeField] private float _fps = 30f;
-
-    private float _fpsCounter;
-    private int _animationStep;
-
-    public void Animate(LineRenderer lineRenderer)
+    public class LineAnimator : MonoBehaviour
     {
-        _fpsCounter += Time.deltaTime;
+        [SerializeField] private Texture[] _textures;
+        [SerializeField] private float _fps = 30f;
 
-        if (_fpsCounter >= 1f / _fps)
+        private float _fpsCounter;
+        private int _animationStep;
+
+        public void Animate(LineRenderer lineRenderer)
         {
-            _animationStep++;
+            _fpsCounter += Time.deltaTime;
 
-            if (_animationStep == _textures.Length)
-                _animationStep = 0;
+            if (_fpsCounter >= 1f / _fps)
+            {
+                _animationStep++;
 
-            lineRenderer.material.SetTexture("_MainTex", _textures[_animationStep]);
+                if (_animationStep == _textures.Length)
+                    _animationStep = 0;
 
-            _fpsCounter = 0f;
+                lineRenderer.material.SetTexture("_MainTex", _textures[_animationStep]);
+
+                _fpsCounter = 0f;
+            }
         }
     }
 }

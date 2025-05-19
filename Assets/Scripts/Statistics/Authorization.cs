@@ -1,14 +1,17 @@
 using UnityEngine;
 using YG;
 
-public class Authorization : MonoBehaviour
+namespace Statistics
 {
-    [SerializeField] private Transform _authorizationPanel;
-    [SerializeField] private Transform _leaderBoard;
-
-    public void CheckAuth()
+    public class Authorization : MonoBehaviour
     {
-        _authorizationPanel.gameObject.SetActive(!YandexGame.auth);
-        _leaderBoard.gameObject.SetActive(YandexGame.auth);
+        [SerializeField] private Transform _authorizationPanel;
+        [SerializeField] private Transform _leaderBoard;
+
+        public void CheckAuth()
+        {
+            _authorizationPanel.gameObject.SetActive(!YandexGame.auth);
+            _leaderBoard.gameObject.SetActive(YandexGame.auth);
+        }
     }
 }

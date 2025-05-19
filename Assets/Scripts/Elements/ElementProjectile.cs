@@ -1,40 +1,43 @@
 using System.Collections;
 using UnityEngine;
 
-public class ElementProjectile : MonoBehaviour
+namespace Elements
 {
-    [SerializeField] private Transform _target;
-    [SerializeField] private float _speed;
-    [SerializeField] private ParticleSystem _explosion;
-
-    public WaitForFixedUpdate _waitForFixedUpdate;
-    public WaitUntil _waitUntil;
-
-    private void Awake()
+    public class ElementProjectile : MonoBehaviour
     {
-        _waitForFixedUpdate = new();
-        _waitUntil = new(() => _explosion.isStopped);
-    }
+        [SerializeField] private Transform _target;
+        [SerializeField] private ParticleSystem _explosion;
+        [SerializeField] private float _speed;
 
-    public void StartLaunching() =>
-        StartCoroutine(Launch());
+        private WaitForFixedUpdate _waitForFixedUpdate;
+        private WaitUntil _waitUntil;
 
-    public void Init(Transform target) =>
-        _target = target;
-
-    private IEnumerator Launch()
-    {
-        while (transform.position != _target.position)
+        private void Awake()
         {
-            transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
-
-            yield return _waitForFixedUpdate;
+            _waitForFixedUpdate = new ();
+            _waitUntil = new (() => _explosion.isStopped);
         }
 
-        _explosion.Play();
+        public void StartLaunching() =>
+            StartCoroutine(Launch());
 
-        yield return _waitUntil;
+        public void Init(Transform target) =>
+            _target = target;
 
-        Destroy(gameObject);
+        private IEnumerator Launch()
+        {
+            while (transform.position != _target.position)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
+
+                yield return _waitForFixedUpdate;
+            }
+
+            _explosion.Play();
+
+            yield return _waitUntil;
+
+            Destroy(gameObject);
+        }
     }
 }

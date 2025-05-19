@@ -3,50 +3,53 @@ using UnityEngine;
 using UnityEngine.UI;
 using YG;
 
-public class ScreenshotPlayer : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Image _image;
-    [SerializeField] private Sprite[] _russianScreenshots;
-    [SerializeField] private Sprite[] _englishScreenshots;
-    [SerializeField] private Sprite[] _turkeyScreenshots;
-
-    private WaitForSeconds _sleep;
-    private int _sleepTime = 1;
-
-    private void OnEnable()
+    public class ScreenshotPlayer : MonoBehaviour
     {
-        _sleep = new(_sleepTime);
+        [SerializeField] private Image _image;
+        [SerializeField] private Sprite[] _russianScreenshots;
+        [SerializeField] private Sprite[] _englishScreenshots;
+        [SerializeField] private Sprite[] _turkeyScreenshots;
 
-        StartShow();
-    }
+        private WaitForSeconds _sleep;
+        private int _sleepTime = 1;
 
-    private void StartShow()
-    {
-        switch (YandexGame.lang)
+        private void OnEnable()
         {
-            case "ru":
-                StartCoroutine(Show(_russianScreenshots));
-                break;
+            _sleep = new (_sleepTime);
 
-            case "en":
-                StartCoroutine(Show(_englishScreenshots));
-                break;
-
-            case "tr":
-                StartCoroutine(Show(_turkeyScreenshots));
-                break;
+            StartShow();
         }
-    }
 
-    private IEnumerator Show(Sprite[] screenshots)
-    {
-        while (enabled)
+        private void StartShow()
         {
-            foreach (Sprite screenshot in screenshots)
+            switch (YandexGame.lang)
             {
-                _image.sprite = screenshot;
+                case "ru":
+                    StartCoroutine(Show(_russianScreenshots));
+                    break;
 
-                yield return _sleep;
+                case "en":
+                    StartCoroutine(Show(_englishScreenshots));
+                    break;
+
+                case "tr":
+                    StartCoroutine(Show(_turkeyScreenshots));
+                    break;
+            }
+        }
+
+        private IEnumerator Show(Sprite[] screenshots)
+        {
+            while (enabled)
+            {
+                foreach (Sprite screenshot in screenshots)
+                {
+                    _image.sprite = screenshot;
+
+                    yield return _sleep;
+                }
             }
         }
     }

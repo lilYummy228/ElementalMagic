@@ -1,30 +1,33 @@
-public class InfiniteEnemySpawner : EnemySpawner
+namespace Enemy
 {
-    private bool _isFirstEnemy = true;
-    private int _enemyId;
-
-    public override void Spawn()
+    public class InfiniteEnemySpawner : EnemySpawner
     {
-        int tempEnemyId = _enemyId;
+        private bool _isFirstEnemy = true;
+        private int _enemyId;
 
-        while (tempEnemyId == _enemyId)
-            _enemyId = UnityEngine.Random.Range(0, _enemies.Length);
+        public override void Spawn()
+        {
+            int tempEnemyId = _enemyId;
 
-        _enemy.EnemyRenderer.Clear();
+            while (tempEnemyId == _enemyId)
+                _enemyId = UnityEngine.Random.Range(0, _enemies.Length);
 
-        if (_isFirstEnemy == false)
-            _enemy.PayAward(_enemyData.Award);
+            _enemy.EnemyRenderer.Clear();
 
-        OnEnemySpawned();
+            if (_isFirstEnemy == false)
+                _enemy.PayAward(_enemyData.Award);
 
-        _enemyData = _enemies[_enemyId];
+            OnEnemySpawned();
 
-        _enemy.EnemyRenderer.DrawEnemy(_enemyData.Prefab, _enemyData.Name);
+            _enemyData = _enemies[_enemyId];
 
-        _enemy.Setup(_enemyData.DamageValue, _enemyData.AttackDelay, _enemyData.HealthValue);
+            _enemy.EnemyRenderer.DrawEnemy(_enemyData.Prefab, _enemyData.Name);
 
-        _enemy.Resistance.Setup(_enemyData.Resistances);
+            _enemy.Setup(_enemyData.DamageValue, _enemyData.AttackDelay, _enemyData.HealthValue);
 
-        _isFirstEnemy = false;
+            _enemy.Resistance.Setup(_enemyData.Resistances);
+
+            _isFirstEnemy = false;
+        }
     }
 }

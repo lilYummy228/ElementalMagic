@@ -17,17 +17,17 @@
 
         // Ваши сохранения
 
-        public bool[] IsLevelPassed = new bool[7];
-        public bool IsFirstLaunch = true;
-        public float MusicVolume = 1.0f;
-        public float SoundsVolume = 1.0f;
-        public bool IsMusicOn = true;
-        public bool IsSoundsOn = true;
-        public int HealthPowerUps = 0;
-        public int DamagePowerUps = 0;
-        public int GridPowerUps = 0;
-        public int CoinsCount = 0;
-        public string Language = default;
+        public bool[] isLevelPassed = new bool[7];
+        public bool isFirstLaunch = true;
+        public float musicVolume = 1.0f;
+        public float soundsVolume = 1.0f;
+        public bool isMusicOn = true;
+        public bool isSoundsOn = true;
+        public int healthPowerUps = 0;
+        public int damagePowerUps = 0;
+        public int gridPowerUps = 0;
+        public int coinsCount = 0;
+        public string chosenLanguage = default;
         
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 

@@ -1,39 +1,43 @@
+using Shop;
 using UnityEngine;
 using YG;
 
-public class PowerUpSaveSystem : MonoBehaviour, ISaveSystem
+namespace Saves
 {
-    [SerializeField] private PowerUp _healthPowerUp;
-    [SerializeField] private PowerUp _damagePowerUp;
-    [SerializeField] private PowerUp _gridPowerUp;    
-
-    public void Load()
+    public class PowerUpSaveSystem : MonoBehaviour, ISaveSystem
     {
-        _healthPowerUp.SetPowerUpsCount(YandexGame.savesData.HealthPowerUps);
-        _damagePowerUp.SetPowerUpsCount(YandexGame.savesData.DamagePowerUps);
-        _gridPowerUp.SetPowerUpsCount(YandexGame.savesData.GridPowerUps);        
-    }
+        [SerializeField] private PowerUp _healthPowerUp;
+        [SerializeField] private PowerUp _damagePowerUp;
+        [SerializeField] private PowerUp _gridPowerUp;
 
-    public void Save()
-    {
-        YandexGame.savesData.HealthPowerUps = _healthPowerUp.PowerUpsCount;
-        YandexGame.savesData.DamagePowerUps = _damagePowerUp.PowerUpsCount;
-        YandexGame.savesData.GridPowerUps = _gridPowerUp.PowerUpsCount;
+        public void Load()
+        {
+            _healthPowerUp.SetPowerUpsCount(YandexGame.savesData.healthPowerUps);
+            _damagePowerUp.SetPowerUpsCount(YandexGame.savesData.damagePowerUps);
+            _gridPowerUp.SetPowerUpsCount(YandexGame.savesData.gridPowerUps);
+        }
 
-        YandexGame.SaveProgress();
-    }
+        public void Save()
+        {
+            YandexGame.savesData.healthPowerUps = _healthPowerUp.PowerUpsCount;
+            YandexGame.savesData.damagePowerUps = _damagePowerUp.PowerUpsCount;
+            YandexGame.savesData.gridPowerUps = _gridPowerUp.PowerUpsCount;
 
-    [ContextMenu("Refresh")]
-    public void Refresh()
-    {
-        _healthPowerUp.SetPowerUpsCount(default);
-        _damagePowerUp.SetPowerUpsCount(default);
-        _gridPowerUp.SetPowerUpsCount(default);
+            YandexGame.SaveProgress();
+        }
 
-        _healthPowerUp.Setup();
-        _damagePowerUp.Setup();
-        _gridPowerUp.Setup();
+        [ContextMenu("Refresh")]
+        public void Refresh()
+        {
+            _healthPowerUp.SetPowerUpsCount(default);
+            _damagePowerUp.SetPowerUpsCount(default);
+            _gridPowerUp.SetPowerUpsCount(default);
 
-        Save();
+            _healthPowerUp.Setup();
+            _damagePowerUp.Setup();
+            _gridPowerUp.Setup();
+
+            Save();
+        }
     }
 }
